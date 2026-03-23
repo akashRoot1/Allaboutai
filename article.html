@@ -2,403 +2,352 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Ultimate Job Search Workflow with n8n</title>
-  <meta name="description" content="A modern, interactive guide to an n8n + AI job search workflow with a 12-step breakdown." />
+  <meta name="description" content="A practical, automated job-search system built with n8n + AI: collect jobs, score fit, generate cover letters, and track everything." />
 
   <style>
     :root{
-      --bg:#0b1020;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.09);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.65);
-      --border:rgba(255,255,255,.12);
-      --primary:#7c5cff;
-      --primary2:#00d4ff;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius:16px;
-      --max: 980px;
+      --bg:#ffffff;
+      --paper:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --link:#111827;
+      --accent:#5b5bd6;
+      --accent2:#2563eb;
+      --shadow: 0 10px 30px rgba(17,24,39,.08);
+      --max: 780px;
     }
-    [data-theme="light"]{
-      --bg:#f6f7fb;
-      --panel:#ffffff;
-      --panel2:#f3f4fb;
-      --text:#141821;
-      --muted:#495365;
-      --border:rgba(20,24,33,.12);
-      --shadow: 0 18px 45px rgba(20,24,33,.12);
-    }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 500px at 10% 0%, rgba(124,92,255,.22), transparent 55%),
-        radial-gradient(900px 420px at 90% 10%, rgba(0,212,255,.18), transparent 55%),
-        var(--bg);
+      background:var(--bg);
       color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height:1.75;
     }
-
-    /* Top progress bar */
-    .progress{
-      position:fixed; left:0; top:0; height:3px; width:0%;
-      background: linear-gradient(90deg,var(--primary),var(--primary2));
-      z-index:9999;
-    }
-
-    /* Nav */
-    .nav{
-      position:sticky; top:0; z-index:9998;
+    a{color:var(--link)}
+    a:hover{color:var(--accent2)}
+    /* Top bar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background: rgba(255,255,255,.9);
       backdrop-filter: blur(10px);
-      background: color-mix(in oklab, var(--bg) 82%, transparent);
       border-bottom:1px solid var(--border);
     }
-    .nav-inner{
-      max-width: var(--max);
+    .topbar-inner{
+      max-width: 1080px;
       margin:0 auto;
-      padding: 14px 18px;
-      display:flex; align-items:center; justify-content:space-between;
+      padding: 10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:12px;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.2px;
+      font-weight:800;
+      letter-spacing:.2px;
     }
-    .brand a{ color:var(--text); text-decoration:none; }
-    .pill{
-      font-size:12px;
-      padding: 4px 10px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      color:var(--muted);
-      background: color-mix(in oklab, var(--panel) 75%, transparent);
+    .brand a{ text-decoration:none; color:var(--text); }
+    .nav{
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap;
     }
-    .nav-actions{ display:flex; align-items:center; gap:10px; }
     .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius: 999px;
       border:1px solid var(--border);
-      background: color-mix(in oklab, var(--panel) 80%, transparent);
-      color:var(--text);
-      padding:10px 12px;
-      border-radius:12px;
+      background: var(--paper);
       text-decoration:none;
-      font-weight:600;
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease;
+      color: var(--text);
+      font-weight:700;
+      font-size: 14px;
     }
-    .btn:hover{ transform: translateY(-1px); background: color-mix(in oklab, var(--panel2) 85%, transparent); }
     .btn.primary{
-      border: none;
-      background: linear-gradient(135deg,var(--primary),var(--primary2));
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: white;
       box-shadow: var(--shadow);
     }
 
     /* Layout */
-    .wrap{ max-width: var(--max); margin:0 auto; padding: 26px 18px 70px; }
-    .hero{
-      margin-top: 14px;
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 85%, transparent), transparent);
-      border-radius: var(--radius);
-      padding: 26px 22px;
-      box-shadow: var(--shadow);
-    }
-    h1{
-      margin:0 0 10px 0;
-      font-size: clamp(28px, 3.6vw, 44px);
-      line-height:1.1;
-      letter-spacing:-.6px;
-      background: linear-gradient(135deg,var(--primary),var(--primary2));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .sub{ color:var(--muted); font-size: 15.5px; max-width: 70ch; }
-    .meta{
-      margin-top: 16px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      color:var(--muted); font-size:13px;
-    }
-
-    .grid{
+    .wrap{
+      max-width: 1080px;
+      margin:0 auto;
+      padding: 26px 16px 80px;
       display:grid;
-      grid-template-columns: 1fr 320px;
-      gap: 18px;
-      margin-top: 18px;
+      grid-template-columns: 1fr 260px;
+      gap: 28px;
       align-items:start;
     }
     @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
+      .wrap{ grid-template-columns: 1fr; }
+      .aside{ position: static !important; }
     }
 
-    /* TOC */
-    .toc{
-      position: sticky;
-      top: 76px;
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--panel);
-      padding: 14px;
-      box-shadow: var(--shadow);
+    /* Article */
+    article{
+      max-width: var(--max);
     }
-    .toc h3{ margin:4px 0 10px; font-size: 14px; color:var(--muted); text-transform: uppercase; letter-spacing: .12em;}
-    .toc a{
-      display:block;
-      padding: 10px 10px;
-      border-radius: 12px;
-      text-decoration:none;
-      color: var(--text);
-      border:1px solid transparent;
-      font-weight: 600;
-      font-size: 14px;
-      opacity:.9;
+    .kicker{
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
-    .toc a:hover{ background: var(--panel2); }
-    .toc a.active{
-      background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 22%, transparent), color-mix(in oklab, var(--primary2) 18%, transparent));
-      border-color: color-mix(in oklab, var(--primary) 40%, var(--border));
+    h1{
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      font-size: clamp(30px, 4vw, 46px);
+      margin: 0 0 14px;
     }
-
-    /* Sections + cards */
-    section.card{
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--panel);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      margin-bottom: 16px;
+    .subtitle{
+      font-size: 18px;
+      color: #374151;
+      margin: 0 0 18px;
     }
-    section.card h2{
-      margin: 4px 0 12px;
-      font-size: 20px;
-      letter-spacing:-.2px;
-    }
-    p{ margin: 10px 0; color: var(--text); opacity:.95; }
-    ul,ol{ margin: 10px 0 10px 20px; color: var(--text); opacity:.95; }
-    li{ margin: 6px 0; }
-
-    .img-card{
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background: color-mix(in oklab, var(--panel) 92%, transparent);
-    }
-    .img-card img{ width:100%; display:block; }
-    .caption{ padding: 10px 12px; color: var(--muted); font-size: 13px; }
-
-    /* Accordion */
-    details{
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: color-mix(in oklab, var(--panel) 90%, transparent);
-      margin: 10px 0;
-      overflow:hidden;
-    }
-    summary{
-      list-style:none;
-      cursor:pointer;
-      padding: 14px 14px;
+    .meta{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      font-weight: 800;
+      gap: 14px;
+      flex-wrap:wrap;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
     }
-    summary::-webkit-details-marker{ display:none; }
-    .step-title{ display:flex; align-items:center; gap:10px; }
-    .badge{
-      width: 30px; height: 30px; border-radius: 10px;
-      display:inline-grid; place-items:center;
-      background: linear-gradient(135deg,var(--primary),var(--primary2));
-      color:white;
-      font-weight:900;
-      font-size: 13px;
-      flex: 0 0 auto;
+    .author{
+      display:flex;
+      gap: 10px;
+      align-items:center;
     }
-    .chev{ color: var(--muted); font-weight: 900; }
-    details[open] .chev{ transform: rotate(180deg); display:inline-block; }
-    .step-body{ padding: 0 14px 14px; color: var(--muted); }
+    .avatar{
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #111827, #6b7280);
+    }
+    .byline{
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.25;
+    }
+    .byline strong{ color: var(--text); }
+    .meta-right{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-    /* Footer */
-    .footer{
-      margin-top: 18px;
+    /* Content styling */
+    h2{
+      font-size: 22px;
+      margin-top: 34px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    p{ margin: 14px 0; }
+    ul,ol{ margin: 14px 0 14px 22px; }
+    li{ margin: 6px 0; }
+    blockquote{
+      margin: 22px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent2);
+      background: #f8fafc;
+      color: #111827;
+      border-radius: 10px;
+    }
+    code{
+      background:#f3f4f6;
+      border:1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: .95em;
+    }
+
+    /* Image card */
+    figure{
+      margin: 22px 0;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background: white;
+    }
+    figure img{ width: 100%; display:block; }
+    figcaption{
+      padding: 10px 12px;
       color: var(--muted);
       font-size: 13px;
-      text-align:center;
-      opacity: .95;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Aside box (subscribe-like) */
+    .aside{
+      position: sticky;
+      top: 70px;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      background: white;
+    }
+    .aside h3{
+      margin: 6px 0 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+    }
+    .aside p{
+      margin: 10px 0;
+      font-size: 14px;
+      color: #374151;
+    }
+    .aside .btn{ width:100%; justify-content:center; margin-top:8px; }
+    .small{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-  <div class="progress" id="progress"></div>
-
-  <header class="nav">
-    <div class="nav-inner">
+  <div class="topbar">
+    <div class="topbar-inner">
       <div class="brand">
-        <a href="index.html">🤖 AllAboutAI</a>
-        <span class="pill">Interactive article</span>
+        <a href="index.html">AllAboutAI</a>
       </div>
-      <div class="nav-actions">
-        <a class="btn" href="index.html">← Home</a>
-        <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">🌓 Theme</button>
-        <a class="btn primary" href="#workflow">View 12 Steps</a>
-      </div>
+      <nav class="nav">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="index.html#workflow">Workflow</a>
+        <a class="btn primary" href="#start">Read</a>
+      </nav>
     </div>
-  </header>
+  </div>
 
-  <main class="wrap">
-    <div class="hero">
-      <h1>The Ultimate Job Search Workflow with n8n</h1>
-      <p class="sub">
-        A modern, repeatable system to streamline your job search: collect jobs, score your fit, generate tailored cover letters, and track everything—automatically.
+  <div class="wrap">
+    <article>
+      <div class="kicker">Automation • Job Search</div>
+
+      <h1 id="start">The Ultimate Job Search Workflow with n8n</h1>
+
+      <p class="subtitle">
+        A repeatable system to collect fresh jobs, score your resume fit, generate tailored cover letters, and track everything—automatically.
       </p>
+
       <div class="meta">
-        <span>📅 Published: 2026-03-22</span>
-        <span>⏱️ ~10 min read</span>
-        <span>⚙️ n8n + AI</span>
-      </div>
-    </div>
-
-    <div class="grid">
-      <div>
-        <section class="card" id="overview">
-          <h2>Overview</h2>
-          <p>
-            Your current page looks “boring” because it’s unstyled HTML. Below is a redesigned, Substack-like layout with a TOC, scroll progress, and collapsible steps.
-          </p>
-        </section>
-
-        <section class="card" id="workflow-image">
-          <h2>Workflow Diagram</h2>
-          <div class="img-card">
-            <img src="n8n.png" alt="n8n job search workflow diagram" />
-            <div class="caption">Your n8n workflow diagram (image file: <strong>n8n.png</strong>).</div>
+        <div class="author">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="byline">
+            <div><strong>Akash</strong></div>
+            <div>Published Mar 22, 2026 • 8 min read</div>
           </div>
-        </section>
-
-        <section class="card" id="workflow">
-          <h2>12-Step Workflow Breakdown (click to expand)</h2>
-
-          <details>
-            <summary><span class="step-title"><span class="badge">1</span> Define Job Search Goals</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Clarify roles, location, stack, and constraints so the automation searches the right jobs.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">2</span> Set Up Job Alerts</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Set filters (keywords, time posted, remote/hybrid, experience) so only fresh roles are collected.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">3</span> Prepare and Optimize Resume</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Keep a strong “base resume” that the AI can adapt per job description.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">4</span> Build a Target Company List</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Prioritize companies by role fit, sponsorship, compensation, and growth opportunity.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">5</span> Automate Job Applications</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Use n8n to gather listings and prepare your application materials so applying is fast.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">6</span> Track Applications Progress</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Centralize job links + status + notes (Google Sheets is perfect for this).</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">7</span> Network with Professionals</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Build a daily habit: targeted outreach + referral asks + follow ups.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">8</span> Gather Feedback on Applications</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Use the AI scoring + suggestions to iterate on resumes and strategy.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">9</span> Prepare for Interviews</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Turn the workflow output into a prep checklist: stack, team, product, role expectations.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">10</span> Follow Up After Interviews</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Automate reminders and keep timelines visible so nothing slips.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">11</span> Negotiate Offers</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Capture offer details + compare bands + plan negotiation steps.</div>
-          </details>
-          <details>
-            <summary><span class="step-title"><span class="badge">12</span> Reflect and Iterate</span><span class="chev">⌄</span></summary>
-            <div class="step-body">Improve filters, prompts, and resume content weekly based on results.</div>
-          </details>
-        </section>
-
-        <section class="card" id="setup">
-          <h2>Setup Instructions</h2>
-          <ol>
-            <li>Install n8n (cloud or self-hosted).</li>
-            <li>Connect Google Drive + Google Sheets.</li>
-            <li>Store your resume PDF in Drive.</li>
-            <li>Run the workflow daily and review the sheet output.</li>
-            <li>Apply to the best-scoring roles first.</li>
-          </ol>
-        </section>
-
-        <div class="footer">
-          Built by Akash Root • <a href="index.html" style="color:inherit;">Back to Home</a>
+        </div>
+        <div class="meta-right">
+          <span>n8n</span>
+          <span>•</span>
+          <span>AI scoring</span>
+          <span>•</span>
+          <span>Google Sheets</span>
         </div>
       </div>
 
-      <aside class="toc" aria-label="Table of contents">
-        <h3>Contents</h3>
-        <a href="#overview" class="toc-link">Overview</a>
-        <a href="#workflow-image" class="toc-link">Workflow Diagram</a>
-        <a href="#workflow" class="toc-link">12 Steps</a>
-        <a href="#setup" class="toc-link">Setup</a>
-      </aside>
-    </div>
-  </main>
+      <p>
+        For a long time I tried the “apply more” strategy. It felt productive—until it didn’t.
+        Hundreds of applications turned into almost no replies. The problem wasn’t effort, it was the process.
+      </p>
 
-  <script>
-    // Theme toggle (saved)
-    const root = document.documentElement;
-    const saved = localStorage.getItem("theme");
-    if (saved) root.setAttribute("data-theme", saved);
+      <blockquote>
+        The job market rewards speed, relevance, and consistency. A manual workflow makes all three hard.
+      </blockquote>
 
-    document.getElementById("themeBtn").addEventListener("click", () => {
-      const cur = root.getAttribute("data-theme") || "dark";
-      const next = cur === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-    });
+      <p>
+        This is the workflow I built with <strong>n8n</strong> + AI. It runs daily, finds relevant roles,
+        scores my fit, generates a cover letter draft, and logs everything so I can focus on the best opportunities.
+      </p>
 
-    // Scroll progress
-    const bar = document.getElementById("progress");
-    const setProgress = () => {
-      const h = document.documentElement;
-      const scrolled = h.scrollTop || document.body.scrollTop;
-      const height = h.scrollHeight - h.clientHeight;
-      const pct = height ? (scrolled / height) * 100 : 0;
-      bar.style.width = pct + "%";
-    };
-    window.addEventListener("scroll", setProgress, { passive: true });
-    setProgress();
+      <h2>What the workflow does</h2>
+      <ul>
+        <li>Collects new job listings based on your filters</li>
+        <li>Extracts job descriptions</li>
+        <li>Scores resume match and highlights missing keywords</li>
+        <li>Generates a tailored cover letter (short, specific)</li>
+        <li>Saves results to Google Sheets and sends a daily summary</li>
+      </ul>
 
-    // TOC highlight based on scroll
-    const links = [...document.querySelectorAll(".toc-link")];
-    const sections = links
-      .map(a => document.querySelector(a.getAttribute("href")))
-      .filter(Boolean);
+      <h2>Workflow diagram</h2>
+      <figure>
+        <img src="n8n.png" alt="n8n workflow diagram">
+        <figcaption>My n8n workflow (saved as <code>n8n.png</code> in this repo).</figcaption>
+      </figure>
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        links.forEach(l => l.classList.remove("active"));
-        const id = "#" + e.target.id;
-        const active = links.find(l => l.getAttribute("href") === id);
-        if (active) active.classList.add("active");
-      });
-    }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.01 });
+      <h2>12-step workflow breakdown</h2>
+      <ol>
+        <li><strong>Schedule:</strong> Trigger the workflow daily (e.g., 5 AM) to apply early.</li>
+        <li><strong>Fetch resume:</strong> Pull the latest resume from Google Drive.</li>
+        <li><strong>Extract text:</strong> Convert your resume PDF into text for AI comparison.</li>
+        <li><strong>Set filters:</strong> Keywords, location, level, and exclusions.</li>
+        <li><strong>Build search URL:</strong> Create job-board queries from the filters.</li>
+        <li><strong>Collect listings:</strong> Gather job links/titles quickly.</li>
+        <li><strong>Clean & dedupe:</strong> Normalize URLs, remove duplicates.</li>
+        <li><strong>Fetch descriptions:</strong> Pull full job descriptions and requirements.</li>
+        <li><strong>Score match:</strong> Compare resume vs JD; output a 0–100 score + notes.</li>
+        <li><strong>Cover letter:</strong> Draft 150–220 words based on JD + your resume.</li>
+        <li><strong>Resume tips:</strong> Suggest <code>[ADD]</code>, <code>[REMOVE]</code>, <code>[REWRITE]</code> edits.</li>
+        <li><strong>Log & notify:</strong> Save to Sheets and email summary.</li>
+      </ol>
 
-    sections.forEach(s => obs.observe(s));
-  </script>
+      <h2>How I use the output</h2>
+      <p>
+        Each morning I sort the sheet by score, start with the highest-fit roles posted most recently,
+        and apply fast. The point is not to apply to everything—it's to apply to the right things consistently.
+      </p>
+
+      <h2>What’s next</h2>
+      <p>
+        If you want, I can publish the exact node-by-node n8n build and the prompts used for scoring and cover letters.
+      </p>
+
+      <footer>
+        <p>
+          Want comments on this page? I can add a real comment section (Giscus/Disqus) once you choose one.
+        </p>
+      </footer>
+    </article>
+
+    <aside class="aside">
+      <h3>Get updates</h3>
+      <p>
+        New workflows, prompts, and automation templates. No spam—just useful stuff.
+      </p>
+      <a class="btn primary" href="index.html">Back to site</a>
+      <a class="btn" href="https://github.com/akashRoot1/Allaboutai" target="_blank" rel="noreferrer">View repo</a>
+      <div class="small">
+        Tip: I can add a “subscribe” box that sends to your email list, if you have one.
+      </div>
+    </aside>
+  </div>
 </body>
 </html>
