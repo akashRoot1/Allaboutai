@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Ultimate Job Search Workflow with n8n</title>
-  <meta name="description" content="A practical, automated job-search system built with n8n + AI: collect jobs, score fit, generate cover letters, and track everything." />
+  <meta name="description" content="A practical job-search system built with n8n + AI: collect jobs, score fit, generate cover letters, and track everything—automatically." />
 
   <style>
     :root{
@@ -13,31 +13,44 @@
       --text:#111827;
       --muted:#6b7280;
       --border:#e5e7eb;
-      --link:#111827;
-      --accent:#5b5bd6;
-      --accent2:#2563eb;
       --shadow: 0 10px 30px rgba(17,24,39,.08);
       --max: 780px;
+
+      --accent:#4f46e5;
+      --accent2:#2563eb;
+      --soft:#f8fafc;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       background:var(--bg);
       color:var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      line-height:1.75;
+      line-height:1.8;
     }
-    a{color:var(--link)}
-    a:hover{color:var(--accent2)}
-    /* Top bar */
+    a{ color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover{ color: var(--accent2); }
+
+    /* top progress bar */
+    .progress{
+      position:fixed;
+      top:0; left:0;
+      height:3px;
+      width:0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      z-index:9999;
+    }
+
+    /* topbar */
     .topbar{
       position:sticky;
       top:0;
-      z-index:10;
+      z-index:50;
       background: rgba(255,255,255,.9);
       backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
     .topbar-inner{
       max-width: 1080px;
@@ -49,27 +62,32 @@
       gap:12px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-weight:900;
       letter-spacing:.2px;
     }
-    .brand a{ text-decoration:none; color:var(--text); }
     .nav{
-      display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:8px 12px;
+      padding: 8px 12px;
       border-radius: 999px;
-      border:1px solid var(--border);
+      border: 1px solid var(--border);
       background: var(--paper);
+      font-weight:800;
+      font-size: 14px;
       text-decoration:none;
       color: var(--text);
-      font-weight:700;
-      font-size: 14px;
     }
+    .btn:hover{ border-color:#cbd5e1; }
     .btn.primary{
       border-color: transparent;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -77,13 +95,13 @@
       box-shadow: var(--shadow);
     }
 
-    /* Layout */
+    /* layout */
     .wrap{
       max-width: 1080px;
       margin:0 auto;
-      padding: 26px 16px 80px;
+      padding: 26px 16px 90px;
       display:grid;
-      grid-template-columns: 1fr 260px;
+      grid-template-columns: 1fr 280px;
       gap: 28px;
       align-items:start;
     }
@@ -92,21 +110,22 @@
       .aside{ position: static !important; }
     }
 
-    /* Article */
     article{
       max-width: var(--max);
     }
+
     .kicker{
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: .12em;
       font-size: 12px;
       margin-bottom: 10px;
     }
+
     h1{
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1.15;
       font-size: clamp(30px, 4vw, 46px);
@@ -117,6 +136,7 @@
       color: #374151;
       margin: 0 0 18px;
     }
+
     .meta{
       display:flex;
       align-items:center;
@@ -136,7 +156,7 @@
     .avatar{
       width: 36px; height: 36px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #111827, #6b7280);
+      background: linear-gradient(135deg, #111827, #9ca3af);
     }
     .byline{
       font-size: 14px;
@@ -150,7 +170,6 @@
       font-size: 14px;
     }
 
-    /* Content styling */
     h2{
       font-size: 22px;
       margin-top: 34px;
@@ -160,14 +179,16 @@
     p{ margin: 14px 0; }
     ul,ol{ margin: 14px 0 14px 22px; }
     li{ margin: 6px 0; }
+
     blockquote{
       margin: 22px 0;
       padding: 14px 16px;
       border-left: 4px solid var(--accent2);
-      background: #f8fafc;
-      color: #111827;
+      background: var(--soft);
+      color: var(--text);
       border-radius: 10px;
     }
+
     code{
       background:#f3f4f6;
       border:1px solid var(--border);
@@ -176,7 +197,6 @@
       font-size: .95em;
     }
 
-    /* Image card */
     figure{
       margin: 22px 0;
       border: 1px solid var(--border);
@@ -193,7 +213,15 @@
       border-top: 1px solid var(--border);
     }
 
-    /* Aside box (subscribe-like) */
+    .card{
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-top: 22px;
+    }
+
     .aside{
       position: sticky;
       top: 70px;
@@ -214,17 +242,18 @@
       margin: 10px 0;
       font-size: 14px;
       color: #374151;
+      line-height: 1.6;
     }
     .aside .btn{ width:100%; justify-content:center; margin-top:8px; }
     .small{
       margin-top: 10px;
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.5;
     }
 
-    /* Footer */
     footer{
-      margin-top: 44px;
+      margin-top: 36px;
       padding-top: 18px;
       border-top: 1px solid var(--border);
       color: var(--muted);
@@ -234,10 +263,12 @@
 </head>
 
 <body>
+  <div class="progress" id="progress"></div>
+
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <a href="index.html">AllAboutAI</a>
+        <a href="index.html" style="text-decoration:none;color:inherit;">AllAboutAI</a>
       </div>
       <nav class="nav">
         <a class="btn" href="index.html">Home</a>
@@ -254,7 +285,8 @@
       <h1 id="start">The Ultimate Job Search Workflow with n8n</h1>
 
       <p class="subtitle">
-        A repeatable system to collect fresh jobs, score your resume fit, generate tailored cover letters, and track everything—automatically.
+        A repeatable system to collect fresh jobs, score your resume fit, generate tailored cover letters,
+        and track everything—automatically.
       </p>
 
       <div class="meta">
@@ -266,11 +298,7 @@
           </div>
         </div>
         <div class="meta-right">
-          <span>n8n</span>
-          <span>•</span>
-          <span>AI scoring</span>
-          <span>•</span>
-          <span>Google Sheets</span>
+          <span>n8n</span><span>•</span><span>AI scoring</span><span>•</span><span>Google Sheets</span>
         </div>
       </div>
 
@@ -291,7 +319,7 @@
       <h2>What the workflow does</h2>
       <ul>
         <li>Collects new job listings based on your filters</li>
-        <li>Extracts job descriptions</li>
+        <li>Extracts job descriptions and requirements</li>
         <li>Scores resume match and highlights missing keywords</li>
         <li>Generates a tailored cover letter (short, specific)</li>
         <li>Saves results to Google Sheets and sends a daily summary</li>
@@ -300,7 +328,7 @@
       <h2>Workflow diagram</h2>
       <figure>
         <img src="n8n.png" alt="n8n workflow diagram">
-        <figcaption>My n8n workflow (saved as <code>n8n.png</code> in this repo).</figcaption>
+        <figcaption>My n8n workflow (image file: <code>n8n.png</code>).</figcaption>
       </figure>
 
       <h2>12-step workflow breakdown</h2>
@@ -311,18 +339,18 @@
         <li><strong>Set filters:</strong> Keywords, location, level, and exclusions.</li>
         <li><strong>Build search URL:</strong> Create job-board queries from the filters.</li>
         <li><strong>Collect listings:</strong> Gather job links/titles quickly.</li>
-        <li><strong>Clean & dedupe:</strong> Normalize URLs, remove duplicates.</li>
+        <li><strong>Clean & dedupe:</strong> Normalize URLs and remove duplicates.</li>
         <li><strong>Fetch descriptions:</strong> Pull full job descriptions and requirements.</li>
         <li><strong>Score match:</strong> Compare resume vs JD; output a 0–100 score + notes.</li>
         <li><strong>Cover letter:</strong> Draft 150–220 words based on JD + your resume.</li>
         <li><strong>Resume tips:</strong> Suggest <code>[ADD]</code>, <code>[REMOVE]</code>, <code>[REWRITE]</code> edits.</li>
-        <li><strong>Log & notify:</strong> Save to Sheets and email summary.</li>
+        <li><strong>Log & notify:</strong> Save to Sheets and send a summary email.</li>
       </ol>
 
       <h2>How I use the output</h2>
       <p>
         Each morning I sort the sheet by score, start with the highest-fit roles posted most recently,
-        and apply fast. The point is not to apply to everything—it's to apply to the right things consistently.
+        and apply fast. The point is not to apply to everything—it’s to apply to the right things consistently.
       </p>
 
       <h2>What’s next</h2>
@@ -330,9 +358,35 @@
         If you want, I can publish the exact node-by-node n8n build and the prompts used for scoring and cover letters.
       </p>
 
+      <section class="card" id="comments">
+        <h2 style="margin-top:0;">Comments</h2>
+        <p style="margin-top:8px;color:#374151;">
+          Ask questions, share improvements, or report issues below.
+        </p>
+
+        <div style="margin-top:14px;">
+          <script src="https://giscus.app/client.js"
+            data-repo="akashRoot1/Allaboutai"
+            data-repo-id="R_kgDORtnGAQ"
+            data-category="General"
+            data-category-id="DIC_kwDORtnGAc4C5FPC"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="light"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+      </section>
+
       <footer>
         <p>
-          Want comments on this page? I can add a real comment section (Giscus/Disqus) once you choose one.
+          Tip: If comments don’t show immediately, hard refresh (<strong>Ctrl+F5</strong>) and ensure you’re on
+          <strong>https://</strong> not <strong>http://</strong>.
         </p>
       </footer>
     </article>
@@ -345,15 +399,23 @@
       <a class="btn primary" href="index.html">Back to site</a>
       <a class="btn" href="https://github.com/akashRoot1/Allaboutai" target="_blank" rel="noreferrer">View repo</a>
       <div class="small">
-        Tip: I can add a “subscribe” box that sends to your email list, if you have one.
+        If your page still shows “Not secure”, GitHub Pages SSL can take 10–120 minutes after enabling “Enforce HTTPS”.
       </div>
     </aside>
-    <section class="card" id="comments">
-  <h2>Comments</h2>
-  <div style="margin-top:14px;">
-    <!-- Paste the exact giscus.app script here -->
   </div>
-</section>
-  </div>
+
+  <script>
+    // scroll progress bar
+    const bar = document.getElementById("progress");
+    const setProgress = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop || document.body.scrollTop;
+      const height = h.scrollHeight - h.clientHeight;
+      const pct = height ? (scrolled / height) * 100 : 0;
+      bar.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", setProgress, { passive: true });
+    setProgress();
+  </script>
 </body>
 </html>
