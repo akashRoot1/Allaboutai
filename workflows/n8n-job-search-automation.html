@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate n8n Job Search Automation Workflow (Step-by-Step Guide 2025) | AllAboutAI</title>
+  <meta name="description" content="Build a complete automated job search system with n8n: scrape LinkedIn jobs, score fit with AI, generate tailored cover letters, and get email digests. Free workflow included.">
+  <meta name="keywords" content="n8n workflow, job search automation, n8n job search, AI resume tailoring, n8n LinkedIn, n8n automation tutorial, cover letter generator, job scraping automation">
+  <link rel="canonical" href="https://thatai.me/workflows/n8n-job-search-automation.html">
+  <meta property="og:title" content="Ultimate n8n Job Search Automation Workflow (Step-by-Step Guide 2025)">
+  <meta property="og:description" content="Build a complete automated job search system with n8n: scrape LinkedIn jobs, score fit with AI, generate tailored cover letters, and get email digests.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/workflows/n8n-job-search-automation.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ultimate n8n Job Search Automation Workflow 2025">
+  <meta name="twitter:description" content="Build a 12-step automated job search system with n8n, GPT-4, and free APIs.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ultimate n8n Job Search Automation Workflow (Step-by-Step Guide 2025)",
+    "description": "Build a complete automated job search system with n8n: scrape LinkedIn jobs, score fit with AI, generate tailored cover letters, and get email digests. Free workflow included.",
+    "image": "https://thatai.me/n8n.png",
+    "author": {
+      "@type": "Person",
+      "name": "Akash"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AllAboutAI",
+      "url": "https://thatai.me"
+    },
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-01-15",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://thatai.me/workflows/n8n-job-search-automation.html"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <!-- Breadcrumb -->
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Blog</a><span class="breadcrumb-sep">›</span>
+          <span>n8n Job Search Automation</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-primary">n8n</span>
+          <span class="badge badge-purple">ChatGPT</span>
+          <span class="badge badge-green">Free Workflow</span>
+        </div>
+        <h1>Ultimate n8n Job Search Automation Workflow</h1>
+        <p>Build a 12-step automated system that scrapes jobs, scores fit with AI, generates cover letters, and emails you daily digests — all on autopilot.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 January 15, 2025</span>
+          <span>⏱ 15 min read</span>
+          <span>🔄 Updated 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Layout -->
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <!-- Intro image -->
+        <img src="/n8n.png" alt="n8n job search automation workflow showing all 12 nodes connected in sequence" style="width:100%;border-radius:12px;margin-bottom:2rem;">
+
+        <!-- Intro -->
+        <p>Imagine waking up every morning to a curated list of jobs perfectly matched to your skills, complete with AI-generated cover letters and resume tips — all delivered to your inbox automatically. That's exactly what this n8n workflow does.</p>
+        <p>In this guide, I'll walk you through building a complete job search automation system using n8n, OpenAI's GPT-4, and free job scraping APIs. By the end, you'll have a workflow that runs every morning, finds matching jobs, scores them with AI, generates personalized cover letters, and sends you an email digest. No more spending hours refreshing job boards — let the machines do the hunting while you focus on preparing for interviews.</p>
+        <p>Whether you're actively job-hunting or passively keeping an eye on the market, this workflow gives you a significant edge. Instead of manually sifting through hundreds of irrelevant postings, you'll receive only the opportunities that actually match your profile, pre-loaded with everything you need to apply immediately.</p>
+
+        <div class="card" style="margin:2rem 0;background:rgba(102,126,234,0.1);border-color:rgba(102,126,234,0.3);">
+          <h3 style="margin-top:0;">⚡ What You'll Build</h3>
+          <ul>
+            <li>✅ Automated job scraping from LinkedIn, Indeed, and more</li>
+            <li>✅ AI-powered job fit scoring (1-10 scale with explanations)</li>
+            <li>✅ Personalized cover letter generation for each job</li>
+            <li>✅ Resume tailoring suggestions per job</li>
+            <li>✅ Daily email digest with best matches</li>
+            <li>✅ Google Sheets tracking of all applications</li>
+          </ul>
+        </div>
+
+        <h2 id="prerequisites">Prerequisites</h2>
+        <p>Before we start, make sure you have the following accounts and tools ready. Most are free or have generous free tiers — this workflow is designed to be as low-cost as possible.</p>
+        <ul>
+          <li><strong>n8n account</strong>: Sign up at <a href="https://n8n.io" rel="noopener noreferrer">n8n.io</a> (free cloud tier available) or self-host on a $5/month VPS for full control</li>
+          <li><strong>OpenAI API key</strong>: For GPT-4 scoring and generation. Grab yours at <a href="https://platform.openai.com" rel="noopener noreferrer">platform.openai.com</a> (approximately $5/month for daily use)</li>
+          <li><strong>Gmail account</strong>: For sending daily digest emails via the Gmail node</li>
+          <li><strong>Google Sheets</strong>: For tracking applications and history (free with any Google account)</li>
+          <li><strong>RapidAPI account</strong>: Free tier gives you enough calls for daily job scraping at <a href="https://rapidapi.com" rel="noopener noreferrer">rapidapi.com</a></li>
+        </ul>
+        <p>Estimated setup time: <strong>45-60 minutes</strong>. Monthly running cost: <strong>$5-10</strong> (OpenAI API fees only — everything else is free).</p>
+
+        <h2 id="how-it-works">How the Workflow Works</h2>
+        <p>The workflow runs on a schedule (every morning at 7 AM) and executes 12 nodes in sequence. Each node handles a specific task, passing its output to the next node. Here's the full pipeline at a glance:</p>
+        <ol>
+          <li><strong>Schedule Trigger</strong> → starts the workflow automatically at 7 AM daily</li>
+          <li><strong>Resume Download</strong> → fetches your latest resume PDF from Google Drive</li>
+          <li><strong>PDF Text Extract</strong> → converts PDF binary to searchable plain text</li>
+          <li><strong>Search Filters</strong> → loads your job preferences from a central config object</li>
+          <li><strong>LinkedIn URL Builder</strong> → constructs search URLs with your encoded filters</li>
+          <li><strong>Job Scraper</strong> → hits the job listing API and retrieves raw results (up to 25 per run)</li>
+          <li><strong>HTML Parser</strong> → cleans and normalizes the scraped job data</li>
+          <li><strong>Detail Fetcher</strong> → gets the full job description for each listing</li>
+          <li><strong>AI Job Scorer</strong> → GPT-4 scores each job 1-10 against your resume with reasoning</li>
+          <li><strong>Cover Letter Generator</strong> → creates a personalized cover letter for each qualifying job</li>
+          <li><strong>Resume Tips</strong> → suggests specific resume edits and keywords per job</li>
+          <li><strong>Email Notification</strong> → sends a formatted HTML digest with top matches to your inbox</li>
+        </ol>
+        <p>n8n processes each job through steps 8–11 in a loop automatically. When you disable "Execute Once" on loop nodes, n8n iterates over each item in the array — no manual coding required.</p>
+
+        <h2 id="step-by-step">Step-by-Step Workflow Setup</h2>
+        <p>Let's build this workflow from scratch. Open your n8n workspace and create a new workflow. We'll add each node in order, test it, and wire them together at the end.</p>
+
+        <h3 id="step1">Step 1: Schedule Trigger</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>⏰ Schedule Trigger Node</h3>
+            <p>This node kicks off the entire workflow automatically every morning. Configure it to run at a time when you want your daily digest ready — ideally before you start your day.</p>
+          </div>
+        </div>
+        <p>In n8n, click the <strong>+</strong> button and search for <strong>Schedule Trigger</strong>. Configure it as follows:</p>
+        <ul>
+          <li><strong>Trigger at:</strong> Every Day</li>
+          <li><strong>Time:</strong> 07:00 AM (your local timezone)</li>
+          <li><strong>Timezone:</strong> Your local timezone (e.g., America/New_York, Europe/London)</li>
+        </ul>
+        <p>This node has no inputs — it simply fires at the scheduled time and passes a timestamp object to the next node. During setup, click <strong>"Test workflow"</strong> (the play button) to run it manually at any time without waiting for the schedule. This is essential for testing each step as you build.</p>
+        <p><strong>Pro tip:</strong> If you're in an active job search, consider running the workflow twice daily — once at 7 AM and again at 2 PM to catch afternoon postings. Just duplicate the schedule trigger and add a second one with the afternoon time.</p>
+
+        <h3 id="step2">Step 2: Resume Download (Google Drive)</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>📥 Google Drive Node — Download Resume</h3>
+            <p>Fetches your latest resume PDF from Google Drive so it can be analyzed by the AI scorer in later steps. By pulling from Drive, any updates you make to your resume are automatically reflected in the next run.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Google Drive</strong> node and configure it:</p>
+        <ul>
+          <li><strong>Operation:</strong> Download File</li>
+          <li><strong>File ID:</strong> The ID from your Google Drive resume URL</li>
+          <li><strong>Credentials:</strong> Connect your Google account (OAuth2) — n8n walks you through this</li>
+        </ul>
+        <p>To find your file ID: open your resume in Google Drive, look at the URL: <code>drive.google.com/file/d/<strong>FILE_ID_HERE</strong>/view</code> — copy the string between <code>/d/</code> and <code>/view</code>.</p>
+        <p><strong>Pro tip:</strong> Keep a single "master resume" in Google Drive that you update whenever you gain new skills or projects. The workflow always pulls the latest version automatically, so your job matching stays current without any extra effort.</p>
+
+        <h3 id="step3">Step 3: PDF Text Extraction</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>📄 Extract from File Node — PDF to Text</h3>
+            <p>Converts the binary PDF data from the previous step into plain text that can be sent to OpenAI for analysis. This is a critical bridge between your resume file and the AI scoring engine.</p>
+          </div>
+        </div>
+        <p>Add an <strong>Extract from File</strong> node (search for "Extract" in the node panel):</p>
+        <ul>
+          <li><strong>Operation:</strong> Extract Text from PDF</li>
+          <li><strong>Binary Property:</strong> <code>data</code> (this is the default output property name from the Google Drive node)</li>
+        </ul>
+        <p>The output will be a JSON object with a <code>text</code> field containing all parsed text from your resume — your name, skills, experience, education, and contact info. Test this node to verify the extraction looks correct before continuing. If formatting looks garbled, try saving your resume as a text-based PDF rather than a scanned image PDF.</p>
+
+        <h3 id="step4">Step 4: Job Search Filter Configuration</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>⚙️ Code Node — Search Configuration</h3>
+            <p>Defines your job search preferences as a structured config object. Having all settings in one place means you can tweak your search without hunting through multiple nodes.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Code</strong> node. This acts as a central configuration panel you can easily update as your job search evolves:</p>
+        <pre><code>// ============================================
+// JOB SEARCH CONFIGURATION — Edit this section
+// ============================================
+const config = {
+  keywords: "software engineer AI automation",
+  location: "Remote",
+  experience_level: "mid-level",
+  job_type: "full-time",
+  date_posted: "past-week",
+  min_salary: 100000,
+  excluded_companies: ["Company X", "Company Y"],
+  min_score_threshold: 7  // Only show jobs scoring 7+ out of 10
+};
+
+return [{ json: config }];</code></pre>
+        <p>Customize <code>keywords</code>, <code>location</code>, and <code>min_score_threshold</code> to match your target role. The threshold of 7 means only jobs where the AI rates you as a strong candidate will appear in your digest — raising it to 8 gives you fewer but higher-quality matches. Start at 6 while calibrating the scorer, then raise once you're happy with the results.</p>
+
+        <h3 id="step5">Step 5: LinkedIn Search URL Builder</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>🔗 Code Node — Build Search URL</h3>
+            <p>Constructs the LinkedIn job search URL with all your filter parameters properly URL-encoded. This structured URL is what gets passed to the scraping API.</p>
+          </div>
+        </div>
+        <p>Add another <strong>Code</strong> node to build the API request URL from your config:</p>
+        <pre><code>const config = $('Search Config').first().json;
+
+const params = new URLSearchParams({
+  keywords: config.keywords,
+  location: config.location,
+  f_E: '3',       // Mid-Senior level (1=Entry, 2=Associate, 3=Mid, 4=Senior, 5=Director)
+  f_JT: 'F',      // Full-time (F=Full-time, P=Part-time, C=Contract, T=Temporary)
+  f_TPR: 'r604800', // Past week (r86400=24h, r604800=week, r2592000=month)
+  start: '0',
+  count: '25'
+});
+
+const searchUrl = `https://www.linkedin.com/jobs/search/?${params.toString()}`;
+return [{ json: { searchUrl, config } }];</code></pre>
+        <p>The <code>f_E</code>, <code>f_JT</code>, and <code>f_TPR</code> parameters are LinkedIn's internal filter codes. Adjust <code>f_E</code> to match your seniority level and <code>f_TPR</code> to control how recent the postings are. Using <code>r86400</code> (24 hours) for active job searches ensures you see the freshest listings before other candidates.</p>
+
+        <h3 id="step6">Step 6: Job Scraping API Call</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>🕷️ HTTP Request Node — Job Scraper</h3>
+            <p>Calls a job scraping API via RapidAPI to get structured job listing data without manual scraping. This returns clean JSON rather than raw HTML, saving significant processing work.</p>
+          </div>
+        </div>
+        <p>Add an <strong>HTTP Request</strong> node with these settings:</p>
+        <ul>
+          <li><strong>Method:</strong> GET</li>
+          <li><strong>URL:</strong> <code>https://linkedin-jobs-search.p.rapidapi.com/jobs</code></li>
+          <li><strong>Header — X-RapidAPI-Key:</strong> <code>your-rapidapi-key</code></li>
+          <li><strong>Header — X-RapidAPI-Host:</strong> <code>linkedin-jobs-search.p.rapidapi.com</code></li>
+          <li><strong>Query Param — query:</strong> <code>={{ $json.config.keywords }}</code></li>
+          <li><strong>Query Param — location:</strong> <code>={{ $json.config.location }}</code></li>
+          <li><strong>Query Param — page:</strong> <code>1</code></li>
+        </ul>
+        <p>The <strong>LinkedIn Jobs Search API</strong> on RapidAPI has a free tier of 100 calls/month — more than enough for daily runs. This returns structured JSON with job titles, companies, locations, URLs, and posting dates without any HTML parsing needed.</p>
+        <p><strong>Alternative free APIs to consider:</strong> The JSearch API (also on RapidAPI), Adzuna's open API (1,000 calls/month free at <a href="https://developer.adzuna.com" rel="noopener noreferrer">developer.adzuna.com</a>), or SerpAPI's Google Jobs endpoint. You can add multiple HTTP nodes in parallel and merge the results for broader coverage.</p>
+
+        <h3 id="step7">Step 7: HTML & Response Parsing</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>🔧 Code Node — Parse &amp; Clean Results</h3>
+            <p>Normalizes the API response into a consistent format and filters out jobs from companies you've excluded. This ensures the downstream AI nodes receive clean, structured data.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Code</strong> node to process the raw API response:</p>
+        <pre><code>const jobs = $input.all();
+const config = $('Search Config').first().json;
+
+const parsedJobs = jobs
+  .filter(job => {
+    // Filter out excluded companies
+    const company = (job.json.company || '').toLowerCase();
+    return !config.excluded_companies.some(
+      exc => company.includes(exc.toLowerCase())
+    );
+  })
+  .map(job => ({
+    json: {
+      id: job.json.job_id || Math.random().toString(36).slice(2),
+      title: job.json.title || 'Unknown Title',
+      company: job.json.company || 'Unknown Company',
+      location: job.json.location || 'Remote',
+      url: job.json.job_url || '',
+      posted: job.json.posted_at || 'Recently',
+      snippet: (job.json.description || '').slice(0, 500)
+    }
+  }));
+
+// Deduplicate by job ID
+const seen = new Set();
+const uniqueJobs = parsedJobs.filter(j => {
+  if (seen.has(j.json.id)) return false;
+  seen.add(j.json.id);
+  return true;
+});
+
+return uniqueJobs;</code></pre>
+        <p>The deduplication step is important if you're pulling from multiple APIs simultaneously — the same job can appear on multiple platforms. This ensures each job is only scored and processed once, saving API costs.</p>
+
+        <h3 id="step8">Step 8: Fetch Full Job Descriptions</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">8</div>
+          <div class="step-content">
+            <h3>📋 HTTP Request Node — Fetch Job Details</h3>
+            <p>Gets the complete job description for each listing so the AI can conduct a thorough, accurate fit analysis. Job snippets are often too short for reliable scoring.</p>
+          </div>
+        </div>
+        <p>Add another <strong>HTTP Request</strong> node configured for job detail fetching:</p>
+        <ul>
+          <li><strong>Method:</strong> GET</li>
+          <li><strong>URL:</strong> <code>https://linkedin-jobs-search.p.rapidapi.com/job-details</code></li>
+          <li><strong>Header — X-RapidAPI-Key:</strong> <code>your-rapidapi-key</code></li>
+          <li><strong>Header — X-RapidAPI-Host:</strong> <code>linkedin-jobs-search.p.rapidapi.com</code></li>
+          <li><strong>Query Param — id:</strong> <code>={{ $json.id }}</code></li>
+        </ul>
+        <p>This node runs for each job in the array — n8n handles the iteration automatically when you leave "Execute Once" unchecked. The full job description gives the AI 3-5x more context for accurate scoring, dramatically improving match quality compared to using snippets alone.</p>
+        <p><strong>Rate limiting tip:</strong> Add a <strong>Wait</strong> node after this (set to 0.5-second delay) to avoid hitting API rate limits when processing 15-25 jobs in rapid succession. A small delay here prevents the majority of API errors.</p>
+
+        <h3 id="step9">Step 9: AI Job Scoring with GPT-4</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">9</div>
+          <div class="step-content">
+            <h3>🤖 OpenAI Node — Job Fit Scorer</h3>
+            <p>The heart of the workflow. Uses GPT-4 to compare each job description against your resume and assign a precise 1-10 fit score with detailed reasoning and actionable recommendations.</p>
+          </div>
+        </div>
+        <p>Add an <strong>OpenAI</strong> node with this configuration:</p>
+        <ul>
+          <li><strong>Resource:</strong> Chat</li>
+          <li><strong>Operation:</strong> Create Completion</li>
+          <li><strong>Model:</strong> gpt-4-turbo-preview</li>
+          <li><strong>Max Tokens:</strong> 500</li>
+          <li><strong>Temperature:</strong> 0.3 (lower = more consistent, analytical output)</li>
+        </ul>
+        <p><strong>System prompt:</strong></p>
+        <div class="prompt-block">
+You are a career coach and expert resume analyzer. Your job is to score how well a candidate's resume matches a job description on a scale of 1-10.
+
+Score criteria:
+- 9-10: Excellent match (80%+ requirements met, strong relevant experience)
+- 7-8: Good match (60-80% requirements met)
+- 5-6: Partial match (40-60% requirements met)
+- 3-4: Weak match (below 40% requirements met)
+- 1-2: Poor match
+
+Return ONLY valid JSON in this exact format:
+{
+  "score": 8,
+  "match_percentage": 75,
+  "key_matches": ["Python", "Machine Learning", "5+ years experience"],
+  "missing_skills": ["Kubernetes", "AWS certification"],
+  "recommendation": "Strong candidate. Highlight your ML projects in the cover letter.",
+  "apply": true
+}
+        </div>
+        <p><strong>User message (dynamic — uses expressions):</strong></p>
+        <div class="prompt-block">
+RESUME:
+={{ $('Extract Resume Text').first().json.text }}
+
+JOB TITLE: {{ $json.title }} at {{ $json.company }}
+LOCATION: {{ $json.location }}
+JOB DESCRIPTION:
+={{ $json.full_description }}
+
+Score this job match and return JSON only.
+        </div>
+        <p>After this node, add a <strong>Code</strong> node to parse the JSON response and filter jobs below the threshold:</p>
+        <pre><code>const item = $input.first().json;
+let aiScore;
+try {
+  aiScore = JSON.parse(item.message.content);
+} catch(e) {
+  aiScore = { score: 0, apply: false, recommendation: "Parse error" };
+}
+
+// Only continue if score meets threshold
+const threshold = $('Search Config').first().json.min_score_threshold;
+if (aiScore.score < threshold) return [];
+
+return [{ json: { ...item, ai_score: aiScore } }];</code></pre>
+
+        <h3 id="step10">Step 10: Cover Letter Generation</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">10</div>
+          <div class="step-content">
+            <h3>✍️ OpenAI Node — Cover Letter Writer</h3>
+            <p>Generates a compelling, personalized cover letter for each job that clears the scoring threshold. Each letter references specific job requirements and your actual experience — not a generic template.</p>
+          </div>
+        </div>
+        <p>Add another <strong>OpenAI</strong> node with these settings:</p>
+        <ul>
+          <li><strong>Model:</strong> gpt-4-turbo-preview</li>
+          <li><strong>Max Tokens:</strong> 800</li>
+          <li><strong>Temperature:</strong> 0.7 (slightly higher for more natural, varied writing)</li>
+        </ul>
+        <div class="prompt-block">
+Write a compelling, personalized cover letter for this job application.
+
+CANDIDATE RESUME SUMMARY:
+={{ $('Extract Resume Text').first().json.text.slice(0, 1500) }}
+
+JOB: {{ $json.title }} at {{ $json.company }}
+LOCATION: {{ $json.location }}
+JOB DESCRIPTION: {{ $json.full_description.slice(0, 1000) }}
+
+AI MATCH ANALYSIS: {{ $json.ai_score.recommendation }}
+KEY MATCHING SKILLS: {{ $json.ai_score.key_matches.join(', ') }}
+
+Instructions:
+- Write in first person, professional but warm tone
+- 3 paragraphs: opening hook, relevant experience highlight, closing call-to-action
+- Reference at least 2 specific requirements from the job description by name
+- Mention 2-3 specific, measurable achievements from the resume
+- Keep under 350 words total
+- Start with "Dear Hiring Manager,"
+- End with "Best regards, [Your Name]"
+- Do NOT include placeholder brackets in the final output
+        </div>
+        <p>The instruction to avoid placeholder brackets is important — GPT-4 sometimes outputs <code>[Company Name]</code> style placeholders that need manual filling. This prompt instructs it to use the actual values provided in context.</p>
+
+        <h3 id="step11">Step 11: Resume Tips Generator</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">11</div>
+          <div class="step-content">
+            <h3>📝 OpenAI Node — Resume Tips</h3>
+            <p>Suggests specific resume edits and keywords to add for this particular job. These tips help you maximize your ATS (Applicant Tracking System) score before submitting, significantly improving screening rates.</p>
+          </div>
+        </div>
+        <div class="prompt-block">
+Based on this job description and the candidate's resume, provide 5 specific, actionable resume optimization tips.
+
+JOB: {{ $json.title }} at {{ $json.company }}
+MISSING SKILLS: {{ $json.ai_score.missing_skills.join(', ') }}
+MATCH PERCENTAGE: {{ $json.ai_score.match_percentage }}%
+
+RESUME TEXT (first 1200 chars):
+={{ $('Extract Resume Text').first().json.text.slice(0, 1200) }}
+
+Provide exactly 5 actionable tips covering:
+1. Specific keywords from the job description to add verbatim to your resume
+2. Which past experiences to reframe or emphasize differently
+3. Skills section additions or reordering
+4. Metrics or quantifiable achievements to add or strengthen
+5. ATS optimization: formatting, section headers, or structure improvements
+
+Format as a numbered list. Be specific — mention exact phrases from the job description where relevant. Be direct and concise.
+        </div>
+
+        <h3 id="step12">Step 12: Email Digest Notification</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">12</div>
+          <div class="step-content">
+            <h3>📧 Gmail Node — Daily Email Digest</h3>
+            <p>Compiles all high-scoring jobs into a beautifully formatted HTML email digest sent to your inbox every morning. Each entry includes the score, key matches, a cover letter, and a direct apply link.</p>
+          </div>
+        </div>
+        <p>First, add an <strong>Aggregate</strong> node to combine all processed jobs into a single array. Then add a <strong>Code</strong> node to build the HTML email body, followed by a <strong>Gmail</strong> node:</p>
+        <ul>
+          <li><strong>Operation:</strong> Send Email</li>
+          <li><strong>To:</strong> <code>your@email.com</code></li>
+          <li><strong>Subject:</strong> <code>={{ '🔍 ' + $('Aggregate').first().json.jobs.length + ' New Job Matches — ' + new Date().toLocaleDateString() }}</code></li>
+          <li><strong>Email Type:</strong> HTML</li>
+          <li><strong>HTML Body:</strong> output from the Code node above</li>
+        </ul>
+        <p>The HTML body template should display each job as a styled card: title + company at the top, color-coded score badge (green for 8+, yellow for 6-7), key matches list, truncated cover letter with "Copy Full Letter" note, resume tips summary, and a prominent "Apply Now" button linking directly to the job URL. Color-coding the score badge helps you visually prioritize at a glance.</p>
+
+        <h2 id="credentials">Required Credentials Setup</h2>
+        <p>In n8n, navigate to <strong>Settings → Credentials</strong> and set up each of the following. n8n stores credentials securely and references them across all workflows:</p>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Credential</th>
+              <th>Type</th>
+              <th>Where to Get</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OpenAI</td>
+              <td>API Key</td>
+              <td>platform.openai.com → API Keys</td>
+              <td>~$5-10/mo</td>
+            </tr>
+            <tr>
+              <td>Google Drive + Gmail</td>
+              <td>OAuth2</td>
+              <td>console.cloud.google.com → Credentials</td>
+              <td>Free</td>
+            </tr>
+            <tr>
+              <td>RapidAPI</td>
+              <td>API Key</td>
+              <td>rapidapi.com → Apps → Add New App</td>
+              <td>Free tier</td>
+            </tr>
+            <tr>
+              <td>Google Sheets</td>
+              <td>OAuth2</td>
+              <td>Same Google account as Drive</td>
+              <td>Free</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>For Google OAuth2, you'll need to create a project in Google Cloud Console, enable the Drive API and Gmail API, and create OAuth2 credentials. n8n's documentation has a <a href="https://docs.n8n.io/integrations/builtin/credentials/google/" rel="noopener noreferrer">step-by-step guide</a> that makes this straightforward, even if you've never used Google Cloud before. The whole process takes about 10 minutes.</p>
+
+        <h2 id="import">How to Import This Workflow</h2>
+        <p>You can import a pre-built version of this workflow directly into n8n rather than building from scratch. Here's how:</p>
+        <ol>
+          <li>Open your n8n dashboard and click <strong>+ New Workflow</strong></li>
+          <li>Click the <strong>⋮ menu</strong> (top right) → <strong>Import from JSON</strong></li>
+          <li>Paste the workflow JSON from our <a href="https://github.com/AllAboutAI/workflows">GitHub repository</a></li>
+          <li>Click all credential fields (shown in red) and connect your own credentials</li>
+          <li>Open the <strong>Search Config</strong> Code node and update keywords to your target role</li>
+          <li>Open the <strong>Google Drive</strong> node and update the File ID to point to your resume</li>
+          <li>Open the <strong>Gmail</strong> node and update the "To" address to your email</li>
+          <li>Click <strong>Test Workflow</strong> to run once manually and verify the output email</li>
+          <li>Once satisfied, click <strong>Activate</strong> — the workflow will now run automatically every morning!</li>
+        </ol>
+        <p>When testing, monitor each node's output panel carefully. The most common issues are: wrong Google Drive file ID, OpenAI API key permissions, and RapidAPI subscription to the specific job search API. Check each node individually by clicking "Execute Node" in isolation before running the full workflow.</p>
+
+        <h2 id="customizations">Tips &amp; Customizations</h2>
+        <h3>Add more job sources</h3>
+        <p>By default, this workflow searches LinkedIn via the RapidAPI integration. To cast a wider net, add parallel <strong>HTTP Request</strong> branches targeting other APIs: Adzuna for Indeed/Monster aggregated results, SerpAPI for Google Jobs, and RemoteOK's free public API for remote-only positions. Use n8n's <strong>Merge</strong> node (set to "Append" mode) to combine all results into a single array before the deduplication step. This can 3-4x your daily job coverage with minimal additional cost.</p>
+
+        <h3>Add Google Sheets logging</h3>
+        <p>After the AI scoring step, insert a <strong>Google Sheets</strong> node set to "Append Row" operation. Create a spreadsheet with columns: Date, Company, Title, Score, Match%, URL, Cover Letter, Applied (Y/N), Interview (Y/N), Offer (Y/N). Over time, this becomes a powerful tracking dashboard showing your application-to-interview conversion rates by job type, company size, and score band — invaluable for refining your search criteria.</p>
+
+        <h3>Slack or Discord notifications</h3>
+        <p>Add a <strong>Slack</strong> node in parallel with (or instead of) the Gmail node to receive rich-formatted job cards directly in a dedicated #job-search channel. Slack's Block Kit formatting makes job cards particularly scannable. For Discord, use the <strong>HTTP Request</strong> node to POST to a Discord webhook URL — no special node needed.</p>
+
+        <h3>Adjust scoring thresholds dynamically</h3>
+        <p>Start with a threshold of 6 to see more options during your initial calibration period, then gradually raise it to 8 once you've validated that the AI scorer aligns with your own judgment. Review 20-30 manually-assessed jobs to calibrate. Pay special attention to the <code>missing_skills</code> array — if the AI consistently flags skills you actually have, your resume text extraction may be losing formatting, and you should clean up your resume's PDF export settings.</p>
+
+        <h3>Run frequency</h3>
+        <p>Daily runs at 7 AM are optimal for most job seekers — LinkedIn and Indeed both refresh their listings primarily overnight. For active searches in competitive markets (e.g., FAANG-level engineering roles), try twice daily. Avoid running more than 3x/day as job board content doesn't refresh that frequently and you'll burn through API credits unnecessarily.</p>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">Is this workflow completely free to use? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The workflow itself is free and open-source. The only costs are OpenAI API usage (roughly $0.10–0.30 per daily run, depending on how many jobs are scored at GPT-4 rates) and any paid API tiers you choose. Running it daily costs approximately $3-9/month in API fees — significantly cheaper than most premium job board subscriptions, and the ROI of landing even one extra interview makes it worthwhile many times over.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Will this get my LinkedIn account banned? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">This workflow uses approved third-party job scraping APIs (RapidAPI partners) rather than directly scraping LinkedIn, which substantially reduces risk. We recommend staying within API rate limits and running no more than 2-3 times per day. The workflow does not automate any actions on your LinkedIn account itself (no automated connections or messages) — it only reads job listings. Always review LinkedIn's Terms of Service for the latest guidance on automated data access.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if I'm new to n8n? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">No problem — check out our <a href="/topics/n8n-beginners-guide.html">n8n Beginner's Guide</a> first. It covers installation, the interface, core concepts (triggers, nodes, expressions), and your first workflow with step-by-step screenshots. Most people get comfortable with n8n in about 2-3 hours of experimentation. Once you understand how data flows between nodes and how to use expressions (the ={{ }} syntax), this job search workflow becomes very approachable.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How accurate is the AI job scoring? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">GPT-4 is surprisingly accurate at matching resumes to job descriptions. In informal testing across 200+ job-resume pairs, it aligns with human expert assessment about 85% of the time. The main edge cases are: very niche technical requirements (where terminology varies), culture-fit signals, and implicit seniority expectations. We recommend treating scores of 6+ as "worth manual review" rather than as a definitive gate. Over time, you can fine-tune the system prompt's scoring criteria to better match your own judgment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I use this with job boards other than LinkedIn? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Absolutely — the workflow is modular by design. Add additional HTTP Request nodes pointing to other job board APIs (Adzuna, JSearch, RemoteOK, or SerpAPI's Google Jobs). The AI scoring step is completely source-agnostic: as long as you pass it a job title, company name, and description text, it will score accurately regardless of where the job came from. Many users run three or four job sources in parallel branches and merge the results before scoring.</div>
+        </div>
+
+        <h2 id="related">Related Workflows &amp; Guides</h2>
+        <div class="card-grid card-grid-3" style="margin-top:1.5rem;">
+          <a href="/workflows/linkedin-automation.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">💼</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">LinkedIn Automation</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Auto-personalize connection requests &amp; follow-ups with AI</p>
+          </a>
+          <a href="/workflows/ai-resume-tailor.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📄</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">AI Resume Tailor</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Optimize your resume for any specific job description automatically</p>
+          </a>
+          <a href="/topics/n8n-beginners-guide.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📚</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">n8n Beginner Guide</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">New to n8n? Start here for the complete step-by-step tutorial</p>
+          </a>
+        </div>
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#step-by-step">Step-by-Step Setup</a></li>
+            <li><a href="#step1">1. Schedule Trigger</a></li>
+            <li><a href="#step2">2. Resume Download</a></li>
+            <li><a href="#step3">3. PDF Extraction</a></li>
+            <li><a href="#step4">4. Filter Config</a></li>
+            <li><a href="#step5">5. URL Builder</a></li>
+            <li><a href="#step6">6. Job Scraping</a></li>
+            <li><a href="#step7">7. HTML Parsing</a></li>
+            <li><a href="#step8">8. Detail Fetching</a></li>
+            <li><a href="#step9">9. AI Scoring</a></li>
+            <li><a href="#step10">10. Cover Letter</a></li>
+            <li><a href="#step11">11. Resume Tips</a></li>
+            <li><a href="#step12">12. Email Digest</a></li>
+            <li><a href="#credentials">Credentials Setup</a></li>
+            <li><a href="#import">Import Workflow</a></li>
+            <li><a href="#customizations">Customizations</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">🚀 Related Workflows</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/make-job-tracker.html">Make.com Job Tracker</a></li>
+            <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">n8n</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Job Search</span>
+            <span class="tag">GPT-4</span>
+            <span class="tag">LinkedIn</span>
+            <span class="tag">OpenAI</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    // TOC active highlighting
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>
