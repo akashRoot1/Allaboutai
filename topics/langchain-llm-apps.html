@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LangChain Tutorial: Build LLM-Powered Apps (Complete Guide 2025) | AllAboutAI</title>
+  <meta name="description" content="Build production-ready LLM applications with LangChain: chains, agents, memory, RAG (Retrieval Augmented Generation), vector stores, and deploying to production. Includes Python code examples.">
+  <meta name="keywords" content="LangChain tutorial, LangChain Python, RAG LangChain, LangChain agents, LangChain LCEL, retrieval augmented generation, build LLM app, LangChain 2025, vector store LangChain">
+  <link rel="canonical" href="https://thatai.me/topics/langchain-llm-apps.html">
+  <meta property="og:title" content="LangChain Tutorial: Build LLM-Powered Apps (Complete Guide 2025)">
+  <meta property="og:description" content="Complete LangChain guide with Python code: chains, agents, memory, RAG system with vector stores, and production deployment tips.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/topics/langchain-llm-apps.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LangChain Tutorial 2025 — Build LLM Apps with Python">
+  <meta name="twitter:description" content="Chains, agents, memory, RAG, and production deployment. Complete LangChain guide with working Python code examples.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LangChain Tutorial: Build LLM-Powered Apps (Complete Guide 2025)",
+    "description": "Build production-ready LLM applications with LangChain: chains, agents, memory, RAG, vector stores, and deploying to production. Python code examples throughout.",
+    "image": "https://thatai.me/n8n.png",
+    "author": { "@type": "Person", "name": "Akash" },
+    "publisher": { "@type": "Organization", "name": "AllAboutAI", "url": "https://thatai.me" },
+    "datePublished": "2025-03-20",
+    "dateModified": "2025-03-20",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://thatai.me/topics/langchain-llm-apps.html" }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Topics</a><span class="breadcrumb-sep">›</span>
+          <span>LangChain Guide</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-primary">LangChain</span>
+          <span class="badge badge-purple">Python</span>
+          <span class="badge badge-green">RAG</span>
+        </div>
+        <h1>LangChain Tutorial: Build LLM-Powered Apps</h1>
+        <p>The complete developer guide to LangChain in 2025: LCEL chains, agents with tools, memory systems, and a full RAG application with a vector database — all with working Python code.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 March 20, 2025</span>
+          <span>⏱ 20 min read</span>
+          <span>💻 Code-heavy tutorial</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <p>LangChain is the most widely-used Python framework for building LLM-powered applications. It provides the abstractions, integrations, and tools needed to build everything from a simple Q&amp;A chatbot to a complex multi-agent system that can research, analyze, and generate reports autonomously. As of 2025, LangChain has over 95,000 GitHub stars and is used by thousands of production applications.</p>
+        <p>This guide covers the core concepts you need to be productive with LangChain, with real code you can copy and run. We'll build up to a complete RAG (Retrieval Augmented Generation) system — the most practically valuable architecture for most LLM applications.</p>
+
+        <h2 id="what-is-langchain">What Is LangChain?</h2>
+        <p>LangChain is a framework that simplifies the development of LLM applications by providing:</p>
+        <div class="card-grid card-grid-3" style="margin:2rem 0;">
+          <div class="card" data-animate>
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🔗</div>
+            <h3 style="font-size:1rem;">Composable Chains</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">String together LLM calls, data transformations, and tool calls using LCEL (LangChain Expression Language) — a clean, readable pipe syntax.</p>
+          </div>
+          <div class="card" data-animate>
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🤖</div>
+            <h3 style="font-size:1rem;">Agent Framework</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Build autonomous agents that can use tools (search, code execution, APIs) and reason step-by-step using the ReAct pattern.</p>
+          </div>
+          <div class="card" data-animate>
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🗄️</div>
+            <h3 style="font-size:1rem;">300+ Integrations</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Native connectors for every major LLM provider, vector store, document loader, and tool — so you're not writing boilerplate HTTP calls.</p>
+          </div>
+        </div>
+
+        <h2 id="installation">Installation &amp; Setup</h2>
+        <pre><code># Install core packages
+pip install langchain langchain-openai langchain-community chromadb
+
+# Set your API key
+import os
+os.environ["OPENAI_API_KEY"] = "your-key-here"
+# Or set it in a .env file and use: from dotenv import load_dotenv; load_dotenv()</code></pre>
+        <p>The LangChain package ecosystem is split into modular sub-packages as of v0.2+: <code>langchain</code> (core), <code>langchain-openai</code> (OpenAI-specific), <code>langchain-anthropic</code> (Claude), and <code>langchain-community</code> (community integrations). Install only what you need to keep your dependency footprint small.</p>
+
+        <h2 id="lcel">LCEL: LangChain Expression Language</h2>
+        <p>LCEL is LangChain's modern chain composition syntax using Python's pipe (<code>|</code>) operator. It's the recommended way to build chains and produces cleaner code than the older legacy chain classes.</p>
+        <pre><code>from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+# Initialize the model
+llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
+
+# Create a prompt template
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant that explains technical concepts simply."),
+    ("human", "Explain {concept} as if I'm 12 years old. Keep it under 100 words.")
+])
+
+# Build the chain using LCEL pipe syntax
+chain = prompt | llm | StrOutputParser()
+
+# Invoke the chain
+result = chain.invoke({"concept": "neural networks"})
+print(result)</code></pre>
+        <p>The pipe operator creates a <strong>Runnable</strong> — a composable unit that can be invoked, batched, or streamed. Every component (prompt, model, parser) implements the same interface, making them trivially composable. You can also stream the output character by character:</p>
+        <pre><code># Streaming output (great for chat interfaces)
+for chunk in chain.stream({"concept": "vector databases"}):
+    print(chunk, end="", flush=True)</code></pre>
+
+        <h2 id="memory">Memory: Maintaining Conversation State</h2>
+        <p>By default, LLMs are stateless — each call is independent. LangChain's memory modules add conversation history. The most common pattern in 2025 uses <code>RunnableWithMessageHistory</code>:</p>
+        <pre><code>from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_community.chat_message_histories import ChatMessageHistory
+
+llm = ChatOpenAI(model="gpt-4o")
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful coding assistant."),
+    MessagesPlaceholder(variable_name="history"),  # injects conversation history
+    ("human", "{input}")
+])
+
+chain = prompt | llm | StrOutputParser()
+
+# Store histories per session
+session_store = {}
+
+def get_session_history(session_id: str):
+    if session_id not in session_store:
+        session_store[session_id] = ChatMessageHistory()
+    return session_store[session_id]
+
+# Wrap chain with memory
+chain_with_history = RunnableWithMessageHistory(
+    chain,
+    get_session_history,
+    input_messages_key="input",
+    history_messages_key="history"
+)
+
+# Use the same session_id to maintain context
+config = {"configurable": {"session_id": "user-123"}}
+response1 = chain_with_history.invoke({"input": "What is a decorator in Python?"}, config=config)
+response2 = chain_with_history.invoke({"input": "Can you show me an example?"}, config=config)
+# response2 understands "example" refers to the decorator from response1</code></pre>
+        <p>For production, replace <code>ChatMessageHistory</code> (in-memory, lost on restart) with a persistent backend: <code>RedisChatMessageHistory</code>, <code>DynamoDBChatMessageHistory</code>, or <code>PostgresChatMessageHistory</code>.</p>
+
+        <h2 id="rag">Building a RAG System</h2>
+        <p>Retrieval Augmented Generation (RAG) is the most valuable LangChain pattern for real applications. Instead of relying solely on the LLM's training data, RAG fetches relevant documents from your own data store and includes them in the context before generation. This enables accurate, cited answers over private documents, up-to-date information, and knowledge bases too large for a single context window.</p>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>📥 Document Loading &amp; Chunking</h3>
+            <p>Load your documents and split them into chunks small enough to fit in context. The chunk size / overlap balance matters: larger chunks preserve more context, smaller chunks enable more precise retrieval.</p>
+          </div>
+        </div>
+        <pre><code>from langchain_community.document_loaders import PyPDFLoader, TextLoader, WebBaseLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Load a PDF
+loader = PyPDFLoader("company_handbook.pdf")
+documents = loader.load()
+
+# Load from URL
+web_loader = WebBaseLoader("https://docs.example.com/api-reference")
+web_docs = web_loader.load()
+
+# Split into chunks
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,       # characters per chunk
+    chunk_overlap=200,     # overlap to preserve context across chunks
+    length_function=len,
+    separators=["\n\n", "\n", " ", ""]  # split on paragraphs first, then lines, then words
+)
+chunks = splitter.split_documents(documents)</code></pre>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>🗄️ Vector Store Indexing</h3>
+            <p>Convert document chunks to embeddings (dense numerical vectors) and store them in a vector database. Embeddings capture semantic meaning — chunks about similar topics end up near each other in vector space, enabling semantic search.</p>
+          </div>
+        </div>
+        <pre><code>from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
+
+# Create embeddings using OpenAI's text-embedding-3-small (cost-effective)
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+
+# Create and persist a Chroma vector store
+vectorstore = Chroma.from_documents(
+    documents=chunks,
+    embedding=embeddings,
+    persist_directory="./chroma_db"  # persist to disk
+)
+
+# For subsequent runs, load the existing store:
+# vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
+
+# Create a retriever — finds the top-k most semantically similar chunks
+retriever = vectorstore.as_retriever(
+    search_type="mmr",      # Maximum Marginal Relevance: balances similarity + diversity
+    search_kwargs={"k": 5}  # return 5 most relevant chunks
+)</code></pre>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>🔗 RAG Chain Assembly</h3>
+            <p>Connect the retriever to the LLM using LCEL. The chain retrieves relevant chunks, formats them into a prompt with context, and generates an answer grounded in your documents.</p>
+          </div>
+        </div>
+        <pre><code>from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
+
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+
+rag_prompt = ChatPromptTemplate.from_messages([
+    ("system", """You are a helpful assistant. Answer questions based ONLY on the provided context.
+If the answer isn't in the context, say 'I don't have information about that in the provided documents.'
+Always cite which part of the context your answer comes from.
+
+Context:
+{context}"""),
+    ("human", "{question}")
+])
+
+def format_docs(docs):
+    return "\n\n---\n\n".join(
+        f"Source: {doc.metadata.get('source', 'Unknown')}, Page: {doc.metadata.get('page', 'N/A')}\n{doc.page_content}"
+        for doc in docs
+    )
+
+# Full RAG chain
+rag_chain = (
+    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    | rag_prompt
+    | llm
+    | StrOutputParser()
+)
+
+# Query your documents
+answer = rag_chain.invoke("What is the company's remote work policy?")
+print(answer)</code></pre>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>📊 Evaluation &amp; Improvement</h3>
+            <p>A RAG system is only as good as its retrieval quality. Use LangSmith or a simple manual evaluation loop to measure retrieval precision and answer faithfulness — this catches issues like chunks being too small/large or the wrong embedding model being used.</p>
+          </div>
+        </div>
+        <pre><code># Simple retrieval quality test
+test_questions = [
+    "What is the vacation policy?",
+    "How do I expense travel?",
+    "Who approves performance reviews?"
+]
+
+for question in test_questions:
+    retrieved_docs = retriever.invoke(question)
+    print(f"\nQuestion: {question}")
+    print(f"Top retrieved chunk: {retrieved_docs[0].page_content[:200]}...")
+    print(f"Total chunks retrieved: {len(retrieved_docs)}")
+    # Manually verify: does the top chunk actually contain the answer?</code></pre>
+
+        <h2 id="agents">LangChain Agents</h2>
+        <p>LangChain agents use an LLM to decide which tools to use and in what order, dynamically adapting to the task. The new recommended approach uses <code>create_react_agent</code> from LangGraph:</p>
+        <pre><code>from langchain import hub
+from langchain_openai import ChatOpenAI
+from langchain_community.tools import DuckDuckGoSearchRun
+from langchain_core.tools import tool
+from langgraph.prebuilt import create_react_agent
+
+# Define tools
+search = DuckDuckGoSearchRun()
+
+@tool
+def calculate(expression: str) -> str:
+    """Evaluate a mathematical expression. Input should be a valid Python math expression."""
+    try:
+        return str(eval(expression))
+    except Exception as e:
+        return f"Error: {e}"
+
+tools = [search, calculate]
+
+# Create the agent
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+agent = create_react_agent(llm, tools)
+
+# Run the agent
+response = agent.invoke({
+    "messages": [("human", "What is the current price of NVIDIA stock, and what percentage change is that from $100?")]
+})
+print(response["messages"][-1].content)</code></pre>
+        <p>The agent will autonomously call the search tool to find the current price, then call the calculate tool to compute the percentage — all without you specifying the order of operations.</p>
+
+        <h2 id="comparison">LangChain vs LlamaIndex vs Haystack</h2>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Feature</th><th>LangChain</th><th>LlamaIndex</th><th>Haystack</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Primary strength</td><td>Agent workflows, chains, general-purpose</td><td>Data indexing, RAG</td><td>Enterprise search pipelines</td></tr>
+            <tr><td>RAG support</td><td>✅ Excellent</td><td>✅ Best-in-class</td><td>✅ Good</td></tr>
+            <tr><td>Agent framework</td><td>✅ Excellent (LangGraph)</td><td>✅ Good</td><td>⚠️ Limited</td></tr>
+            <tr><td>Observability</td><td>✅ LangSmith</td><td>✅ LlamaTrace</td><td>✅ Hayhooks</td></tr>
+            <tr><td>Learning curve</td><td>Medium (rapid API changes historically)</td><td>Low-Medium</td><td>High</td></tr>
+            <tr><td>Community &amp; docs</td><td>⭐⭐⭐⭐⭐ Largest</td><td>⭐⭐⭐⭐ Large</td><td>⭐⭐⭐ Good</td></tr>
+            <tr><td>Best for</td><td>Most LLM applications</td><td>Document Q&amp;A, knowledge bases</td><td>Enterprise search, pipelines</td></tr>
+          </tbody>
+        </table>
+        <p><strong>When to use LlamaIndex instead:</strong> If your primary use case is building a Q&amp;A system over documents or a knowledge base, LlamaIndex's data indexing abstractions and query engines are more purpose-built and often easier to get right than LangChain's more general-purpose approach. The two frameworks are not mutually exclusive — you can use LlamaIndex for retrieval and LangChain for chain/agent orchestration.</p>
+
+        <h2 id="production">Production Deployment Tips</h2>
+        <ul>
+          <li><strong>Use LangSmith for observability:</strong> Sign up free at <a href="https://smith.langchain.com" rel="noopener noreferrer">smith.langchain.com</a>. Set <code>LANGCHAIN_TRACING_V2=true</code> and <code>LANGCHAIN_API_KEY</code> in your environment — every chain invocation is automatically logged with full input/output traces, latency, and token usage. Essential for debugging production issues.</li>
+          <li><strong>Cache LLM responses:</strong> Use <code>InMemoryCache</code> (development) or <code>RedisCache</code> (production) to cache identical LLM calls. Semantic caching (via <code>GPTCache</code>) can cache semantically similar questions. Reduces latency and API costs dramatically for high-traffic Q&amp;A applications.</li>
+          <li><strong>Stream responses to users:</strong> Always use <code>chain.astream()</code> in async web frameworks (FastAPI, Django async) for chat interfaces. Users experience first-token latency instead of waiting for the full response — dramatically better UX.</li>
+          <li><strong>Separate indexing from retrieval:</strong> Run document ingestion (loading, chunking, embedding, storing) as an offline batch job, not inline with user requests. Indexing is slow and expensive; retrieval should be fast (&lt;200ms). Use a dedicated ingestion pipeline that updates the vector store independently.</li>
+          <li><strong>Pin your LangChain version:</strong> LangChain has historically made breaking changes between minor versions. Always pin exact versions in your requirements.txt (<code>langchain==0.2.16</code>) and test before upgrading in production.</li>
+        </ul>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">Do I need LangChain or can I just use the OpenAI SDK directly? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">For simple applications (one or two LLM calls, no retrieval), the OpenAI SDK directly is perfectly fine and has less overhead. LangChain's value grows with application complexity: if you need multiple models, RAG, agents, memory management, or complex chain logic, LangChain's abstractions save significant development time. The rule of thumb: start with the raw SDK, switch to LangChain when you find yourself re-implementing the same patterns.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Which vector database should I use with LangChain? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">For local development: <strong>Chroma</strong> (open-source, runs in-process, great DX). For small-medium production: <strong>Pinecone</strong> (managed, fast, excellent LangChain integration) or <strong>Weaviate</strong> (open-source, self-hostable). For large-scale enterprise: <strong>Qdrant</strong> (high performance, Rust-based) or <strong>pgvector</strong> (if you're already on PostgreSQL). If you're already using Supabase or PostgreSQL, pgvector is often the simplest production choice.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is LCEL and should I use it over the old chain classes? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">LangChain Expression Language (LCEL) is the modern, recommended way to build chains using Python's pipe operator. It replaces older classes like LLMChain, ConversationalRetrievalChain, etc. Yes, you should use LCEL for all new code — it's cleaner, more composable, supports streaming out of the box, and is what LangChain's team actively develops. Legacy chain classes are deprecated but still work for backward compatibility.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I improve RAG answer quality? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The most impactful improvements: (1) <strong>Better chunking</strong> — use semantic chunking or adjust chunk size for your content type; (2) <strong>Hybrid search</strong> — combine vector search with keyword (BM25) search using <code>EnsembleRetriever</code>; (3) <strong>Re-ranking</strong> — use Cohere's Rerank API to re-score retrieved chunks before passing to the LLM; (4) <strong>Query expansion</strong> — use an LLM to generate multiple versions of the user's question and retrieve for each; (5) <strong>Metadata filtering</strong> — add filters to restrict retrieval to relevant document sections.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What's the relationship between LangChain and LangGraph? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">LangGraph is LangChain's separate library for building stateful, multi-step agent workflows as directed graphs. While LangChain (LCEL) handles linear chains well, LangGraph is designed for more complex flows: agents with loops, parallel branches, human-in-the-loop approvals, and multi-agent coordination. Think of LangChain as the foundation and LangGraph as the orchestration layer on top. For complex agents in 2025, LangGraph is the recommended approach within the LangChain ecosystem.</div>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#what-is-langchain">What Is LangChain?</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#lcel">LCEL Chains</a></li>
+            <li><a href="#memory">Memory</a></li>
+            <li><a href="#rag">Building a RAG System</a></li>
+            <li><a href="#agents">LangChain Agents</a></li>
+            <li><a href="#comparison">LangChain vs LlamaIndex</a></li>
+            <li><a href="#production">Production Tips</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">📚 Related Topics</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+            <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">LangChain</span>
+            <span class="tag">Python</span>
+            <span class="tag">RAG</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Vector DB</span>
+            <span class="tag">AI Agents</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>

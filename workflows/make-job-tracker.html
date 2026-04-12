@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Free Job Application Tracker with Make.com + Google Sheets (2025 Guide) | AllAboutAI</title>
+  <meta name="description" content="Automate your job application tracking with Make.com: auto-log applications from email, update statuses, send follow-up reminders, and visualize your pipeline in Google Sheets — completely free.">
+  <meta name="keywords" content="Make.com job tracker, job application tracker automation, Integromat job search, Google Sheets job tracker, job application spreadsheet, Make.com tutorial 2025">
+  <link rel="canonical" href="https://thatai.me/workflows/make-job-tracker.html">
+  <meta property="og:title" content="Build a Free Job Application Tracker with Make.com + Google Sheets (2025 Guide)">
+  <meta property="og:description" content="Automate your job application pipeline with Make.com: auto-log from Gmail, detect interview/rejection emails, set follow-up reminders, and get weekly digests.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/workflows/make-job-tracker.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Job Application Tracker with Make.com + Google Sheets (2025)">
+  <meta name="twitter:description" content="Auto-track every job application from Gmail to Google Sheets with Make.com. Detects interviews, rejections, and sends follow-up reminders.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Build a Free Job Application Tracker with Make.com + Google Sheets (2025 Guide)",
+    "description": "Automate your job application tracking with Make.com: auto-log applications from email, update statuses, send follow-up reminders, and visualize your pipeline in Google Sheets.",
+    "image": "https://thatai.me/n8n.png",
+    "author": { "@type": "Person", "name": "Akash" },
+    "publisher": { "@type": "Organization", "name": "AllAboutAI", "url": "https://thatai.me" },
+    "datePublished": "2025-03-01",
+    "dateModified": "2025-03-01",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://thatai.me/workflows/make-job-tracker.html" }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Blog</a><span class="breadcrumb-sep">›</span>
+          <span>Make.com Job Tracker</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-orange">Make.com</span>
+          <span class="badge badge-green">Google Sheets</span>
+          <span class="badge badge-primary">Gmail</span>
+        </div>
+        <h1>Build a Free Job Application Tracker with Make.com + Google Sheets</h1>
+        <p>Automate your entire job application pipeline: auto-log applications from Gmail, detect interview invites and rejections, schedule follow-up reminders, and get weekly progress digests — all free.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 March 1, 2025</span>
+          <span>⏱ 10 min read</span>
+          <span>🔔 Free tier friendly</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <p>Keeping track of job applications is surprisingly hard. By week three of an active job search, most people have applications scattered across browser tabs, email threads, LinkedIn messages, and sticky notes. You forget who you followed up with, miss interview scheduling windows, and lose track of which version of your resume you sent where.</p>
+        <p>This Make.com scenario (formerly Integromat) solves that completely. It monitors your Gmail for job-related emails, automatically logs applications to a Google Sheet, detects status changes like interview invites and rejections, sets reminder follow-ups, and emails you a weekly pipeline summary — all without you lifting a finger after the initial setup.</p>
+
+        <div class="card" style="margin:2rem 0;background:rgba(102,126,234,0.1);border-color:rgba(102,126,234,0.3);">
+          <h3 style="margin-top:0;">⚡ What You'll Build</h3>
+          <ul>
+            <li>✅ Automatic logging of job applications from Gmail to Google Sheets</li>
+            <li>✅ AI classifier that identifies job-related emails vs. spam/newsletters</li>
+            <li>✅ Smart data extractor (company, role, date, hiring manager)</li>
+            <li>✅ Status detection — automatically marks Interview, Offer, Rejected</li>
+            <li>✅ Follow-up reminder scheduler (7-day nudge if no response)</li>
+            <li>✅ Weekly digest email with pipeline stats and pending actions</li>
+          </ul>
+        </div>
+
+        <h2 id="why-make">Why Make.com for This?</h2>
+        <p>Make.com's visual drag-and-drop interface makes building multi-step automations especially intuitive. Unlike n8n (which requires more setup) or Zapier (which gets expensive quickly), Make.com's free tier includes 1,000 operations/month — easily enough to monitor an active job search. The scenario builder's routing and filtering capabilities are particularly powerful for the email classification logic this workflow relies on.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>Feature</th><th>Make.com</th><th>n8n</th><th>Zapier</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Free tier</td><td>1,000 ops/month</td><td>Free self-hosted</td><td>100 tasks/month</td></tr>
+            <tr><td>Visual builder</td><td>✅ Excellent</td><td>✅ Good</td><td>✅ Simple</td></tr>
+            <tr><td>Conditional routing</td><td>✅ Native</td><td>✅ Native</td><td>⚠️ Limited (paid)</td></tr>
+            <tr><td>AI/OpenAI module</td><td>✅ Built-in</td><td>✅ Built-in</td><td>✅ ChatGPT action</td></tr>
+            <tr><td>Learning curve</td><td>Low</td><td>Medium</td><td>Very Low</td></tr>
+            <tr><td>Self-hosting</td><td>❌</td><td>✅</td><td>❌</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="prerequisites">Prerequisites</h2>
+        <ul>
+          <li><strong>Make.com account</strong>: Sign up free at <a href="https://make.com" rel="noopener noreferrer">make.com</a></li>
+          <li><strong>Gmail account</strong>: The email you use for job applications</li>
+          <li><strong>Google Sheets</strong>: Will be created automatically by the scenario</li>
+          <li><strong>OpenAI API key</strong> (optional): For the AI email classifier; you can use keyword matching as a free alternative</li>
+        </ul>
+
+        <h2 id="setup-sheet">Set Up Your Tracking Spreadsheet</h2>
+        <p>Before building the scenario, create a Google Sheet named <strong>"Job Applications 2025"</strong> with these column headers in row 1:</p>
+        <pre><code>A: Date Applied
+B: Company
+C: Job Title
+D: Location
+E: Status
+F: Email Subject
+G: Hiring Manager
+H: Application URL
+I: Resume Version
+J: Follow-up Date
+K: Notes
+L: Email Thread ID</code></pre>
+        <p>Column L (Email Thread ID) is crucial — it lets the scenario match future emails about the same job to the original application row, avoiding duplicates when you receive interview invites or rejections weeks later.</p>
+
+        <h2 id="step-by-step">Step-by-Step Scenario Setup</h2>
+        <p>In Make.com, click <strong>Create a new scenario</strong>. Add each module below in sequence.</p>
+
+        <h3 id="step1">Step 1: Gmail Watch Trigger</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>📬 Gmail — Watch Emails</h3>
+            <p>Monitors your Gmail inbox for new emails every 15 minutes. Only passes emails to the next module if they match a broad initial filter, reducing unnecessary processing of unrelated messages.</p>
+          </div>
+        </div>
+        <p>Add the <strong>Gmail → Watch Emails</strong> module:</p>
+        <ul>
+          <li><strong>Connection:</strong> Connect your Gmail account (OAuth2)</li>
+          <li><strong>Folder:</strong> INBOX</li>
+          <li><strong>Criteria:</strong> All mail (the classifier in the next step handles filtering)</li>
+          <li><strong>Maximum number of emails:</strong> 10 (per 15-minute check)</li>
+          <li><strong>Mark as read:</strong> No (don't interfere with your normal email workflow)</li>
+        </ul>
+
+        <h3 id="step2">Step 2: AI Email Classifier</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>🤖 OpenAI — Classify Email Type</h3>
+            <p>Uses GPT to determine if the email is job-related and, if so, what type: new application confirmation, interview invite, rejection, offer, or other. This structured output drives all the routing in subsequent steps.</p>
+          </div>
+        </div>
+        <p>Add the <strong>OpenAI → Create a Completion</strong> module:</p>
+        <div class="prompt-block">
+Classify this email and return ONLY valid JSON:
+
+EMAIL SUBJECT: {{1.subject}}
+EMAIL FROM: {{1.from}}
+EMAIL SNIPPET: {{left(1.text; 800)}}
+
+Return this exact JSON format:
+{
+  "is_job_related": true,
+  "email_type": "application_confirmation",
+  "company": "Acme Corp",
+  "job_title": "Software Engineer",
+  "hiring_manager": "Jane Smith",
+  "confidence": 0.95
+}
+
+email_type must be one of: application_confirmation, interview_invite, rejection, offer, follow_up_needed, not_job_related
+
+If not job related, set is_job_related to false and use null for other fields.
+        </div>
+        <p>After this module, add a <strong>Router</strong> to split the flow based on the classification result.</p>
+
+        <h3 id="step3">Step 3: Data Extractor</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>🔧 JSON Parser + Text Parser — Extract Structured Data</h3>
+            <p>Parses the OpenAI JSON response and extracts individual fields for use in the Google Sheets module. Also calculates the follow-up reminder date as 7 days from today.</p>
+          </div>
+        </div>
+        <p>Add a <strong>JSON → Parse JSON</strong> module to deserialize the OpenAI response, then use Make.com's built-in functions to compute derived values:</p>
+        <pre><code>// In the Google Sheets "Add a Row" module, use these mapped expressions:
+Date Applied:     {{formatDate(now; "YYYY-MM-DD")}}
+Company:          {{3.company}}         // from parsed JSON
+Job Title:        {{3.job_title}}
+Location:         extracted via regex from email body
+Status:           {{if(3.email_type = "application_confirmation"; "Applied"; "Unknown")}}
+Email Subject:    {{1.subject}}
+Hiring Manager:   {{3.hiring_manager}}
+Follow-up Date:   {{formatDate(addDays(now; 7); "YYYY-MM-DD")}}
+Email Thread ID:  {{1.threadId}}</code></pre>
+
+        <h3 id="step4">Step 4: Google Sheets Row Appender</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>📊 Google Sheets — Add a Row</h3>
+            <p>Writes the new application to your tracking spreadsheet. Only runs for new applications — not for interview/rejection updates, which are handled by the Status Updater module in the next route.</p>
+          </div>
+        </div>
+        <p>This module is in the "New Application" route of your router. Configure it:</p>
+        <ul>
+          <li><strong>Spreadsheet:</strong> Select your "Job Applications 2025" sheet</li>
+          <li><strong>Sheet:</strong> Sheet1</li>
+          <li><strong>Table contains headers:</strong> Yes</li>
+          <li>Map each column to the extracted values from Step 3</li>
+        </ul>
+        <p>Add a <strong>Filter</strong> before this module: <code>{{3.is_job_related}} = true</code> AND <code>{{3.email_type}} = application_confirmation</code>. This ensures only confirmed new applications create new rows — not every job-related email.</p>
+
+        <h3 id="step5">Step 5: Status Updater</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>🔄 Google Sheets — Update Existing Row</h3>
+            <p>When an interview invite, rejection, or offer email arrives, this module finds the matching row in your sheet by Thread ID and updates its Status column. This keeps your single tracking row per application accurate through the entire lifecycle.</p>
+          </div>
+        </div>
+        <p>This module is in a separate route for interview/rejection/offer emails. It uses <strong>Google Sheets → Search Rows</strong> first to find the matching row by Thread ID, then <strong>Update a Row</strong>:</p>
+        <ul>
+          <li><strong>Search column:</strong> L (Email Thread ID)</li>
+          <li><strong>Search value:</strong> <code>{{1.threadId}}</code></li>
+          <li><strong>Update — Status column:</strong> <code>{{if(3.email_type = "interview_invite"; "Interview Scheduled"; if(3.email_type = "rejection"; "Rejected"; if(3.email_type = "offer"; "Offer Received"; "Follow-up Needed")))}}</code></li>
+        </ul>
+
+        <h3 id="step6">Step 6: Follow-up Reminder Scheduler</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>⏰ Scheduled Check — Follow-up Nudge</h3>
+            <p>A separate scenario (or a second route triggered on a daily schedule) that scans the sheet for applications where the Follow-up Date has passed and status is still "Applied." Sends a reminder email for each one.</p>
+          </div>
+        </div>
+        <p>Create a <strong>second scenario</strong> with a <strong>Schedule</strong> trigger (runs daily at 9 AM):</p>
+        <ol>
+          <li><strong>Google Sheets → Get Rows</strong>: Filter where column J (Follow-up Date) ≤ today AND column E (Status) = "Applied"</li>
+          <li><strong>Iterator</strong>: Process each overdue application one at a time</li>
+          <li><strong>Gmail → Send an Email</strong>: Send yourself a reminder with the company name, role, and a suggested follow-up message template</li>
+          <li><strong>Google Sheets → Update a Row</strong>: Push the Follow-up Date forward by 7 more days so you get reminded again if still no response</li>
+        </ol>
+        <div class="prompt-block">
+// Gmail reminder subject and body template:
+Subject: ⏰ Follow up with {{company}} — {{job_title}}
+
+Body:
+Hi, it's been 7 days since you applied to {{job_title}} at {{company}}.
+
+Consider sending a follow-up email to express continued interest.
+
+Here's a template:
+---
+Subject: Following Up — {{job_title}} Application
+
+Dear Hiring Team,
+
+I wanted to follow up on my application for the {{job_title}} position submitted on {{date_applied}}.
+I'm very enthusiastic about this opportunity and would love to learn about next steps.
+
+Thank you for your time,
+[Your Name]
+---
+
+Update status: {{google_sheets_link}}
+        </div>
+
+        <h3 id="step7">Step 7: Weekly Digest Email</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>📈 Weekly Summary — Pipeline Stats</h3>
+            <p>A third scenario triggered every Monday morning that reads your entire tracking sheet, calculates pipeline stats, and emails you a formatted weekly progress report. Gives you a clear view of your job search momentum.</p>
+          </div>
+        </div>
+        <p>Create a third scenario with a <strong>Schedule</strong> trigger (every Monday at 8 AM):</p>
+        <ol>
+          <li><strong>Google Sheets → Get All Rows</strong>: Fetch all application rows</li>
+          <li><strong>Aggregator</strong>: Count rows by status value (Applied, Interview, Rejected, Offer)</li>
+          <li><strong>Gmail → Send an Email</strong>: Send the weekly digest</li>
+        </ol>
+        <p>The digest email should show: total applications, active pipeline (Applied + Interview Scheduled), interview rate (Interviews ÷ Total Applied), and a list of applications with upcoming follow-up dates this week. This weekly review is also a great time to update any statuses you changed manually (e.g., applications you withdrew).</p>
+
+        <h2 id="tips">Tips &amp; Customizations</h2>
+        <h3>Label job emails in Gmail first</h3>
+        <p>Create a Gmail label called "Job Search" and set up a Gmail filter that labels any email from common job boards (linkedin.com, indeed.com, glassdoor.com, greenhouse.io, lever.co, workday.com) with this label. Then set your Make.com Watch trigger to only monitor emails with this label instead of your entire inbox — this cuts processing by 90% and reduces false positives dramatically.</p>
+        <h3>Add a Slack notification</h3>
+        <p>Replace or supplement the Gmail reminder with a <strong>Slack</strong> module that posts interview invites and follow-up reminders directly to a dedicated #job-search Slack channel. Seeing a Slack ping is often more actionable than another email in an already-crowded inbox.</p>
+        <h3>Connect to a Notion database</h3>
+        <p>If you use Notion, swap the Google Sheets modules for <strong>Notion → Create a Database Item</strong>. Notion's gallery view makes for a much more visual application pipeline, and you can add custom properties like interview notes, company research, and salary expectations per application.</p>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">Does this work if I apply directly on company websites (not by email)? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The email-triggered flow only catches applications where you receive a confirmation email. For applications via company portals that don't send confirmations, you'll need to manually add them to the sheet (or use a browser extension like <a href="https://www.huntr.co" rel="noopener noreferrer">Huntr</a> to capture them). Consider using the webhook trigger as a second input: a simple mobile shortcut that lets you log applications manually with one tap.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I avoid counting automated rejection emails as new applications? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The AI classifier identifies email types independently — a rejection email gets classified as "rejection" not "application_confirmation," so it routes to the Status Updater path, not the New Row path. If you're not using the AI classifier and relying on keyword matching instead, add a negative filter: only create new rows if the subject does NOT contain "unfortunately," "not moving forward," "other candidates," or similar rejection phrases.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Will this work within Make.com's free tier? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes — an active job search with ~10 applications per week and daily follow-up checks uses approximately 300-500 Make operations per month, well within the 1,000 free limit. If you skip the OpenAI classifier and use keyword-based routing instead (free), you can run this entirely for $0/month. The OpenAI API calls add roughly $0.01-0.03 per email classified.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I track referrals and LinkedIn applications separately? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes — add a "Source" column to your Google Sheet and extract the source from the email sender domain or subject line. LinkedIn application emails come from jobs-noreply@linkedin.com, Indeed from no-reply@indeed.com. You can add a function in Make.com that checks the sender domain and writes the source automatically. This lets you later analyze which source has the best interview conversion rate.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I handle applications I'm no longer interested in? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Manually update the Status column in your sheet to "Withdrawn" and clear the Follow-up Date. The follow-up reminder scenario filters by Status = "Applied" only, so withdrawn applications won't generate reminders. You can also add a column for "Priority" (High/Medium/Low) and only send reminders for High priority applications to reduce noise.</div>
+        </div>
+
+        <h2 id="related">Related Workflows &amp; Guides</h2>
+        <div class="card-grid card-grid-3" style="margin-top:1.5rem;">
+          <a href="/workflows/zapier-job-alerts.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🔔</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">Zapier Job Alerts</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Get instant Slack/email alerts for new matching jobs from multiple boards</p>
+          </a>
+          <a href="/workflows/n8n-job-search-automation.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🔍</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">n8n Job Search</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Automate job scraping, AI scoring, and daily email digests with n8n</p>
+          </a>
+          <a href="/topics/chatgpt-job-search.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">💬</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">ChatGPT Job Search</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">25 prompts for follow-up emails, thank you notes, and negotiation scripts</p>
+          </a>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#why-make">Why Make.com?</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#setup-sheet">Spreadsheet Setup</a></li>
+            <li><a href="#step-by-step">Step-by-Step Setup</a></li>
+            <li><a href="#step1">1. Gmail Watch Trigger</a></li>
+            <li><a href="#step2">2. AI Email Classifier</a></li>
+            <li><a href="#step3">3. Data Extractor</a></li>
+            <li><a href="#step4">4. Sheets Row Appender</a></li>
+            <li><a href="#step5">5. Status Updater</a></li>
+            <li><a href="#step6">6. Follow-up Reminder</a></li>
+            <li><a href="#step7">7. Weekly Digest</a></li>
+            <li><a href="#tips">Tips &amp; Customizations</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">🚀 Related Workflows</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+            <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">Make.com</span>
+            <span class="tag">Google Sheets</span>
+            <span class="tag">Gmail</span>
+            <span class="tag">Job Tracker</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Free</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>

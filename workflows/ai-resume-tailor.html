@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Tailor: Auto-Customize Your Resume for Any Job with n8n + GPT-4 (2025) | AllAboutAI</title>
+  <meta name="description" content="Build an n8n workflow that reads a job description, analyzes your resume, and outputs a tailored version with matching keywords, rephrased bullet points, and ATS optimization — automatically.">
+  <meta name="keywords" content="AI resume tailor, n8n resume workflow, GPT-4 resume optimizer, ATS resume optimization, resume customization automation, n8n GPT-4 tutorial 2025">
+  <link rel="canonical" href="https://thatai.me/workflows/ai-resume-tailor.html">
+  <meta property="og:title" content="AI Resume Tailor: Auto-Customize Your Resume for Any Job with n8n + GPT-4 (2025)">
+  <meta property="og:description" content="Build an n8n workflow that reads a job description, analyzes your resume, and outputs a tailored version with ATS-optimized keywords automatically.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/workflows/ai-resume-tailor.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Resume Tailor with n8n + GPT-4 (2025)">
+  <meta name="twitter:description" content="Auto-customize your resume for any job description using n8n and GPT-4. Step-by-step guide with prompts included.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Resume Tailor: Auto-Customize Your Resume for Any Job with n8n + GPT-4 (2025)",
+    "description": "Build an n8n workflow that reads a job description, analyzes your resume, and outputs a tailored version with matching keywords, rephrased bullet points, and ATS optimization.",
+    "image": "https://thatai.me/n8n.png",
+    "author": { "@type": "Person", "name": "Akash" },
+    "publisher": { "@type": "Organization", "name": "AllAboutAI", "url": "https://thatai.me" },
+    "datePublished": "2025-02-20",
+    "dateModified": "2025-02-20",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://thatai.me/workflows/ai-resume-tailor.html" }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Blog</a><span class="breadcrumb-sep">›</span>
+          <span>AI Resume Tailor</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-primary">n8n</span>
+          <span class="badge badge-purple">GPT-4</span>
+          <span class="badge badge-green">ATS Optimizer</span>
+        </div>
+        <h1>AI Resume Tailor: Auto-Customize Your Resume for Any Job</h1>
+        <p>Build an 8-step n8n workflow that analyzes any job description, rewrites your resume bullet points to match, and optimizes for ATS keyword scoring — all on demand in under 60 seconds.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 February 20, 2025</span>
+          <span>⏱ 12 min read</span>
+          <span>🔄 Updated 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <p>Most job seekers send the same generic resume to every application. Recruiters can tell immediately — and so can ATS systems, which quietly reject resumes that don't match the job description's exact keyword patterns. The fix is tailoring your resume for each role, but who has time to rewrite bullet points for every application?</p>
+        <p>This n8n workflow automates the entire tailoring process. You paste in a job description (or send it via webhook), and within a minute you get back a GPT-4-rewritten version of your resume with matched keywords, rephrased bullet points that mirror the job's language, a gap analysis, and an ATS score estimate. No more manual rewriting — just review, approve, and apply.</p>
+
+        <div class="card" style="margin:2rem 0;background:rgba(102,126,234,0.1);border-color:rgba(102,126,234,0.3);">
+          <h3 style="margin-top:0;">⚡ What You'll Build</h3>
+          <ul>
+            <li>✅ On-demand resume tailoring triggered by webhook or manual run</li>
+            <li>✅ Automatic job description parsing and requirements extraction</li>
+            <li>✅ GPT-4 gap analysis: what you have vs. what the job needs</li>
+            <li>✅ Intelligent bullet point rewriter matching the job's language</li>
+            <li>✅ ATS keyword injection and skills section optimization</li>
+            <li>✅ Tailored resume saved to Google Drive + emailed to you</li>
+          </ul>
+        </div>
+
+        <h2 id="prerequisites">Prerequisites</h2>
+        <p>You'll need these accounts before building. All have free tiers that are more than sufficient for personal use:</p>
+        <ul>
+          <li><strong>n8n account</strong>: Free cloud at <a href="https://n8n.io" rel="noopener noreferrer">n8n.io</a> or self-hosted</li>
+          <li><strong>OpenAI API key</strong>: From <a href="https://platform.openai.com" rel="noopener noreferrer">platform.openai.com</a> (~$0.05 per resume tailoring run with GPT-4o)</li>
+          <li><strong>Google Drive + Gmail</strong>: For storing your base resume and emailing results</li>
+          <li><strong>Your resume as a PDF</strong>: Uploaded to Google Drive with text-based (not scanned) content</li>
+        </ul>
+
+        <h2 id="how-it-works">How the Workflow Works</h2>
+        <p>The workflow is triggered on demand — either manually in n8n or via a webhook you can call from a browser bookmark or Zapier. Here's the 8-step pipeline:</p>
+        <ol>
+          <li><strong>Webhook / Manual Trigger</strong> → receives the job description text</li>
+          <li><strong>Job Description Parser</strong> → extracts structured requirements from raw text</li>
+          <li><strong>Resume Download</strong> → fetches your base resume PDF from Google Drive</li>
+          <li><strong>PDF Text Extractor</strong> → converts PDF binary to plain text</li>
+          <li><strong>AI Gap Analyzer</strong> → GPT-4 identifies missing keywords and experience gaps</li>
+          <li><strong>AI Resume Rewriter</strong> → GPT-4 rewrites bullet points to match job language</li>
+          <li><strong>ATS Keyword Optimizer</strong> → injects missing keywords into skills/summary sections</li>
+          <li><strong>Save &amp; Email</strong> → saves tailored resume to Drive and emails it to you</li>
+        </ol>
+
+        <h2 id="step-by-step">Step-by-Step Workflow Setup</h2>
+        <p>Open your n8n workspace and create a new workflow named "AI Resume Tailor." Add each node below in sequence.</p>
+
+        <h3 id="step1">Step 1: Webhook Trigger</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>🔗 Webhook Node — Receive Job Description</h3>
+            <p>Creates an HTTP endpoint you can call from anywhere — a browser extension, Zapier, or a simple curl command — to kick off the tailoring process with a job description payload.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Webhook</strong> node and configure:</p>
+        <ul>
+          <li><strong>HTTP Method:</strong> POST</li>
+          <li><strong>Path:</strong> <code>tailor-resume</code></li>
+          <li><strong>Response Mode:</strong> Last Node (returns the tailored output)</li>
+          <li><strong>Authentication:</strong> Header Auth with a secret token (optional but recommended)</li>
+        </ul>
+        <p>The webhook URL will be: <code>https://your-n8n-instance.com/webhook/tailor-resume</code>. You'll POST a JSON body like <code>{"job_description": "We are looking for a Senior Python Engineer..."}</code> to trigger the workflow. During development, use the <strong>Manual Trigger</strong> node instead and hardcode a sample job description in a Code node immediately after it.</p>
+        <p><strong>Pro tip:</strong> Create a browser bookmarklet that captures selected text from a job posting page and POSTs it to your webhook URL. One click on any job listing instantly starts the tailoring process.</p>
+
+        <h3 id="step2">Step 2: Job Description Parser</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>🔧 Code Node — Parse Job Requirements</h3>
+            <p>Cleans the raw job description text and prepares it for the AI nodes. Handles common formatting issues like extra whitespace, HTML artifacts, and emoji characters that could confuse the language model.</p>
+          </div>
+        </div>
+        <pre><code>const rawJD = $input.first().json.body?.job_description
+  || $input.first().json.job_description
+  || '';
+
+// Clean up the text
+const cleaned = rawJD
+  .replace(/&amp;/g, '&')
+  .replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>')
+  .replace(/\s{3,}/g, '\n\n')
+  .trim();
+
+if (!cleaned || cleaned.length < 50) {
+  throw new Error('Job description too short or missing. Please provide at least 50 characters.');
+}
+
+return [{ json: {
+  job_description: cleaned,
+  jd_length: cleaned.length,
+  timestamp: new Date().toISOString()
+}}];</code></pre>
+
+        <h3 id="step3">Step 3: Resume Download from Google Drive</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>📥 Google Drive Node — Fetch Base Resume</h3>
+            <p>Downloads your master resume PDF from Google Drive. Using Drive as the source means any manual updates you make to your resume are instantly picked up on the next run — no workflow changes needed.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Google Drive</strong> node:</p>
+        <ul>
+          <li><strong>Operation:</strong> Download File</li>
+          <li><strong>File ID:</strong> The ID from your resume's Google Drive URL</li>
+          <li><strong>Credentials:</strong> OAuth2 (connect your Google account)</li>
+        </ul>
+        <p>Keep a single "master resume" in Drive — your most complete, unedited version with all experience. This workflow always tailors a fresh copy of the master, so you never accidentally overwrite your original.</p>
+
+        <h3 id="step4">Step 4: PDF Text Extraction</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>📄 Extract from File Node — PDF to Text</h3>
+            <p>Converts the binary PDF data into plain text that the AI can read and analyze. The quality of this extraction directly affects tailoring quality — a well-formatted PDF produces much better results.</p>
+          </div>
+        </div>
+        <p>Add an <strong>Extract from File</strong> node:</p>
+        <ul>
+          <li><strong>Operation:</strong> Extract Text from PDF</li>
+          <li><strong>Binary Property:</strong> <code>data</code></li>
+        </ul>
+        <p>After extracting, the output JSON will have a <code>text</code> field with your full resume content. Verify the extraction preserves your formatting reasonably well — section headers, job titles, dates, and bullet points should all be readable. If your PDF was created from a scanned document, the text will be garbled; re-export from Word/Google Docs to create a proper text-based PDF.</p>
+
+        <h3 id="step5">Step 5: AI Gap Analysis</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>🤖 OpenAI Node — Gap Analyzer</h3>
+            <p>The first AI pass. GPT-4 reads both your resume and the job description, then produces a structured gap analysis: which required skills you already demonstrate, which are missing, which experiences should be emphasized, and what the ATS keyword density looks like.</p>
+          </div>
+        </div>
+        <p>Add an <strong>OpenAI</strong> node:</p>
+        <ul>
+          <li><strong>Model:</strong> gpt-4o (faster and cheaper than gpt-4-turbo, same quality for this task)</li>
+          <li><strong>Max Tokens:</strong> 1000</li>
+          <li><strong>Temperature:</strong> 0.2 (analytical, consistent output)</li>
+        </ul>
+        <p><strong>System prompt:</strong></p>
+        <div class="prompt-block">
+You are an expert resume analyst and ATS optimization specialist. Your job is to analyze a candidate's resume against a job description and produce a detailed gap analysis.
+
+Return ONLY valid JSON in this exact format:
+{
+  "match_score": 72,
+  "present_keywords": ["Python", "REST APIs", "PostgreSQL", "Agile"],
+  "missing_keywords": ["Kubernetes", "Terraform", "AWS Lambda", "CI/CD"],
+  "weak_sections": ["Summary statement too generic", "Skills section missing cloud tools"],
+  "strong_sections": ["4 years Python experience clearly shown", "Open source contributions listed"],
+  "bullets_to_rewrite": [
+    {
+      "original": "Worked on backend systems",
+      "reason": "Too vague — job requires specific Python microservices experience"
+    }
+  ],
+  "recommended_emphasis": ["FastAPI projects", "database performance work", "any AWS or GCP usage"],
+  "ats_risk": "medium"
+}
+        </div>
+        <p><strong>User message:</strong></p>
+        <div class="prompt-block">
+RESUME:
+={{ $('Extract from File').first().json.text }}
+
+JOB DESCRIPTION:
+={{ $('Job Description Parser').first().json.job_description }}
+
+Analyze the match and return JSON only.
+        </div>
+
+        <h3 id="step6">Step 6: AI Resume Rewriter</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>✍️ OpenAI Node — Resume Rewriter</h3>
+            <p>The core transformation step. GPT-4 rewrites your resume using the gap analysis from Step 5 as instructions. It preserves all factual information while rephrasing bullet points to mirror the job description's language and emphasizing the most relevant experiences.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Code</strong> node first to parse the gap analysis JSON, then another <strong>OpenAI</strong> node:</p>
+        <pre><code>// Parse gap analysis from previous node
+const raw = $input.first().json.message?.content || $input.first().json.choices?.[0]?.message?.content || '';
+let gap;
+try {
+  gap = JSON.parse(raw);
+} catch(e) {
+  // If JSON parse fails, extract what we can
+  gap = { missing_keywords: [], bullets_to_rewrite: [], recommended_emphasis: [] };
+}
+return [{ json: { gap_analysis: gap, raw_gap: raw } }];</code></pre>
+        <p>Then add the <strong>Rewriter OpenAI</strong> node:</p>
+        <ul>
+          <li><strong>Model:</strong> gpt-4o</li>
+          <li><strong>Max Tokens:</strong> 3000</li>
+          <li><strong>Temperature:</strong> 0.4</li>
+        </ul>
+        <div class="prompt-block">
+You are an expert resume writer. Rewrite the provided resume to better match the job description.
+
+STRICT RULES:
+1. Never fabricate experience, skills, or achievements — only rephrase and reframe what already exists
+2. Mirror the exact terminology from the job description where your experience matches
+3. Rewrite vague bullet points to be specific and quantified where possible
+4. Move the most relevant experience to the top of each role's bullet list
+5. Update the professional summary/objective to target this specific role
+6. Keep the same overall structure (sections, companies, dates, roles)
+7. Output the complete rewritten resume as plain text, ready to paste into a document
+
+GAP ANALYSIS (use this as your rewrite instructions):
+={{ $json.gap_analysis }}
+
+ORIGINAL RESUME:
+={{ $('Extract from File').first().json.text }}
+
+JOB DESCRIPTION:
+={{ $('Job Description Parser').first().json.job_description }}
+
+Rewrite the full resume now. Output plain text only — no markdown, no commentary.
+        </div>
+
+        <h3 id="step7">Step 7: ATS Keyword Optimizer</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>🎯 OpenAI Node — ATS Keyword Finalizer</h3>
+            <p>A targeted final pass that focuses solely on the skills section and technical keywords. Ensures all missing high-priority keywords from the gap analysis are present in the resume — particularly in the skills section, which ATS systems parse with highest weight.</p>
+          </div>
+        </div>
+        <div class="prompt-block">
+Review this rewritten resume and the list of missing keywords. Your ONLY task is to check the Skills/Technical Skills section and add any missing keywords that are genuinely applicable to the candidate based on their experience.
+
+REWRITTEN RESUME:
+={{ $('Rewriter OpenAI').first().json.message.content }}
+
+MISSING KEYWORDS FROM GAP ANALYSIS:
+={{ $('Parse Gap Analysis').first().json.gap_analysis.missing_keywords.join(', ') }}
+
+Rules:
+- Only add keywords the candidate could plausibly have given their experience level and field
+- Do NOT add keywords for tools or technologies not mentioned anywhere in their history
+- Add applicable keywords to the Skills section in logical groupings
+- Return the COMPLETE final resume with any keyword additions — no commentary, no headers, just the resume text
+        </div>
+
+        <h3 id="step8">Step 8: Save to Drive &amp; Email</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">8</div>
+          <div class="step-content">
+            <h3>📧 Gmail + Google Drive — Deliver Results</h3>
+            <p>Saves the tailored resume text to a new Google Drive file and emails you both the tailored content and the gap analysis summary. You get everything you need to apply in your inbox within 60 seconds of triggering the workflow.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Code</strong> node to build the email HTML, then a <strong>Gmail</strong> node:</p>
+        <pre><code>const tailoredResume = $('ATS Optimizer').first().json.message.content;
+const gap = $('Parse Gap Analysis').first().json.gap_analysis;
+const jobDesc = $('Job Description Parser').first().json.job_description.slice(0, 200);
+
+const html = `
+&lt;h2&gt;Your Tailored Resume is Ready&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Job Snippet:&lt;/strong&gt; ${jobDesc}...&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Match Score:&lt;/strong&gt; ${gap.match_score || 'N/A'}% → optimized with tailoring&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ATS Risk:&lt;/strong&gt; ${gap.ats_risk || 'N/A'}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Keywords Added:&lt;/strong&gt; ${(gap.missing_keywords || []).slice(0,8).join(', ')}&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Tailored Resume (plain text — paste into your template)&lt;/h3&gt;
+&lt;pre style="white-space:pre-wrap;font-family:monospace;background:#f5f5f5;padding:20px;border-radius:8px;"&gt;
+${tailoredResume.replace(/&lt;/g, '&amp;lt;').replace(/&gt;/g, '&amp;gt;')}
+&lt;/pre&gt;
+`;
+
+return [{ json: { email_html: html, tailored_resume: tailoredResume } }];</code></pre>
+        <p>Configure the <strong>Gmail</strong> node:</p>
+        <ul>
+          <li><strong>Operation:</strong> Send Email</li>
+          <li><strong>To:</strong> your email address</li>
+          <li><strong>Subject:</strong> <code>📄 Tailored Resume Ready — {{ new Date().toLocaleDateString() }}</code></li>
+          <li><strong>Email Type:</strong> HTML</li>
+          <li><strong>HTML Body:</strong> <code>={{ $json.email_html }}</code></li>
+        </ul>
+
+        <h2 id="tips">Tips &amp; Customizations</h2>
+        <h3>Use gpt-4o-mini to cut costs</h3>
+        <p>If you're tailoring many resumes per week, swap gpt-4o for gpt-4o-mini on the gap analysis and ATS optimizer steps. Keep gpt-4o only for the rewriter step. This reduces per-run costs from ~$0.08 to ~$0.02 while maintaining most of the quality where it matters most.</p>
+        <h3>Add a Google Docs output</h3>
+        <p>Instead of (or in addition to) emailing plain text, use the <strong>Google Docs</strong> node to create a new document with the tailored resume content. This makes formatting and final touch-ups much easier than working with a plain text email.</p>
+        <h3>Build a version history</h3>
+        <p>Add a <strong>Google Sheets</strong> node that appends each tailoring run: date, company name (extracted from the JD with regex), match score before/after, and a Drive link to the tailored resume. Over time, this shows which roles you're targeting most and how your resume evolves.</p>
+        <h3>Create a browser extension trigger</h3>
+        <p>With n8n's webhook URL, you can build a simple browser extension that extracts the full text of any job posting page and sends it to your workflow in one click. The <a href="https://github.com/nicehash/NiceHashQuickMiner" rel="noopener noreferrer">Chrome Extensions documentation</a> has a minimal boilerplate for content scripts that can select and POST page text.</p>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">Does this change the facts on my resume? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">No — the system prompt explicitly instructs GPT-4 to never fabricate experience, skills, or achievements. It only rephrases and reframes what already exists in your resume. The rewriter mirrors the job description's language while keeping all facts intact. We strongly recommend reviewing the output before submitting any application — treat it as a first draft, not a final product.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How much does it cost to run? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Using gpt-4o, each tailoring run costs approximately $0.05–0.10 depending on resume and job description length. With gpt-4o-mini for the analysis steps (and gpt-4o only for rewriting), you can cut this to under $0.03 per run. Tailoring 20 resumes a month costs less than $2 in API fees — significantly cheaper than any premium resume service.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if the PDF extraction produces garbled text? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">This happens with scanned PDFs or files with complex formatting. The fix is to open your resume in Google Docs (which does its own OCR) or re-export it from Microsoft Word as a standard PDF. Ensure your resume is saved as a text-based PDF, not a printed/scanned image. Alternatively, store your resume as a plain text (.txt) file in Drive and skip the PDF extraction step entirely.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I use this for cover letters too? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Absolutely — add a 9th node after the ATS optimizer that generates a tailored cover letter using the same gap analysis and rewritten resume as context. Check out our <a href="/workflows/n8n-job-search-automation.html">n8n Job Search Automation</a> guide for a complete cover letter generation prompt you can drop right in.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I trigger this from my phone? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Use an iOS Shortcut or Android Tasker script that copies text to clipboard and POSTs it to your webhook URL. On iOS, the "Get Contents of URL" Shortcut action can send a POST request directly. Set up a Share Sheet shortcut so you can trigger resume tailoring from any job posting app by tapping "Share → Tailor Resume."</div>
+        </div>
+
+        <h2 id="related">Related Workflows &amp; Guides</h2>
+        <div class="card-grid card-grid-3" style="margin-top:1.5rem;">
+          <a href="/workflows/n8n-job-search-automation.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🔍</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">n8n Job Search</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Automate daily job scraping, AI scoring, and cover letter generation</p>
+          </a>
+          <a href="/topics/prompt-engineering.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🎯</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">Prompt Engineering</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Improve the rewrite prompts with advanced techniques for better results</p>
+          </a>
+          <a href="/topics/chatgpt-job-search.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">💬</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">ChatGPT Job Search</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">25 copy-paste prompts for resumes, cover letters, and interview prep</p>
+          </a>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#step-by-step">Step-by-Step Setup</a></li>
+            <li><a href="#step1">1. Webhook Trigger</a></li>
+            <li><a href="#step2">2. JD Parser</a></li>
+            <li><a href="#step3">3. Resume Download</a></li>
+            <li><a href="#step4">4. PDF Extraction</a></li>
+            <li><a href="#step5">5. Gap Analyzer</a></li>
+            <li><a href="#step6">6. Resume Rewriter</a></li>
+            <li><a href="#step7">7. ATS Optimizer</a></li>
+            <li><a href="#step8">8. Save &amp; Email</a></li>
+            <li><a href="#tips">Tips &amp; Customizations</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">🚀 Related Workflows</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/make-job-tracker.html">Make.com Job Tracker</a></li>
+            <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">n8n</span>
+            <span class="tag">GPT-4</span>
+            <span class="tag">Resume</span>
+            <span class="tag">ATS</span>
+            <span class="tag">Job Search</span>
+            <span class="tag">OpenAI</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>

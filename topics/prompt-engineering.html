@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering Guide: Master AI Prompts for Better Results (2025) | AllAboutAI</title>
+  <meta name="description" content="Learn prompt engineering from scratch: core techniques (zero-shot, few-shot, chain-of-thought, role prompting), advanced patterns, avoiding common mistakes, and 30+ copy-paste prompt templates for real tasks.">
+  <meta name="keywords" content="prompt engineering guide, how to prompt ChatGPT, chain of thought prompting, few-shot prompting, AI prompt techniques 2025, better ChatGPT prompts, GPT-4 prompting tips">
+  <link rel="canonical" href="https://thatai.me/topics/prompt-engineering.html">
+  <meta property="og:title" content="Prompt Engineering Guide: Master AI Prompts for Better Results (2025)">
+  <meta property="og:description" content="Complete prompt engineering guide: zero-shot, few-shot, chain-of-thought, role prompting, and 30+ templates for writing, coding, analysis, and more.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/topics/prompt-engineering.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prompt Engineering Guide 2025 — Master AI Prompts">
+  <meta name="twitter:description" content="Zero-shot, few-shot, chain-of-thought, and 30+ copy-paste templates for better AI results. The complete prompt engineering guide.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Prompt Engineering Guide: Master AI Prompts for Better Results (2025)",
+    "description": "Learn prompt engineering from scratch: core techniques, advanced patterns, common mistakes, and 30+ copy-paste prompt templates for real tasks.",
+    "image": "https://thatai.me/n8n.png",
+    "author": { "@type": "Person", "name": "Akash" },
+    "publisher": { "@type": "Organization", "name": "AllAboutAI", "url": "https://thatai.me" },
+    "datePublished": "2025-02-01",
+    "dateModified": "2025-02-01",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://thatai.me/topics/prompt-engineering.html" }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Topics</a><span class="breadcrumb-sep">›</span>
+          <span>Prompt Engineering</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-primary">Prompt Engineering</span>
+          <span class="badge badge-purple">GPT-4</span>
+          <span class="badge badge-green">AI</span>
+        </div>
+        <h1>Prompt Engineering Guide: Master AI Prompts for Better Results</h1>
+        <p>From zero-shot basics to chain-of-thought, tree-of-thought, and structured output — learn every technique with examples, and get 30+ copy-paste templates for writing, coding, analysis, and more.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 February 1, 2025</span>
+          <span>⏱ 18 min read</span>
+          <span>📋 30+ templates included</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <p>Prompt engineering is the practice of designing inputs to AI language models to get better, more reliable outputs. The same model — GPT-4, Claude, Gemini — can give you dramatically different quality answers depending on how you frame your request. A well-crafted prompt can be the difference between a generic five-bullet response and a genuinely useful, tailored answer that saves you an hour of work.</p>
+        <p>This guide covers every major technique, from the basics you should master first to advanced patterns used by AI researchers. By the end, you'll have a toolkit of techniques and 30+ ready-to-use templates across the most common real-world tasks.</p>
+
+        <h2 id="why-it-matters">Why Prompt Engineering Matters</h2>
+        <p>LLMs are essentially extremely sophisticated pattern matchers — they predict what comes next based on what they've seen. Your prompt is the context that shapes those predictions. Consider the difference between these two requests for the same task:</p>
+        <div class="card-grid" style="margin:1.5rem 0;">
+          <div class="card" style="border-color:rgba(255,100,100,0.3);background:rgba(255,100,100,0.05);">
+            <h3 style="font-size:0.9rem;color:#f56565;margin-top:0;">❌ Weak Prompt</h3>
+            <p style="color:var(--muted);font-size:0.9rem;font-style:italic;">"Write a product description for my coffee maker."</p>
+            <p style="color:var(--muted);font-size:0.85rem;">Result: Generic, could apply to any coffee maker, misses your target audience and key selling points.</p>
+          </div>
+          <div class="card" style="border-color:rgba(100,200,100,0.3);background:rgba(100,200,100,0.05);">
+            <h3 style="font-size:0.9rem;color:#68d391;margin-top:0;">✅ Strong Prompt</h3>
+            <p style="color:var(--muted);font-size:0.9rem;font-style:italic;">"Write a 150-word product description for a $349 pour-over coffee maker targeting specialty coffee enthusiasts, 25-40, who care about precision brewing. Emphasize: 0.1°C temperature control, bloom timer, and the ritual aspect. Tone: sophisticated but not pretentious. End with a strong CTA."</p>
+            <p style="color:var(--muted);font-size:0.85rem;">Result: Specific, audience-aligned, incorporates key features with the right tone.</p>
+          </div>
+        </div>
+
+        <h2 id="zero-shot">Zero-Shot Prompting</h2>
+        <p>The simplest form — ask the model to perform a task directly with no examples. Works well for straightforward tasks where the model's training data covers the domain. The key to improving zero-shot results is adding more context and constraints, not examples.</p>
+        <div class="prompt-block">
+// Basic zero-shot (works but generic):
+Summarize this article: [article text]
+
+// Improved zero-shot with context and constraints:
+Summarize this article in exactly 3 bullet points. Each bullet must:
+- Start with a bold key term
+- Be under 20 words
+- Focus on actionable information, not background context
+
+ARTICLE: [article text]
+        </div>
+
+        <h2 id="few-shot">Few-Shot Prompting</h2>
+        <p>Provide 2-5 examples of input → output pairs before your actual request. The model infers the pattern and applies it to your new input. Extremely effective for tasks with a specific format, style, or classification logic you want consistently applied.</p>
+        <div class="prompt-block">
+Classify customer support emails as: Bug, Feature Request, Billing, or General Inquiry.
+
+Email: "The export button crashes every time I click it."
+Category: Bug
+
+Email: "It would be amazing if you added dark mode."
+Category: Feature Request
+
+Email: "I was charged twice for my subscription this month."
+Category: Billing
+
+Email: "The export button is slow but works — can you speed it up?"
+Category: [the model should output: Bug]
+
+// Now classify this new email:
+Email: "I love the product but would like an API so I can integrate it with my tools."
+Category:
+        </div>
+        <p>Few-shot is especially powerful when the classification or formatting logic is hard to describe in words but easy to demonstrate with examples. Use 3-5 examples for best results — more than 7 rarely helps and increases token cost.</p>
+
+        <h2 id="chain-of-thought">Chain-of-Thought (CoT) Prompting</h2>
+        <p>Ask the model to reason step-by-step before giving its final answer. This dramatically improves accuracy on problems that require multi-step reasoning — math, logic puzzles, complex analysis, and debugging. The classic trigger phrase is <strong>"Let's think step by step."</strong></p>
+        <div class="prompt-block">
+// Without CoT (often wrong on complex problems):
+If a train leaves Chicago at 9 AM traveling at 60 mph, and another leaves New York at 11 AM traveling at 80 mph, and the cities are 790 miles apart, when do they meet?
+
+// With CoT:
+If a train leaves Chicago at 9 AM traveling at 60 mph, and another leaves New York at 11 AM traveling at 80 mph, and the cities are 790 miles apart, when do they meet?
+
+Think through this step by step:
+1. Calculate how far the Chicago train travels before the NY train departs
+2. Calculate the remaining distance when the NY train starts
+3. Calculate the combined approach speed
+4. Calculate the time to cover the remaining distance
+5. Add to get the meeting time
+
+Show your work at each step, then give the final answer.
+        </div>
+        <p>CoT prompting is most valuable for tasks where the model needs to "slow down and think." For simple factual lookups or creative tasks, the overhead isn't worth it. The key insight from the original research: just adding "Let's think step by step" to a math prompt improved GPT-3's accuracy from 18% to 79% on a benchmark test.</p>
+
+        <h2 id="role-prompting">Role Prompting</h2>
+        <p>Assign the model a specific persona with relevant expertise before your task. This activates related knowledge patterns and adjusts the tone and depth of the response. Particularly effective for expert-level analysis, specialized writing styles, and domain-specific tasks.</p>
+        <div class="prompt-block">
+// Generic (shallow response):
+Review my business plan.
+
+// Role-prompted (expert-level feedback):
+You are a venture capitalist with 15 years of experience in B2B SaaS investments at a Tier-1 fund. You have seen 2,000+ pitch decks and invested in 30 companies.
+
+Review my business plan with the critical eye you'd use in a Series A evaluation. Focus specifically on:
+1. Market size validation — is the TAM calculation credible?
+2. Competitive moat — what prevents a well-funded competitor from replicating this?
+3. Unit economics — are the CAC/LTV assumptions realistic?
+4. Team-market fit — does this team have the right background for this specific problem?
+
+Be direct and point out weaknesses. Do not soften feedback.
+
+BUSINESS PLAN: [paste your plan]
+        </div>
+
+        <h2 id="structured-output">Structured Output Prompting</h2>
+        <p>Request output in a specific format — JSON, markdown table, numbered list, or a custom schema. Critical for automation workflows where the output will be parsed programmatically. Always specify the exact schema you need.</p>
+        <div class="prompt-block">
+Extract the key information from this job description and return it as JSON only.
+
+Required JSON schema:
+{
+  "job_title": "string",
+  "company": "string",
+  "location": "string (or 'Remote')",
+  "salary_min": number or null,
+  "salary_max": number or null,
+  "required_skills": ["array", "of", "strings"],
+  "years_experience": number or null,
+  "seniority_level": "junior | mid | senior | staff | principal",
+  "key_responsibilities": ["array", "of", "strings", "max 5"]
+}
+
+Return ONLY the JSON object — no explanation, no markdown code block, no commentary.
+
+JOB DESCRIPTION: [paste JD here]
+        </div>
+
+        <h2 id="advanced">Advanced Patterns</h2>
+
+        <h3 id="tot">Tree of Thought</h3>
+        <p>An extension of Chain-of-Thought where you ask the model to explore multiple reasoning paths simultaneously and evaluate them before committing to an answer. Particularly useful for strategy, decision-making, and creative problem-solving.</p>
+        <div class="prompt-block">
+I need to decide whether to accept a job offer. Help me think through this using a tree of thought approach:
+
+1. Generate 3 different perspectives to evaluate this decision (e.g., financial, career growth, personal life)
+2. For each perspective, identify 2-3 specific factors to consider
+3. Rate each factor 1-5 for the job offer based on the details I'll provide
+4. Synthesize across all perspectives to reach a recommendation
+
+JOB OFFER DETAILS: [your details]
+CURRENT SITUATION: [your current role/situation]
+        </div>
+
+        <h3 id="meta-prompting">Meta-Prompting</h3>
+        <p>Ask the model to generate or improve prompts itself. Useful when you know what output you want but struggle to write the prompt to get there — let the AI design the optimal prompt for you.</p>
+        <div class="prompt-block">
+I need a prompt that I can use to get GPT-4 to write high-converting cold emails for B2B software sales.
+
+The prompt should:
+- Include a role for the AI
+- Specify the target audience and pain points
+- Define the email structure (subject, opening hook, value prop, CTA)
+- Set tone and length constraints
+- Include placeholders I can fill in for each prospect
+
+Generate the optimal system prompt I should use for this task.
+        </div>
+
+        <h2 id="templates">Prompt Templates by Category</h2>
+
+        <h3 id="writing-templates">Writing Templates</h3>
+        <div class="prompt-block">
+// Blog post outline:
+Create a detailed outline for a [WORD COUNT]-word blog post on [TOPIC] targeting [AUDIENCE]. Structure: compelling headline, intro hook, 5-7 H2 sections with 2-3 subpoints each, and a conclusion with CTA. Include a note on the primary keyword to optimize for SEO.
+
+// Email subject line testing:
+Generate 10 email subject line variations for [EMAIL TOPIC] targeting [AUDIENCE]. Include: 3 curiosity-based, 3 benefit-based, 2 question-based, and 2 number-based. Mark the 3 you predict will have highest open rate and explain why.
+
+// Simplify complex content:
+Rewrite this [technical documentation / academic paper / legal contract] for a [12-year-old / non-technical executive / general consumer] audience. Maintain all critical information but eliminate jargon. Aim for a Flesch-Kincaid reading level of [6-8].
+        </div>
+
+        <h3 id="coding-templates">Coding Templates</h3>
+        <div class="prompt-block">
+// Code review:
+Review this code as a senior engineer who prioritizes: (1) security vulnerabilities, (2) performance bottlenecks, (3) code maintainability. For each issue found, specify: severity (critical/major/minor), the exact line(s), what's wrong, and a corrected code snippet.
+
+CODE: [paste code]
+
+// Debug assistant:
+I'm getting this error when running [LANGUAGE] code. Explain the root cause in plain English (not jargon), then provide the fixed version of the relevant code section with comments explaining what you changed.
+
+ERROR: [paste error message and stack trace]
+CODE: [paste relevant code section]
+
+// Generate tests:
+Generate comprehensive unit tests for this [LANGUAGE] function. Cover: happy path, edge cases (null inputs, empty arrays, boundary values), and error cases. Use [pytest/Jest/etc.] framework. Aim for 95%+ branch coverage.
+
+FUNCTION: [paste function]
+        </div>
+
+        <h3 id="analysis-templates">Analysis Templates</h3>
+        <div class="prompt-block">
+// Competitive analysis:
+Analyze [COMPANY/PRODUCT] versus [COMPETITOR]. For each, evaluate: target customer, core value proposition, pricing model, strengths, weaknesses, and distribution strategy. Output as a structured comparison table, then write a 2-paragraph strategic summary.
+
+// Data interpretation:
+I have data showing [describe data/metrics]. Identify the 3 most significant patterns, explain what likely caused each, and suggest 2 actionable responses for each pattern. Be specific — avoid generic advice.
+
+// Decision framework:
+Help me make this decision: [describe decision]. Use the following framework: (1) Clarify the actual decision and any hidden assumptions, (2) Identify all realistic options including non-obvious ones, (3) Define the 3-5 criteria that matter most for evaluating them, (4) Score each option against each criterion (1-10), (5) Recommend an option and explain your reasoning.
+        </div>
+
+        <h2 id="mistakes">Common Prompt Engineering Mistakes</h2>
+        <ul>
+          <li><strong>Being vague about format:</strong> "Write a summary" gives the model no guidance on length, structure, or depth. Always specify format explicitly.</li>
+          <li><strong>Too many constraints at once:</strong> Piling 10 requirements into one prompt often causes the model to satisfy some while ignoring others. Break complex requests into sequential prompts.</li>
+          <li><strong>Not using negative constraints:</strong> "Don't include marketing fluff" or "Avoid using the word 'leverage'" is often more effective than trying to describe what you want positively.</li>
+          <li><strong>Ignoring temperature:</strong> For factual/analytical tasks, lower temperature (0.2-0.4) produces more consistent, reliable outputs. For creative tasks, higher temperature (0.7-1.0) produces more varied, interesting results.</li>
+          <li><strong>Accepting the first output:</strong> The first response is a starting point. Follow-up prompts like "make it more concise," "give me a more direct version," or "what are 3 alternative angles?" often produce significantly better results.</li>
+        </ul>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">Does prompt engineering still matter with GPT-4 and Claude? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">More than ever, but differently. Newer models need less hand-holding for simple tasks — you don't need to coax GPT-4 into proper grammar. Where prompt engineering still delivers huge value: complex multi-step tasks, consistent output formatting, domain-specific expertise activation (role prompting), and structured output for automation. The techniques that matter most in 2025 are role prompting, structured output, and chain-of-thought for analytical tasks.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What's the difference between a system prompt and a user prompt? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The system prompt is a persistent instruction set that defines the model's persona, constraints, and behavior for the entire conversation — it's set before any user interaction and typically not visible to end users. User prompts are the individual messages in the conversation. When building AI applications (chatbots, agents, automations), you use the system prompt to define how the AI should behave, and user prompts for the actual inputs. For personal ChatGPT use, you can achieve similar effects by starting a conversation with "For this conversation, you are... Your instructions are..."</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How long should a prompt be? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">As long as it needs to be to fully specify what you want — no longer. The sweet spot for most tasks is 50-200 words. Very short prompts leave too much to interpretation; very long prompts can cause the model to miss or contradict specific requirements. For complex automation workflows where you need precise output formatting, longer system prompts (300-500 words) are appropriate. For quick writing or brainstorming tasks, a clear 2-3 sentence prompt is usually sufficient.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Should I use the same prompts for GPT-4 and Claude? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Most prompts work well across both, but there are subtle differences. Claude tends to be more literal and thorough in following multi-part instructions — it benefits from numbered lists of requirements rather than prose descriptions. GPT-4 handles role prompts slightly differently and may need more explicit persona definition. For critical automations, test your prompts on both models — what produces excellent results on one sometimes needs minor adjustments for the other.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is there a tool to test and optimize prompts? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes — several: <strong>PromptFlow</strong> (Microsoft, for LLM app development), <strong>Langsmith</strong> (LangChain's evaluation platform), <strong>PromptLayer</strong> (logging and A/B testing prompts), and <strong>Promptfoo</strong> (open-source prompt testing framework). For simple testing without tools, just run the same prompt 5 times at temperature 1.0 and evaluate the variance in quality — high variance means your prompt needs more constraints.</div>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#why-it-matters">Why It Matters</a></li>
+            <li><a href="#zero-shot">Zero-Shot</a></li>
+            <li><a href="#few-shot">Few-Shot</a></li>
+            <li><a href="#chain-of-thought">Chain-of-Thought</a></li>
+            <li><a href="#role-prompting">Role Prompting</a></li>
+            <li><a href="#structured-output">Structured Output</a></li>
+            <li><a href="#advanced">Advanced Patterns</a></li>
+            <li><a href="#tot">Tree of Thought</a></li>
+            <li><a href="#meta-prompting">Meta-Prompting</a></li>
+            <li><a href="#templates">Prompt Templates</a></li>
+            <li><a href="#writing-templates">Writing</a></li>
+            <li><a href="#coding-templates">Coding</a></li>
+            <li><a href="#analysis-templates">Analysis</a></li>
+            <li><a href="#mistakes">Common Mistakes</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">🎯 Apply Your Skills</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search Prompts</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+            <li><a href="/topics/ai-agents-guide.html">AI Agents (uses system prompts)</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">GPT-4</span>
+            <span class="tag">ChatGPT</span>
+            <span class="tag">Claude</span>
+            <span class="tag">AI</span>
+            <span class="tag">Templates</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>
