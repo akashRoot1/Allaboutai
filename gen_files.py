@@ -28,6 +28,7 @@ NAV = """  <nav class="nav-wrapper">
           </div>
         </li>
         <li><a href="/blog.html#about">About</a></li>
+        <li><a href="/services.html" style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">🚀 Services</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -45,6 +46,7 @@ NAV = """  <nav class="nav-wrapper">
     <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
     <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
     <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+    <a href="/services.html" style="font-weight:700;color:var(--primary);">🚀 Services & Premium</a>
   </div>"""
 
 FOOTER = """  <footer class="footer">
@@ -71,6 +73,8 @@ FOOTER = """  <footer class="footer">
       <div><h4>About</h4><ul>
         <li><a href="/blog.html">All Posts</a></li>
         <li><a href="/blog.html#about">About Us</a></li>
+        <li><a href="/services.html">Services & Pricing</a></li>
+        <li><a href="mailto:hi@thatai.me">Contact Us</a></li>
         <li><a href="/sitemap.xml">Sitemap</a></li>
       </ul></div>
     </div>
