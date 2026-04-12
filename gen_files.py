@@ -66,6 +66,7 @@ FOOTER = """  <footer class="footer">
         <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
         <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
         <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+        <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
       </ul></div>
       <div><h4>About</h4><ul>
         <li><a href="/blog.html">All Posts</a></li>
@@ -83,7 +84,7 @@ SCRIPT = """  <script>
     window.addEventListener('scroll', () => {
       const bar = document.getElementById('progressBar');
       if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
-    });
+    }, { passive: true });
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
@@ -105,6 +106,32 @@ SCRIPT = """  <script>
       sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
       tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     });
-  </script>"""
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // Copy to clipboard for code blocks
+    document.querySelectorAll('pre').forEach(pre => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(pre.innerText).then(() => {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        }).catch(() => {});
+      });
+      wrapper.appendChild(btn);
+    });
+  </script>
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top">&#8679;</button>"""
 
 print("Templates ready")

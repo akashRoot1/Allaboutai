@@ -100,21 +100,21 @@
           <a href="/workflows/n8n-job-search-automation.html" class="btn btn-primary">&#128269; See the Workflow</a>
           <a href="/blog.html" class="btn btn-secondary">Read the Blog</a>
         </div>
-        <div class="stats-row">
+        <div class="stats-row" id="statsRow">
           <div class="stat">
-            <div class="stat-number gradient-text">50K+</div>
+            <div class="stat-number gradient-text" data-target="50000" data-suffix="K+">50K+</div>
             <div class="stat-label">Monthly Readers</div>
           </div>
           <div class="stat">
-            <div class="stat-number gradient-text">25+</div>
+            <div class="stat-number gradient-text" data-target="25" data-suffix="+">25+</div>
             <div class="stat-label">Free Workflows</div>
           </div>
           <div class="stat">
-            <div class="stat-number gradient-text">100%</div>
+            <div class="stat-number gradient-text" data-target="100" data-suffix="%">100%</div>
             <div class="stat-label">Free Content</div>
           </div>
           <div class="stat">
-            <div class="stat-number gradient-text">2025</div>
+            <div class="stat-number gradient-text" data-target="2025" data-suffix="">2025</div>
             <div class="stat-label">Updated</div>
           </div>
         </div>
@@ -374,6 +374,7 @@
           <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
           <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
           <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
         </ul>
       </div>
       <div>
@@ -391,13 +392,18 @@
     </div>
   </footer>
 
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top">&#8679;</button>
+  <!-- Toast notification -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
   <script>
     // Progress bar
     window.addEventListener('scroll', () => {
       const bar = document.getElementById('progressBar');
       const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
       bar.style.width = scrolled + '%';
-    });
+    }, { passive: true });
 
     // Mobile menu
     const hamburger = document.getElementById('hamburger');
@@ -422,6 +428,64 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Animated stat counters
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1400;
+      const startTime = performance.now();
+      const startVal = 0;
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(startVal + (target - startVal) * eased);
+        if (target >= 1000) {
+          el.textContent = Math.floor(value / 1000) + suffix;
+        } else {
+          el.textContent = value + suffix;
+        }
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.stat-number[data-target]').forEach(animateCounter);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsRow = document.getElementById('statsRow');
+    if (statsRow) statsObserver.observe(statsRow);
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Newsletter toast
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    document.querySelectorAll('.newsletter-form').forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector('input[type="email"]');
+        if (!emailInput || !emailInput.value.trim()) return;
+        showToast('🎉 Thanks for subscribing! Check your inbox soon.');
+        emailInput.value = '';
+      });
+    });
   </script>
 </body>
 </html>
