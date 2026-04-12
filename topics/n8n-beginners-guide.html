@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n8n Beginner's Guide: Build Your First Automation in 30 Minutes (2025) | AllAboutAI</title>
+  <meta name="description" content="The complete beginner's guide to n8n: installation options, the interface, core concepts (triggers, nodes, expressions, credentials), and building your first workflow step by step. Free and open-source.">
+  <meta name="keywords" content="n8n beginner guide, n8n tutorial 2025, n8n how to use, n8n vs Zapier, n8n setup, n8n workflow tutorial, n8n self-host, n8n first workflow">
+  <link rel="canonical" href="https://thatai.me/topics/n8n-beginners-guide.html">
+  <meta property="og:title" content="n8n Beginner's Guide: Build Your First Automation in 30 Minutes (2025)">
+  <meta property="og:description" content="Complete n8n beginner's guide: installation, interface tour, core concepts, credentials setup, and your first workflow — step by step.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/topics/n8n-beginners-guide.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="n8n Beginner's Guide 2025 — First Workflow in 30 Minutes">
+  <meta name="twitter:description" content="Learn n8n from scratch: install, understand core concepts, and build your first automated workflow. Complete beginner guide.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "n8n Beginner's Guide: Build Your First Automation in 30 Minutes (2025)",
+    "description": "The complete beginner's guide to n8n: installation, interface, core concepts, and building your first workflow step by step.",
+    "image": "https://thatai.me/n8n.png",
+    "author": { "@type": "Person", "name": "Akash" },
+    "publisher": { "@type": "Organization", "name": "AllAboutAI", "url": "https://thatai.me" },
+    "datePublished": "2025-01-05",
+    "dateModified": "2025-01-05",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://thatai.me/topics/n8n-beginners-guide.html" }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Topics</a><span class="breadcrumb-sep">›</span>
+          <span>n8n Beginner's Guide</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-primary">n8n</span>
+          <span class="badge badge-green">Beginners</span>
+          <span class="badge badge-purple">Free &amp; Open Source</span>
+        </div>
+        <h1>n8n Beginner's Guide: Build Your First Automation in 30 Minutes</h1>
+        <p>Everything you need to go from zero to your first working workflow: what n8n is, how to install it, the core concepts, and a hands-on walkthrough of a real automation.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 January 5, 2025</span>
+          <span>⏱ 15 min read</span>
+          <span>🆓 Free &amp; open-source</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <p>n8n (pronounced "n-eight-n" or "nodemation") is an open-source workflow automation tool that lets you connect apps and automate tasks visually — without writing code. Think Zapier or Make.com, but with far more power, full self-hosting support, and a permanently free tier when you run it yourself. Over 400 native integrations, AI/LLM nodes built-in, and a thriving community of workflow templates.</p>
+        <p>If you've been intimidated by automation tools before, n8n is genuinely approachable. Most people build their first working workflow within 30 minutes. By the end of this guide, you'll have a real automation running — not just a theoretical understanding.</p>
+
+        <h2 id="what-is-n8n">What Is n8n?</h2>
+        <p>n8n is a workflow automation platform where you connect "nodes" — each node represents an app, service, or logic operation — to build automated processes called workflows. A workflow runs when a trigger fires (a new email, a form submission, a schedule) and passes data through a chain of nodes, each transforming or acting on that data.</p>
+        <div class="card-grid card-grid-3" style="margin:2rem 0;">
+          <div class="card" data-animate>
+            <div style="font-size:2rem;margin-bottom:0.75rem;">⚡</div>
+            <h3 style="font-size:1rem;">400+ Integrations</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Native nodes for Gmail, Slack, Notion, Airtable, Google Sheets, OpenAI, Stripe, and hundreds more.</p>
+          </div>
+          <div class="card" data-animate>
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🤖</div>
+            <h3 style="font-size:1rem;">Built-in AI Nodes</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Native OpenAI, Anthropic, and AI Agent nodes — build LLM-powered workflows without any coding.</p>
+          </div>
+          <div class="card" data-animate>
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🆓</div>
+            <h3 style="font-size:1rem;">Free &amp; Self-Hosted</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Unlimited workflows and executions when self-hosted. Free cloud tier for getting started quickly.</p>
+          </div>
+        </div>
+
+        <h2 id="n8n-vs-zapier">n8n vs Make.com vs Zapier</h2>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Feature</th><th>n8n</th><th>Make.com</th><th>Zapier</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Price (self-hosted)</td><td>✅ Free forever</td><td>❌ Cloud only</td><td>❌ Cloud only</td></tr>
+            <tr><td>Cloud free tier</td><td>⚠️ 5 workflows, 2,500 exec/month</td><td>✅ 1,000 ops/month</td><td>⚠️ 100 tasks/month</td></tr>
+            <tr><td>Integrations</td><td>400+ native</td><td>1,500+ native</td><td>6,000+ native</td></tr>
+            <tr><td>Visual builder</td><td>✅ Canvas-based</td><td>✅ Canvas-based</td><td>✅ Linear flow</td></tr>
+            <tr><td>Code nodes (JS/Python)</td><td>✅ Native</td><td>⚠️ Limited</td><td>⚠️ Paid only</td></tr>
+            <tr><td>AI/LLM nodes</td><td>✅ Native (best-in-class)</td><td>✅ OpenAI module</td><td>✅ ChatGPT action</td></tr>
+            <tr><td>Learning curve</td><td>Medium</td><td>Low-Medium</td><td>Very Low</td></tr>
+            <tr><td>Best for</td><td>Power users, developers, AI workflows</td><td>Business users, complex automations</td><td>Quick setup, widest app support</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="installation">Installation: Two Ways to Get Started</h2>
+
+        <h3 id="cloud">Option A: n8n Cloud (Easiest — 2 minutes)</h3>
+        <p>Sign up at <a href="https://n8n.io" rel="noopener noreferrer">n8n.io</a> for a free cloud account. You get a hosted instance immediately with no setup. The free tier includes 5 active workflows and 2,500 executions/month — plenty for learning and light personal use. When you're ready to scale or need unlimited executions, consider self-hosting.</p>
+
+        <h3 id="self-host">Option B: Self-Host with npx (Recommended — 5 minutes)</h3>
+        <p>The easiest self-hosted path requires only Node.js installed on your computer:</p>
+        <pre><code># Run n8n locally (data persists in ~/.n8n by default)
+npx n8n
+
+# Then open: http://localhost:5678</code></pre>
+        <p>That's it — n8n is now running locally. Your workflows and data persist between sessions. This is perfect for development and personal use. For a production self-hosted setup (always-on, accessible from anywhere), run it on a $5-6/month VPS using Docker:</p>
+        <pre><code># Install Docker, then run:
+docker run -it --rm \
+  --name n8n \
+  -p 5678:5678 \
+  -v ~/.n8n:/home/node/.n8n \
+  docker.n8n.io/n8nio/n8n</code></pre>
+        <p>Add <code>--restart unless-stopped</code> to the docker command to ensure n8n restarts automatically after a server reboot. For a full production setup with SSL, use nginx as a reverse proxy with Let's Encrypt for HTTPS — n8n's <a href="https://docs.n8n.io/hosting/" rel="noopener noreferrer">hosting documentation</a> covers this in detail.</p>
+
+        <h2 id="interface">Interface Tour</h2>
+        <p>Once n8n is running, you'll see the dashboard. Key areas:</p>
+        <ul>
+          <li><strong>Workflows list:</strong> All your saved workflows. Click any to open it in the canvas editor.</li>
+          <li><strong>Canvas editor:</strong> The main workspace where you build workflows by adding and connecting nodes. Pan by dragging, zoom with scroll wheel.</li>
+          <li><strong>Node panel:</strong> Click the <strong>+</strong> button on any connection or press <code>Tab</code> to open the node search. Type to filter by name or function.</li>
+          <li><strong>Node settings:</strong> Click any node to open its configuration panel on the right side. This is where you configure what the node does.</li>
+          <li><strong>Execution log:</strong> At the bottom — shows the data flowing through each node. Click any node after a test run to see its input and output data.</li>
+          <li><strong>Credentials manager:</strong> Settings → Credentials — where you store API keys and OAuth connections once, referenced by name in workflows.</li>
+        </ul>
+
+        <h2 id="core-concepts">Core Concepts</h2>
+
+        <h3 id="triggers">Triggers</h3>
+        <p>Every workflow starts with a trigger node — the event that kicks off the automation. Common triggers:</p>
+        <ul>
+          <li><strong>Schedule Trigger:</strong> Run at a specific time or interval (every hour, daily at 9 AM, etc.)</li>
+          <li><strong>Webhook Trigger:</strong> Fires when an HTTP POST/GET request hits a URL n8n provides</li>
+          <li><strong>Gmail / Email Trigger:</strong> Fires when a new email matching criteria arrives</li>
+          <li><strong>Manual Trigger:</strong> Runs when you click the play button — perfect for on-demand workflows and testing</li>
+          <li><strong>App-specific triggers:</strong> New Notion page, new Google Sheet row, new Slack message, etc.</li>
+        </ul>
+
+        <h3 id="nodes">Nodes</h3>
+        <p>Each node in the workflow performs one operation: calling an API, transforming data, sending a notification, or executing code. Nodes pass data to the next node as JSON objects. You can click a node after running to see exactly what data it received and produced — invaluable for debugging.</p>
+        <p>Key node types to know first:</p>
+        <ul>
+          <li><strong>HTTP Request:</strong> Call any REST API that doesn't have a native n8n node</li>
+          <li><strong>Code:</strong> Write custom JavaScript or Python for any logic not covered by built-in nodes</li>
+          <li><strong>If:</strong> Branch the workflow based on conditions</li>
+          <li><strong>Merge:</strong> Combine data from multiple branches</li>
+          <li><strong>Set:</strong> Create or modify fields in the data flowing through</li>
+          <li><strong>Split in Batches:</strong> Process large arrays of items in smaller chunks</li>
+        </ul>
+
+        <h3 id="expressions">Expressions</h3>
+        <p>Expressions let you reference data from earlier nodes in your workflow. They use the <code>={{ }}</code> syntax and appear wherever you can enter dynamic values:</p>
+        <pre><code>// Reference a field from the previous node:
+={{ $json.email }}
+
+// Reference a field from a specific named node:
+={{ $('Gmail Trigger').first().json.subject }}
+
+// JavaScript expressions work too:
+={{ $json.name.toLowerCase() }}
+={{ new Date().toISOString() }}
+={{ $json.items.length }}</code></pre>
+        <p>Expressions are where n8n's real power emerges. Once you're comfortable with the <code>$json</code> and <code>$('NodeName')</code> syntax, you can build surprisingly complex logic without writing full Code nodes.</p>
+
+        <h3 id="credentials">Credentials</h3>
+        <p>Credentials store your API keys, OAuth tokens, and passwords securely in n8n. You create them once in <strong>Settings → Credentials</strong>, then select them by name in any node that needs them. Credentials are encrypted at rest and never exposed in workflow exports — making it safe to share workflow templates without exposing your keys.</p>
+
+        <h2 id="first-workflow">Your First Workflow: Daily Hacker News Digest</h2>
+        <p>Let's build a real workflow: every morning at 8 AM, fetch the top 5 Hacker News stories and email them to you. This uses Schedule Trigger, HTTP Request, Code, and Gmail nodes.</p>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>⏰ Add a Schedule Trigger</h3>
+            <p>Click + in the canvas. Search "Schedule Trigger." Set: Trigger at → Every Day, Time → 08:00 AM. This node has no input — it fires automatically each day and passes a timestamp to the next node.</p>
+          </div>
+        </div>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>🌐 Add an HTTP Request Node</h3>
+            <p>Click the + after Schedule Trigger. Search "HTTP Request." Set Method: GET, URL: <code>https://hacker-news.firebaseio.com/v0/topstories.json</code>. Click Execute Node to test — you'll see an array of story IDs returned.</p>
+          </div>
+        </div>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>🔧 Add a Code Node — Get Top 5 Stories</h3>
+            <p>Add a Code node. This fetches the details for the first 5 story IDs and returns them as structured objects.</p>
+          </div>
+        </div>
+        <pre><code>// Get top 5 story IDs from the HTTP Request output
+const storyIds = $input.first().json.slice(0, 5);
+
+// Fetch each story's details
+const stories = await Promise.all(
+  storyIds.map(async (id) => {
+    const res = await $helpers.httpRequest({
+      method: 'GET',
+      url: `https://hacker-news.firebaseio.com/v0/item/${id}.json`
+    });
+    return {
+      title: res.title,
+      url: res.url || `https://news.ycombinator.com/item?id=${res.id}`,
+      score: res.score,
+      comments: res.descendants || 0
+    };
+  })
+);
+
+return [{ json: { stories } }];</code></pre>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>📧 Add a Gmail Node — Send Digest Email</h3>
+            <p>Add Gmail node. Connect your Google account via OAuth2. Set: Operation → Send Email, To → your email, Subject → "☕ Top 5 HN Stories — {{new Date().toLocaleDateString()}}", Email Type → HTML.</p>
+          </div>
+        </div>
+        <pre><code>// In the Gmail HTML Body field, use an expression:
+// First, add a Code node BEFORE Gmail to build the HTML:
+
+const stories = $input.first().json.stories;
+const html = `
+&lt;h2&gt;☕ Top 5 Hacker News Stories Today&lt;/h2&gt;
+${stories.map((s, i) => `
+  &lt;div style="margin-bottom:20px;padding:15px;border-left:3px solid #667eea;"&gt;
+    &lt;strong&gt;${i + 1}. &lt;a href="${s.url}"&gt;${s.title}&lt;/a&gt;&lt;/strong&gt;
+    &lt;br&gt;&lt;small style="color:#888;"&gt;▲ ${s.score} points · 💬 ${s.comments} comments&lt;/small&gt;
+  &lt;/div&gt;
+`).join('')}
+`;
+return [{ json: { html } }];</code></pre>
+
+        <div class="step-card" data-animate>
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>✅ Activate the Workflow</h3>
+            <p>Click "Test workflow" to run it manually and verify you receive the email. Once confirmed, toggle the Activate switch in the top-right corner. The workflow will now run automatically every morning at 8 AM without any further action from you.</p>
+          </div>
+        </div>
+        <p>Congratulations — you just built and deployed your first real n8n automation! This same pattern (fetch → process → notify) is the backbone of dozens of practical workflows you can build next.</p>
+
+        <h2 id="troubleshooting">Common Troubleshooting</h2>
+        <ul>
+          <li><strong>"Node X returned an error":</strong> Click the red node to see the exact error message. Most are API authentication failures (check your credentials) or incorrect field names (check the node's input data tab to see what fields are actually available).</li>
+          <li><strong>Expressions returning undefined:</strong> Open the Expression editor (the code icon next to any input field) — it shows a live preview of what the expression evaluates to with real data. Check the field path carefully.</li>
+          <li><strong>Workflow not triggering on schedule:</strong> Ensure the workflow is Activated (toggle in top-right). Also check that your n8n instance is running and accessible — a sleeping VPS won't trigger scheduled workflows.</li>
+          <li><strong>Google OAuth not working:</strong> You need to create a Google Cloud project, enable the relevant APIs (Drive, Gmail, Sheets), and create OAuth2 credentials. n8n's <a href="https://docs.n8n.io/integrations/builtin/credentials/google/" rel="noopener noreferrer">Google credential setup guide</a> covers this step by step.</li>
+        </ul>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">Do I need to know how to code to use n8n? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">No — most workflows can be built entirely with n8n's visual interface and built-in nodes without any code. The optional Code node (JavaScript or Python) unlocks additional power for complex logic, but you can accomplish a huge amount without it. The Expression syntax (<code>={{ }}</code>) requires some familiarity with basic concepts like object property access and string operations, but it's easy to pick up and n8n's expression editor provides live feedback as you type.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is n8n really free? What are the limits? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The self-hosted version of n8n is genuinely free with no execution limits, no workflow limits, and no credit card required. You pay only for your hosting (a $5-6/month VPS handles most personal/small-business use cases). The cloud version has a free tier (5 active workflows, 2,500 executions/month) and paid plans starting at $20/month for unlimited workflows. The self-hosted path is the right choice if you want truly unlimited automation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Where can I find n8n workflow templates? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">n8n's official template library at <a href="https://n8n.io/workflows/" rel="noopener noreferrer">n8n.io/workflows</a> has 700+ free templates covering common use cases. You can import any template directly from n8n's interface: create a new workflow → browse templates. The community forum at <a href="https://community.n8n.io" rel="noopener noreferrer">community.n8n.io</a> is also excellent for finding workflows shared by other users and getting help when you're stuck.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What's the difference between n8n cloud and self-hosted? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Cloud n8n is fully managed by n8n's team — no installation, automatic updates, SSL handled. Self-hosted means you run n8n on your own server, giving you unlimited executions, full data control, and no per-workflow limits. The trade-off: you're responsible for keeping it running and updated. For most personal use, cloud is easier to start. For production automation with high volume or sensitive data, self-hosting is better.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I handle errors in n8n workflows? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">n8n has built-in error handling at both the node and workflow level. On individual nodes, check "Continue on Fail" to prevent one error from stopping the entire workflow. For workflow-level error handling, use the "Error Trigger" — a special node that fires when any workflow in your instance encounters an uncaught error. Connect it to a notification node (Gmail, Slack) to get alerted when something breaks. You can also set up retry logic using the Code node and n8n's execution control.</div>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#what-is-n8n">What Is n8n?</a></li>
+            <li><a href="#n8n-vs-zapier">n8n vs Make vs Zapier</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#cloud">Cloud Setup</a></li>
+            <li><a href="#self-host">Self-Host Setup</a></li>
+            <li><a href="#interface">Interface Tour</a></li>
+            <li><a href="#core-concepts">Core Concepts</a></li>
+            <li><a href="#triggers">Triggers</a></li>
+            <li><a href="#nodes">Nodes</a></li>
+            <li><a href="#expressions">Expressions</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#first-workflow">First Workflow</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">🚀 Build These Next</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/n8n-job-search-automation.html">n8n Job Search Bot</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+            <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">n8n</span>
+            <span class="tag">Beginners</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Free</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">Tutorial</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>

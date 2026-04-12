@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapier Job Alerts: Get Instant Notifications for New Jobs (Step-by-Step 2025) | AllAboutAI</title>
+  <meta name="description" content="Build Zapier automations that monitor multiple job boards simultaneously, filter jobs by keywords and salary, and deliver instant Slack or email alerts for the best matches — completely automated.">
+  <meta name="keywords" content="Zapier job alerts, job board automation, Zapier RSS job search, automated job notifications, Zapier LinkedIn, job search automation 2025, Zapier Slack notifications">
+  <link rel="canonical" href="https://thatai.me/workflows/zapier-job-alerts.html">
+  <meta property="og:title" content="Zapier Job Alerts: Get Instant Notifications for New Jobs (Step-by-Step 2025)">
+  <meta property="og:description" content="Monitor multiple job boards automatically with Zapier: RSS triggers, AI relevance filtering, deduplication, and instant Slack/email alerts for matching jobs.">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:url" content="https://thatai.me/workflows/zapier-job-alerts.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zapier Job Alerts: Instant Notifications for New Jobs (2025)">
+  <meta name="twitter:description" content="Set up Zapier to watch multiple job boards and alert you instantly when matching roles are posted. Step-by-step with AI filtering.">
+  <meta name="twitter:image" content="https://thatai.me/n8n.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Zapier Job Alerts: Get Instant Notifications for New Jobs (Step-by-Step 2025)",
+    "description": "Build Zapier automations that monitor multiple job boards simultaneously, filter jobs by keywords and salary, and deliver instant Slack or email alerts for the best matches.",
+    "image": "https://thatai.me/n8n.png",
+    "author": { "@type": "Person", "name": "Akash" },
+    "publisher": { "@type": "Organization", "name": "AllAboutAI", "url": "https://thatai.me" },
+    "datePublished": "2025-03-10",
+    "dateModified": "2025-03-10",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://thatai.me/workflows/zapier-job-alerts.html" }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🤖 AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows ▾</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">🎯 Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/workflows/n8n-job-search-automation.html">🔍 n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">💼 LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">📄 AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">📊 Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">🔔 Zapier Job Alerts</a>
+    <a href="/topics/ai-agents-guide.html">🤖 AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">🛠️ Best AI Tools</a>
+    <a href="/topics/chatgpt-job-search.html">💬 ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">📊 n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">🎯 Prompts</a>
+    <a href="/topics/langchain-llm-apps.html">🔗 LangChain</a>
+  </div>
+
+  <main>
+    <div style="background:var(--bg2);border-bottom:1px solid var(--card-border);padding-top:70px;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+          <a href="/blog.html">Blog</a><span class="breadcrumb-sep">›</span>
+          <span>Zapier Job Alerts</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <span class="badge badge-red">Zapier</span>
+          <span class="badge badge-primary">RSS</span>
+          <span class="badge badge-green">Slack</span>
+        </div>
+        <h1>Zapier Job Alerts: Get Instant Notifications for New Jobs</h1>
+        <p>Monitor LinkedIn, Indeed, Remote.co, and more simultaneously with Zapier. AI filters out irrelevant postings, deduplicates results, and delivers only the best matching roles to your Slack or email in real time.</p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;font-size:0.9rem;color:var(--muted);">
+          <span>👤 Akash</span>
+          <span>📅 March 10, 2025</span>
+          <span>⏱ 8 min read</span>
+          <span>⚡ Real-time alerts</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-wrapper">
+      <article class="article-content">
+
+        <p>The job market moves fast. A great role posted on Monday morning can have 200+ applicants by Tuesday — early applicants consistently get higher response rates. The problem is that manually refreshing job boards multiple times a day is exhausting and unsustainable.</p>
+        <p>This Zapier setup solves that by continuously monitoring multiple job boards via RSS and AI-powered search, filtering results for relevance, eliminating duplicates, and pushing only the best matches to you instantly via Slack or email. You'll know about new matching jobs within minutes of posting — often before they've been shared widely.</p>
+
+        <div class="card" style="margin:2rem 0;background:rgba(102,126,234,0.1);border-color:rgba(102,126,234,0.3);">
+          <h3 style="margin-top:0;">⚡ What You'll Build</h3>
+          <ul>
+            <li>✅ Multi-source job monitoring: LinkedIn, Indeed, Remote.co, and custom RSS feeds</li>
+            <li>✅ AI relevance filter — ChatGPT scores each job 1-10 against your profile</li>
+            <li>✅ Deduplication via Google Sheets — never see the same job twice</li>
+            <li>✅ Rich Slack notifications with title, company, salary, and direct apply link</li>
+            <li>✅ Airtable/Sheets logging for pipeline tracking</li>
+            <li>✅ Salary filter — skip roles below your minimum before they reach you</li>
+          </ul>
+        </div>
+
+        <h2 id="rss-feeds">Finding Job Board RSS Feeds</h2>
+        <p>RSS is the backbone of this system. Most major job boards still publish RSS feeds — they just don't advertise them prominently. Here are the key feeds to set up:</p>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Job Board</th><th>RSS Feed URL Pattern</th><th>Free?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Indeed</td><td><code>https://www.indeed.com/rss?q=SOFTWARE+ENGINEER&amp;l=Remote&amp;sort=date</code></td><td>✅ Yes</td></tr>
+            <tr><td>LinkedIn</td><td>Via Google Alerts or third-party: <code>https://www.linkedin.com/jobs/search/rss?keywords=...</code></td><td>⚠️ Limited</td></tr>
+            <tr><td>Remote.co</td><td><code>https://remote.co/remote-jobs/feed/</code></td><td>✅ Yes</td></tr>
+            <tr><td>We Work Remotely</td><td><code>https://weworkremotely.com/categories/remote-programming-jobs.rss</code></td><td>✅ Yes</td></tr>
+            <tr><td>RemoteOK</td><td><code>https://remoteok.com/remote-dev-jobs.rss</code></td><td>✅ Yes</td></tr>
+            <tr><td>Stack Overflow Jobs</td><td>Via Google Alerts for "site:stackoverflow.com/jobs"</td><td>✅ Yes</td></tr>
+            <tr><td>Google Jobs</td><td>Via Google Alerts: <code>https://www.google.com/alerts/feeds/[TOKEN]/[ID]</code></td><td>✅ Yes</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Pro tip for LinkedIn:</strong> Set up Google Alerts for <code>site:linkedin.com/jobs "Software Engineer" "Remote"</code> — Google's alert system generates an RSS feed that effectively surfaces new LinkedIn job postings within minutes. This is the best free way to monitor LinkedIn jobs via RSS without scraping.</p>
+
+        <h2 id="prerequisites">Prerequisites</h2>
+        <ul>
+          <li><strong>Zapier account</strong>: Free tier works; Starter plan ($19.99/mo) needed for multi-step Zaps with filters</li>
+          <li><strong>Slack workspace</strong>: For receiving job notifications (or use Gmail/email if preferred)</li>
+          <li><strong>Google Sheets</strong>: For deduplication tracking</li>
+          <li><strong>OpenAI API key</strong>: Optional but recommended for the AI relevance filter (use Zapier's built-in ChatGPT action)</li>
+          <li><strong>Google Alerts</strong>: Free — set up at <a href="https://alerts.google.com" rel="noopener noreferrer">alerts.google.com</a></li>
+        </ul>
+
+        <h2 id="step-by-step">Step-by-Step Zap Setup</h2>
+        <p>You'll build one Zap per job source (or use Zapier's multi-step Zap to fan-out from one RSS trigger to multiple actions). Here's the full flow for a single source — replicate for each board.</p>
+
+        <h3 id="step1">Step 1: RSS Feed Trigger</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>📡 RSS by Zapier — New Item in Feed</h3>
+            <p>Polls an RSS feed every 15 minutes (Zapier's minimum interval on free/starter tiers) and triggers for each new item. Each new job posting in the feed becomes a separate Zap run.</p>
+          </div>
+        </div>
+        <p>Choose <strong>RSS by Zapier</strong> as your trigger app, then <strong>New Item in Feed</strong>:</p>
+        <ul>
+          <li><strong>Feed URL:</strong> Your job board RSS URL (e.g., Indeed search RSS for your keywords)</li>
+          <li>Click <strong>Test trigger</strong> to verify Zapier can read the feed and see sample job data</li>
+        </ul>
+        <p>The RSS item will contain: title (job title + company), link (apply URL), summary (job description snippet), and published date. These fields flow into all subsequent steps.</p>
+
+        <h3 id="step2">Step 2: Salary &amp; Keyword Pre-Filter</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>🔍 Filter by Zapier — Quick Keyword Screen</h3>
+            <p>A fast, free pre-filter that eliminates obviously irrelevant jobs before they reach the AI. Checks for required keywords and blocks known excluded companies or roles — this saves OpenAI API calls by catching easy rejects early.</p>
+          </div>
+        </div>
+        <p>Add a <strong>Filter by Zapier</strong> step. Set it to continue only if:</p>
+        <ul>
+          <li>Title <strong>contains</strong> (any of): <code>Engineer, Developer, Architect, Lead, Senior, Staff</code></li>
+          <li>Title <strong>does not contain</strong> (any of): <code>Intern, Junior, Entry-level, Manager, Director, VP</code> (customize to your seniority)</li>
+          <li>Summary <strong>does not contain</strong>: <code>clearance required, security clearance, must be US citizen</code> (if you can't meet these)</li>
+        </ul>
+        <p>This single filter typically eliminates 40-60% of irrelevant RSS items before any API call is made, dramatically reducing costs and noise.</p>
+
+        <h3 id="step3">Step 3: AI Relevance Filter</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>🤖 ChatGPT by Zapier — Relevance Scorer</h3>
+            <p>Uses ChatGPT to score the job against your profile on a 1-10 scale. Jobs scoring below your threshold are stopped here before reaching your notifications, so you only get alerted about genuinely strong matches.</p>
+          </div>
+        </div>
+        <p>Add a <strong>ChatGPT by Zapier</strong> action (or <strong>OpenAI → Send Prompt</strong>):</p>
+        <div class="prompt-block">
+You are a job relevance scorer. Score this job for a candidate with the following profile:
+
+CANDIDATE PROFILE: Senior full-stack developer, 5+ years, Python/React/Node.js, prefers remote, minimum $130k, not interested in pure frontend or mobile-only roles.
+
+JOB POSTING:
+Title: {{1.title}}
+Description: {{1.summary}}
+URL: {{1.link}}
+
+Score 1-10 how well this job matches the candidate profile.
+Return ONLY a JSON object: {"score": 8, "reason": "Strong Python + React match, remote, salary likely meets threshold"}
+
+Score 1-4 = poor match, 5-6 = moderate, 7-8 = good, 9-10 = excellent.
+        </div>
+        <p>After this step, add another <strong>Filter by Zapier</strong>: continue only if the extracted score (use Zapier's built-in text parser to extract the number from the JSON) is <strong>≥ 7</strong>. Adjust the threshold based on how many alerts you want — lower it to 6 for broader coverage, raise to 8 for fewer but higher-quality results.</p>
+
+        <h3 id="step4">Step 4: Deduplication Check</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>📋 Google Sheets — Check &amp; Log URL</h3>
+            <p>Checks if this job's URL has already been seen (logged in a Sheets deduplication table). If it has, the Zap stops here. If it's new, it logs the URL and continues to the notification step. Essential when monitoring multiple feeds that might surface the same job.</p>
+          </div>
+        </div>
+        <p>Set up a simple "Seen URLs" Google Sheet with a single column: <strong>Job URL</strong>. Then configure:</p>
+        <ol>
+          <li><strong>Google Sheets → Look Up Spreadsheet Row</strong>: Look for <code>{{1.link}}</code> in the Job URL column</li>
+          <li><strong>Filter by Zapier</strong>: Continue only if the lookup found <strong>0 results</strong> (the URL is new)</li>
+          <li><strong>Google Sheets → Create Spreadsheet Row</strong>: Add the new URL to the deduplication sheet</li>
+        </ol>
+        <p>This three-module pattern is a standard Zapier deduplication approach. The lookup + filter combination ensures any job URL you've already been alerted about will never trigger a second notification, even if it appears across multiple RSS feeds.</p>
+
+        <h3 id="step5">Step 5: Slack / Email Notification</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>📲 Slack / Gmail — Rich Job Alert</h3>
+            <p>Sends a beautifully formatted notification to your Slack channel or email. Includes job title, company, AI score and reasoning, salary (if available), remote status, and a direct apply button link.</p>
+          </div>
+        </div>
+        <p>For <strong>Slack</strong>, use <strong>Slack → Send Channel Message</strong> with Block Kit formatting:</p>
+        <pre><code>// Slack message text (plain fallback):
+🎯 New job match (Score: {{3.score}}/10): {{1.title}}
+
+// Slack blocks JSON for rich formatting:
+[
+  {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
+      "text": "*🎯 Job Match — Score {{3.score}}/10*\n*{{1.title}}*\n_Why it matches: {{3.reason}}_"
+    }
+  },
+  {
+    "type": "actions",
+    "elements": [
+      {
+        "type": "button",
+        "text": { "type": "plain_text", "text": "Apply Now →" },
+        "url": "{{1.link}}",
+        "style": "primary"
+      }
+    ]
+  }
+]</code></pre>
+        <p>For <strong>Gmail</strong> instead, use <strong>Gmail → Send Email</strong> with an HTML body that includes the job title as a heading, the AI scoring reason, and a prominent Apply button styled with inline CSS.</p>
+
+        <h3 id="step6">Step 6: Application Tracker Log</h3>
+        <div class="step-card" data-animate>
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>📊 Google Sheets / Airtable — Log Matched Jobs</h3>
+            <p>Logs every alerted job to a tracking spreadsheet or Airtable base. This creates a searchable history of all high-scoring jobs you've been alerted about, making it easy to find a job you want to revisit later and track which ones you've applied to.</p>
+          </div>
+        </div>
+        <p>Add a final <strong>Google Sheets → Create Spreadsheet Row</strong> or <strong>Airtable → Create Record</strong>. Log these fields:</p>
+        <ul>
+          <li>Date Alerted, Job Title, Company (parsed from RSS title), Apply URL</li>
+          <li>AI Score, AI Reasoning</li>
+          <li>Source (which RSS feed — hardcode this per Zap)</li>
+          <li>Status (default: "New")</li>
+        </ul>
+        <p>This tracker becomes your shortlist. After reviewing your Slack/email notifications, you can come back to this sheet, update statuses ("Applied," "No," "Maybe"), and use it alongside the <a href="/workflows/make-job-tracker.html">Make.com Job Tracker</a> that monitors your application confirmation emails.</p>
+
+        <h2 id="comparison">Zapier vs Make vs n8n for Job Alerts</h2>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Feature</th><th>Zapier</th><th>Make.com</th><th>n8n</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Setup ease</td><td>⭐⭐⭐⭐⭐ Easiest</td><td>⭐⭐⭐⭐ Easy</td><td>⭐⭐⭐ Medium</td></tr>
+            <tr><td>Free tier for job alerts</td><td>⚠️ 100 tasks/mo (limited)</td><td>✅ 1,000 ops/mo</td><td>✅ Unlimited (self-hosted)</td></tr>
+            <tr><td>RSS trigger</td><td>✅ Native</td><td>✅ Native</td><td>✅ Native</td></tr>
+            <tr><td>Multi-step + filters</td><td>⚠️ Starter plan ($20/mo)</td><td>✅ Free</td><td>✅ Free</td></tr>
+            <tr><td>ChatGPT integration</td><td>✅ No-code action</td><td>✅ Native module</td><td>✅ Native node</td></tr>
+            <tr><td>Best for</td><td>Quick setup, minimal tech</td><td>Complex flows, free</td><td>Power users, volume</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Bottom line:</strong> If you just want to get alerts running in 30 minutes without technical setup, Zapier wins. If you need more than 100 tasks/month for free or want complex multi-branch routing, Make.com is better. If you're technical and want maximum power at zero ongoing cost, self-host n8n.</p>
+
+        <h2 id="tips">Tips &amp; Customizations</h2>
+        <h3>Set up Google Alerts as a free LinkedIn monitor</h3>
+        <p>Go to <a href="https://alerts.google.com" rel="noopener noreferrer">Google Alerts</a> and create alerts for queries like <code>site:linkedin.com/jobs "machine learning engineer" "remote"</code>. Google will email you (or provide an RSS feed) whenever it indexes new LinkedIn job pages matching your query. This is completely free and surprisingly fast.</p>
+        <h3>Add a salary filter using text parsing</h3>
+        <p>Many job postings include salary ranges in the description. Use Zapier's built-in <strong>Formatter → Text → Extract Pattern</strong> action with a regex like <code>\$(\d{2,3}[,\d]*)</code> to extract salary figures from the description, then filter out anything below your minimum before sending the notification.</p>
+        <h3>Create a digest instead of real-time alerts</h3>
+        <p>If real-time Slack pings feel overwhelming, use Zapier's <strong>Delay Until</strong> action to hold all notifications until 8 AM each day, then use <strong>Digest by Zapier</strong> to bundle all of the day's matches into a single digest email. Fewer interruptions, same coverage.</p>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question">How often does Zapier check RSS feeds? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">On the free Zapier tier, Zaps run every 15 minutes. On the Starter plan ($19.99/month), you can push this to every 1-2 minutes for critical feeds. For most job boards, 15 minutes is perfectly fine — jobs rarely need to be applied to within the first 15 minutes of posting. The early advantage you want is hours to days, not seconds.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Does this use up my Zapier free tier tasks quickly? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Zapier counts each step in a multi-step Zap as one task. A 6-step Zap that runs for every RSS item uses 6 tasks per job posting checked. With 4 RSS feeds each generating ~20 items per day, that's 480 tasks/day — well over the 100-task free limit. The Starter plan ($19.99/mo for 750 tasks/day) is almost certainly needed for this setup. Alternatively, use Make.com's free tier which handles 1,000 operations/month total.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Which job boards have the best RSS feeds for tech roles? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">For software engineering and tech roles: <strong>Indeed</strong> (most volume, customizable search RSS), <strong>We Work Remotely</strong> (high-quality remote engineering roles), <strong>RemoteOK</strong> (developer-focused remote jobs), and <strong>Hacker News "Who's Hiring"</strong> (the monthly thread — scrape via Algolia HN API RSS). For data/ML roles, add <strong>Kaggle Jobs</strong> and <strong>AIJobBoard.io</strong>. For design, add <strong>Dribbble Jobs RSS</strong>.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I filter by company size or funding stage? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Not directly from RSS feeds, which only contain what the job posting includes. For company-level filtering, consider using Clearbit or Apollo.io APIs to enrich company data after the deduplication step. Alternatively, add company size keywords to your AI scoring prompt ("prefer startups Series A-C, 20-200 employees") and let GPT-4 adjust the score based on context clues in the job description.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I handle the same job appearing on multiple boards? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">The deduplication step (Step 4) uses the job URL for deduplication — but the same job posted on both Indeed and LinkedIn will have different URLs. For cross-board deduplication, extract the job title + company name from each posting and use that combination as the deduplication key instead of the URL. Store "COMPANY:JOB_TITLE" strings in your deduplication sheet and check for exact or fuzzy matches using Zapier's text comparison.</div>
+        </div>
+
+        <h2 id="related">Related Workflows &amp; Guides</h2>
+        <div class="card-grid card-grid-3" style="margin-top:1.5rem;">
+          <a href="/workflows/n8n-job-search-automation.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🔍</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">n8n Job Search</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Full automation: scraping, AI scoring, cover letters, daily email digest</p>
+          </a>
+          <a href="/workflows/make-job-tracker.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📊</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">Make.com Job Tracker</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Auto-track every application from Gmail to Google Sheets</p>
+          </a>
+          <a href="/workflows/ai-resume-tailor.html" class="card" style="text-decoration:none;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📄</div>
+            <h3 style="font-size:1rem;margin-bottom:0.5rem;">AI Resume Tailor</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin:0;">Auto-customize your resume the moment you get an alert</p>
+          </a>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="toc">
+          <h3>📋 Table of Contents</h3>
+          <ul>
+            <li><a href="#rss-feeds">Finding RSS Feeds</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#step-by-step">Step-by-Step Setup</a></li>
+            <li><a href="#step1">1. RSS Trigger</a></li>
+            <li><a href="#step2">2. Keyword Pre-Filter</a></li>
+            <li><a href="#step3">3. AI Relevance Filter</a></li>
+            <li><a href="#step4">4. Deduplication</a></li>
+            <li><a href="#step5">5. Slack/Email Alert</a></li>
+            <li><a href="#step6">6. Application Log</a></li>
+            <li><a href="#comparison">Zapier vs Make vs n8n</a></li>
+            <li><a href="#tips">Tips &amp; Customizations</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">🚀 Related Workflows</h4>
+          <ul style="padding-left:1rem;color:var(--muted);font-size:0.9rem;">
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+            <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <h4 style="margin-top:0;">🏷️ Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag">Zapier</span>
+            <span class="tag">RSS</span>
+            <span class="tag">Slack</span>
+            <span class="tag">Job Alerts</span>
+            <span class="tag">Automation</span>
+            <span class="tag">ChatGPT</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">🤖 AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+          <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with ❤️ + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if(bar) bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const icon = q.querySelector('.faq-icon');
+        answer.classList.toggle('open');
+        if(icon) icon.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+      tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>
