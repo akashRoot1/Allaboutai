@@ -488,7 +488,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const catParam = urlParams.get('category');
     if (catParam) {
-      const matchingTab = document.querySelector(\`.tab[data-filter="${catParam}"]\`);
+      const matchingTab = document.querySelector(`.tab[data-filter="${catParam}"]`);
       if (matchingTab) matchingTab.click();
     }
   </script>
