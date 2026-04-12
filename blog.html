@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Blog - Workflows, Tools &amp; Tutorials | AllAboutAI</title>
+  <meta name="description" content="Browse 50+ in-depth articles on AI automation, n8n workflows, ChatGPT prompts, LangChain, and AI tools. Updated weekly.">
+  <meta name="keywords" content="AI automation blog, n8n tutorials, ChatGPT prompts, LangChain guide, AI tools 2025, job search automation, prompt engineering">
+  <meta property="og:title" content="AI Automation Blog - Workflows, Tools &amp; Tutorials | AllAboutAI">
+  <meta property="og:description" content="Browse 50+ in-depth articles on AI automation, n8n workflows, ChatGPT prompts, LangChain, and AI tools.">
+  <meta property="og:url" content="https://thatai.me/blog.html">
+  <meta property="og:image" content="https://thatai.me/n8n.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Automation Blog | AllAboutAI">
+  <meta name="twitter:description" content="Browse 50+ in-depth articles on AI automation, n8n workflows, ChatGPT prompts, LangChain, and AI tools.">
+  <link rel="canonical" href="https://thatai.me/blog.html">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-wrapper">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">&#129302; AllAboutAI</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html" class="active">Blog</a></li>
+        <li class="dropdown">
+          <a href="#">Workflows &#9662;</a>
+          <div class="dropdown-menu">
+            <a href="/workflows/n8n-job-search-automation.html">&#128269; n8n Job Search</a>
+            <a href="/workflows/linkedin-automation.html">&#128188; LinkedIn Automation</a>
+            <a href="/workflows/ai-resume-tailor.html">&#128196; AI Resume Tailor</a>
+            <a href="/workflows/make-job-tracker.html">&#128202; Make.com Tracker</a>
+            <a href="/workflows/zapier-job-alerts.html">&#128276; Zapier Job Alerts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Topics &#9662;</a>
+          <div class="dropdown-menu">
+            <a href="/topics/ai-agents-guide.html">&#129302; AI Agents Guide</a>
+            <a href="/topics/best-ai-tools-2025.html">&#128295; Best AI Tools 2025</a>
+            <a href="/topics/chatgpt-job-search.html">&#128172; ChatGPT Tips</a>
+            <a href="/topics/n8n-beginners-guide.html">&#128202; n8n Guide</a>
+            <a href="/topics/prompt-engineering.html">&#127919; Prompt Engineering</a>
+            <a href="/topics/langchain-llm-apps.html">&#128279; LangChain</a>
+          </div>
+        </li>
+        <li><a href="/blog.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <strong style="color:var(--muted);padding:12px 16px;display:block;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Workflows</strong>
+    <a href="/workflows/n8n-job-search-automation.html">&#128269; n8n Job Search</a>
+    <a href="/workflows/linkedin-automation.html">&#128188; LinkedIn Automation</a>
+    <a href="/workflows/ai-resume-tailor.html">&#128196; AI Resume Tailor</a>
+    <a href="/workflows/make-job-tracker.html">&#128202; Make.com Tracker</a>
+    <a href="/workflows/zapier-job-alerts.html">&#128276; Zapier Job Alerts</a>
+    <strong style="color:var(--muted);padding:12px 16px;display:block;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Topics</strong>
+    <a href="/topics/ai-agents-guide.html">&#129302; AI Agents Guide</a>
+    <a href="/topics/best-ai-tools-2025.html">&#128295; Best AI Tools 2025</a>
+    <a href="/topics/chatgpt-job-search.html">&#128172; ChatGPT Tips</a>
+    <a href="/topics/n8n-beginners-guide.html">&#128202; n8n Guide</a>
+    <a href="/topics/prompt-engineering.html">&#127919; Prompt Engineering</a>
+    <a href="/topics/langchain-llm-apps.html">&#128279; LangChain</a>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep">&#8250;</span>
+          <span>Blog</span>
+        </div>
+        <h1>The <span class="gradient-text">AI Automation</span> Blog</h1>
+        <p>In-depth guides, workflow tutorials, and AI tool reviews. Everything you need to automate smarter and work less. Updated weekly.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+          <span class="badge badge-primary">&#128202; 11 Articles</span>
+          <span class="badge badge-green">&#128293; Updated Weekly</span>
+          <span class="badge badge-purple">&#128202; 100% Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG POSTS -->
+    <section class="section">
+      <div class="container">
+        <!-- CATEGORY FILTER TABS -->
+        <div class="tabs" role="tablist" aria-label="Filter posts by category">
+          <button class="tab active" role="tab" data-filter="all" aria-selected="true">All Posts</button>
+          <button class="tab" role="tab" data-filter="workflows" aria-selected="false">&#9889; Workflows</button>
+          <button class="tab" role="tab" data-filter="ai-tools" aria-selected="false">&#128295; AI Tools</button>
+          <button class="tab" role="tab" data-filter="job-search" aria-selected="false">&#128188; Job Search</button>
+          <button class="tab" role="tab" data-filter="tutorials" aria-selected="false">&#128218; Tutorials</button>
+        </div>
+
+        <!-- POST COUNT -->
+        <p id="postCount" style="color:var(--muted);font-size:0.9rem;margin-bottom:1.5rem;">Showing <strong id="countNum" style="color:var(--text);">11</strong> articles</p>
+
+        <!-- POSTS GRID -->
+        <div class="card-grid card-grid-3" id="postsGrid">
+
+          <!-- Post 1 -->
+          <article class="post-card card" data-category="workflows">
+            <div class="post-card-meta">
+              <span class="badge badge-primary">Workflows</span>
+              <span>&#128197; Jan 15, 2025</span>
+              <span>&#9201; 15 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/workflows/n8n-job-search-automation.html" style="color:var(--text);text-decoration:none;">The Ultimate n8n Job Search Workflow (2025)</a>
+            </h2>
+            <p>Build a complete automated job search pipeline with 12 n8n nodes. Scrape LinkedIn and Indeed, score matches with GPT-4, auto-generate tailored cover letters, and receive daily email digests of the best opportunities.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">n8n</span><span class="tag">automation</span><span class="tag">job search</span><span class="tag">ChatGPT</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/workflows/n8n-job-search-automation.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="post-card card" data-category="ai-tools">
+            <div class="post-card-meta">
+              <span class="badge badge-purple">AI Tools</span>
+              <span>&#128197; Feb 3, 2025</span>
+              <span>&#9201; 12 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/topics/best-ai-tools-2025.html" style="color:var(--text);text-decoration:none;">50+ Best AI Tools for Productivity in 2025</a>
+            </h2>
+            <p>We tested and ranked over 50 AI tools across every category. Discover the top picks for writing (ChatGPT, Claude), coding (GitHub Copilot, Cursor), image generation (Midjourney, DALL-E), and automation (n8n, Make.com).</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">AI tools</span><span class="tag">productivity</span><span class="tag">2025</span><span class="tag">review</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/topics/best-ai-tools-2025.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="post-card card" data-category="job-search">
+            <div class="post-card-meta">
+              <span class="badge badge-pink">Job Search</span>
+              <span>&#128197; Feb 10, 2025</span>
+              <span>&#9201; 10 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/topics/chatgpt-job-search.html" style="color:var(--text);text-decoration:none;">How to Use ChatGPT to Ace Job Interviews</a>
+            </h2>
+            <p>25 exact ChatGPT prompts to supercharge your job search. From ATS-optimized resume rewrites and persuasive cover letters to STAR-method interview prep and confident salary negotiation scripts — all ready to copy and paste.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">ChatGPT</span><span class="tag">prompts</span><span class="tag">resume</span><span class="tag">interview</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/topics/chatgpt-job-search.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="post-card card" data-category="tutorials">
+            <div class="post-card-meta">
+              <span class="badge badge-primary">Tutorials</span>
+              <span>&#128197; Feb 18, 2025</span>
+              <span>&#9201; 20 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/topics/n8n-beginners-guide.html" style="color:var(--text);text-decoration:none;">Getting Started with n8n: Complete Beginner Tutorial</a>
+            </h2>
+            <p>Everything you need to go from n8n zero to automation hero. Install n8n locally or in the cloud, understand triggers, nodes, and expressions, then build your first real workflow from scratch. Includes n8n vs Zapier vs Make.com comparison.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">n8n</span><span class="tag">tutorial</span><span class="tag">beginners</span><span class="tag">automation</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/topics/n8n-beginners-guide.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="post-card card" data-category="ai-tools">
+            <div class="post-card-meta">
+              <span class="badge badge-purple">AI Tools</span>
+              <span>&#128197; Mar 1, 2025</span>
+              <span>&#9201; 18 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/topics/prompt-engineering.html" style="color:var(--text);text-decoration:none;">Prompt Engineering: The Complete Guide 2025</a>
+            </h2>
+            <p>Master every prompting technique from basic zero-shot and few-shot prompting to advanced chain-of-thought, tree-of-thoughts, and ReAct patterns. Includes 30+ example prompts and real before/after comparisons showing dramatic output improvements.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">prompts</span><span class="tag">ChatGPT</span><span class="tag">engineering</span><span class="tag">LLM</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/topics/prompt-engineering.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="post-card card" data-category="workflows">
+            <div class="post-card-meta">
+              <span class="badge badge-primary">Workflows</span>
+              <span>&#128197; Mar 7, 2025</span>
+              <span>&#9201; 14 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/workflows/ai-resume-tailor.html" style="color:var(--text);text-decoration:none;">AI Resume Writing: Automate with n8n &amp; GPT</a>
+            </h2>
+            <p>Stop rewriting your resume for every job manually. This n8n workflow parses any job description, extracts the top ATS keywords, rewrites your experience bullets to match, and generates a bespoke cover letter — all in under 60 seconds.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">n8n</span><span class="tag">resume</span><span class="tag">OpenAI</span><span class="tag">ATS</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/workflows/ai-resume-tailor.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 7 -->
+          <article class="post-card card" data-category="workflows">
+            <div class="post-card-meta">
+              <span class="badge badge-primary">Workflows</span>
+              <span>&#128197; Mar 14, 2025</span>
+              <span>&#9201; 16 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/workflows/linkedin-automation.html" style="color:var(--text);text-decoration:none;">Automate LinkedIn Outreach with AI</a>
+            </h2>
+            <p>Scale your networking without sounding like a bot. This n8n workflow pulls recruiter and hiring manager profiles, generates personalised connection requests using GPT-4, logs every interaction in Google Sheets, and schedules intelligent follow-ups.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">LinkedIn</span><span class="tag">n8n</span><span class="tag">networking</span><span class="tag">AI</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/workflows/linkedin-automation.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 8 -->
+          <article class="post-card card" data-category="ai-tools">
+            <div class="post-card-meta">
+              <span class="badge badge-purple">AI Tools</span>
+              <span>&#128197; Mar 20, 2025</span>
+              <span>&#9201; 22 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/topics/langchain-llm-apps.html" style="color:var(--text);text-decoration:none;">LangChain vs AutoGen vs CrewAI: Complete Comparison</a>
+            </h2>
+            <p>Which AI agent framework should you actually use in 2025? We build the same RAG chatbot app in LangChain, AutoGen, and CrewAI, then compare developer experience, flexibility, community support, cost, and production-readiness side by side.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">LangChain</span><span class="tag">AutoGen</span><span class="tag">CrewAI</span><span class="tag">Python</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/topics/langchain-llm-apps.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 9 -->
+          <article class="post-card card" data-category="workflows">
+            <div class="post-card-meta">
+              <span class="badge badge-primary">Workflows</span>
+              <span>&#128197; Mar 25, 2025</span>
+              <span>&#9201; 13 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/workflows/make-job-tracker.html" style="color:var(--text);text-decoration:none;">Build a Job Application Tracker with Make.com</a>
+            </h2>
+            <p>Never lose track of an application again. This Make.com scenario automatically logs every job you apply for into Notion, updates statuses when recruiters reply to your emails, sends interview reminders, and produces a weekly analytics report.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">Make.com</span><span class="tag">Notion</span><span class="tag">tracker</span><span class="tag">automation</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/workflows/make-job-tracker.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 10 -->
+          <article class="post-card card" data-category="workflows">
+            <div class="post-card-meta">
+              <span class="badge badge-primary">Workflows</span>
+              <span>&#128197; Apr 1, 2025</span>
+              <span>&#9201; 11 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/workflows/zapier-job-alerts.html" style="color:var(--text);text-decoration:none;">Never Miss a Job: Zapier Automation for Job Alerts</a>
+            </h2>
+            <p>Set up a Zapier automation that monitors 8 job boards simultaneously, filters results by your criteria (role, salary, location, remote), deduplicates listings, and sends a beautiful daily digest straight to your inbox or Slack channel.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">Zapier</span><span class="tag">job alerts</span><span class="tag">automation</span><span class="tag">email</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/workflows/zapier-job-alerts.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+          <!-- Post 11 -->
+          <article class="post-card card" data-category="ai-tools">
+            <div class="post-card-meta">
+              <span class="badge badge-purple">AI Tools</span>
+              <span>&#128197; Apr 5, 2025</span>
+              <span>&#9201; 25 min</span>
+            </div>
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">
+              <a href="/topics/ai-agents-guide.html" style="color:var(--text);text-decoration:none;">AI Agents Complete Guide 2025</a>
+            </h2>
+            <p>The definitive guide to autonomous AI agents in 2025. Understand what makes an agent different from a chatbot, explore top frameworks (CrewAI, AutoGen, LangGraph, OpenAI Assistants), and build your first multi-agent system step by step.</p>
+            <div class="post-card-tags" style="margin-bottom:1rem;">
+              <span class="tag">AI agents</span><span class="tag">CrewAI</span><span class="tag">AutoGen</span><span class="tag">LangGraph</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:0.85rem;color:var(--muted);">By Akash</span>
+              <a href="/topics/ai-agents-guide.html" class="btn btn-primary btn-sm">Read Article &#8594;</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div id="emptyState" style="display:none;text-align:center;padding:60px 20px;">
+          <div style="font-size:3rem;margin-bottom:1rem;">&#128269;</div>
+          <h3 style="margin-bottom:0.5rem;">No posts found</h3>
+          <p style="color:var(--muted);">Try a different category filter.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-section" data-animate>
+          <h2 style="font-size:2rem;margin-bottom:0.5rem;">&#128236; Never Miss a Post</h2>
+          <p style="color:var(--muted);">Get new AI automation guides, workflow templates, and tool reviews delivered weekly. Join 15,000+ subscribers.</p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="your@email.com" aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Subscribe Free</button>
+          </form>
+          <p style="font-size:0.8rem;color:var(--muted);margin-top:1rem;">No spam, ever. Unsubscribe in one click.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-section" data-animate>
+          <h2>&#129302; About <span class="gradient-text">AllAboutAI</span></h2>
+          <p>AllAboutAI (thatai.me) is an independent blog dedicated to helping professionals harness the power of AI automation. Founded by Akash, a software engineer and automation enthusiast, the site was born out of a simple frustration: there were no good, free, hands-on guides for setting up n8n, Make.com, and Zapier for real-world tasks like job searching.</p>
+          <p>Every article on this site is written from personal experience — the workflows are ones we actually use, the tools are ones we&#39;ve actually tested, and the prompts are ones that have genuinely delivered results. No fluff, no affiliate-driven rankings, just practical content that saves you time.</p>
+          <p>Our focus areas include <strong>workflow automation</strong> (n8n, Make.com, Zapier), <strong>AI productivity tools</strong> (ChatGPT, Claude, Gemini), <strong>developer guides</strong> (LangChain, LlamaIndex, vector databases), and <strong>job search automation</strong> — because landing your next role should be as efficient as everything else you automate.</p>
+          <p style="color:var(--muted);font-style:italic;">Questions or feedback? Find me on <a href="https://twitter.com/thatai_me" style="color:var(--primary);">Twitter/X @thatai_me</a> — I read every message.</p>
+          <div style="margin-top:2rem;display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="/" class="btn btn-primary">&#128640; Explore Workflows</a>
+            <a href="https://twitter.com/thatai_me" class="btn btn-secondary">&#128038; Follow on Twitter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">&#129302; AllAboutAI</div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:280px;">Your guide to AI automation. Free workflows, guides, and tools for the AI-powered generation.</p>
+        <div style="display:flex;gap:12px;margin-top:1.5rem;">
+          <a href="https://twitter.com/thatai_me" style="color:var(--muted);font-size:1.2rem;" aria-label="Twitter">&#128038;</a>
+          <a href="https://github.com" style="color:var(--muted);font-size:1.2rem;" aria-label="GitHub">&#128187;</a>
+          <a href="https://youtube.com" style="color:var(--muted);font-size:1.2rem;" aria-label="YouTube">&#128250;</a>
+        </div>
+      </div>
+      <div>
+        <h4>Workflows</h4>
+        <ul>
+          <li><a href="/workflows/n8n-job-search-automation.html">n8n Job Search</a></li>
+          <li><a href="/workflows/linkedin-automation.html">LinkedIn Automation</a></li>
+          <li><a href="/workflows/ai-resume-tailor.html">AI Resume Tailor</a></li>
+          <li><a href="/workflows/make-job-tracker.html">Make.com Tracker</a></li>
+          <li><a href="/workflows/zapier-job-alerts.html">Zapier Job Alerts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="/topics/ai-agents-guide.html">AI Agents Guide</a></li>
+          <li><a href="/topics/best-ai-tools-2025.html">Best AI Tools 2025</a></li>
+          <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
+          <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
+          <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/blog.html">All Posts</a></li>
+          <li><a href="/blog.html#about">About Us</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 AllAboutAI | thatai.me</span>
+      <span>Built by Akash with &#10084;&#65039; + n8n</span>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      bar.style.width = scrolled + '%';
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+
+    // Category filter tabs
+    const tabs = document.querySelectorAll('.tab[data-filter]');
+    const posts = document.querySelectorAll('.post-card[data-category]');
+    const countNum = document.getElementById('countNum');
+    const emptyState = document.getElementById('emptyState');
+    const postsGrid = document.getElementById('postsGrid');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.getAttribute('data-filter');
+        let visible = 0;
+
+        posts.forEach(post => {
+          const cat = post.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            post.style.display = '';
+            visible++;
+          } else {
+            post.style.display = 'none';
+          }
+        });
+
+        countNum.textContent = visible;
+        emptyState.style.display = visible === 0 ? 'block' : 'none';
+        postsGrid.style.display = visible === 0 ? 'none' : '';
+      });
+    });
+
+    // Intersection observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Handle URL hash for category filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get('category');
+    if (catParam) {
+      const matchingTab = document.querySelector(`.tab[data-filter="${catParam}"]`);
+      if (matchingTab) matchingTab.click();
+    }
+  </script>
+</body>
+</html>
