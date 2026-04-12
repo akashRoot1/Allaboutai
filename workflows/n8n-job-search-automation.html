@@ -152,7 +152,137 @@
           </ul>
         </div>
 
-        <h2 id="prerequisites">Prerequisites</h2>
+        <!-- DOWNLOAD TEMPLATE CTA -->
+        <div class="download-cta" id="download">
+          <div class="download-cta-info">
+            <h3>&#11015;&#65039; Download the Free Workflow Template</h3>
+            <p>Skip the manual build — import the pre-built JSON directly into n8n in 60 seconds. Includes all 12 nodes, sample prompts, and config comments.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:0.75rem;">
+              <span class="badge badge-primary">n8n JSON</span>
+              <span class="badge badge-green">Free Forever</span>
+              <span class="badge badge-purple">12 Nodes</span>
+              <span class="badge badge-pink">GPT-4 Ready</span>
+            </div>
+          </div>
+          <div class="download-cta-actions">
+            <button class="btn-download" id="downloadBtn" onclick="downloadWorkflowJSON()">&#11015;&#65039; Download JSON Template</button>
+            <a href="/services.html#pro" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:8px;">&#128295; Get Pro Pack (10 Workflows)</a>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE DEMO -->
+        <h2 id="interactive-demo" style="margin-top:2.5rem;">&#127380; Interactive Workflow Demo</h2>
+        <p>Click each step to see exactly what it does, what data it receives, and what it outputs. No n8n account needed to explore.</p>
+        <div class="demo-container" style="margin:1.5rem 0 2rem;">
+          <div class="demo-header">
+            <div class="demo-dot red"></div>
+            <div class="demo-dot yellow"></div>
+            <div class="demo-dot green"></div>
+            <span class="demo-title">n8n Job Search Workflow — 12 Nodes</span>
+          </div>
+          <div class="demo-steps">
+            <div class="demo-steps-list" id="demoStepsList">
+              <div class="demo-step-item active" data-panel="0"><div class="demo-step-num">1</div>&#9200; Schedule Trigger</div>
+              <div class="demo-step-item" data-panel="1"><div class="demo-step-num">2</div>&#128194; Resume Download</div>
+              <div class="demo-step-item" data-panel="2"><div class="demo-step-num">3</div>&#128196; PDF Extractor</div>
+              <div class="demo-step-item" data-panel="3"><div class="demo-step-num">4</div>&#9881;&#65039; Search Config</div>
+              <div class="demo-step-item" data-panel="4"><div class="demo-step-num">5</div>&#128279; URL Builder</div>
+              <div class="demo-step-item" data-panel="5"><div class="demo-step-num">6</div>&#128246; Job Scraper</div>
+              <div class="demo-step-item" data-panel="6"><div class="demo-step-num">7</div>&#129520; HTML Parser</div>
+              <div class="demo-step-item" data-panel="7"><div class="demo-step-num">8</div>&#128269; Detail Fetcher</div>
+              <div class="demo-step-item" data-panel="8"><div class="demo-step-num">9</div>&#129302; AI Scorer</div>
+              <div class="demo-step-item" data-panel="9"><div class="demo-step-num">10</div>&#128221; Cover Letter</div>
+              <div class="demo-step-item" data-panel="10"><div class="demo-step-num">11</div>&#128203; Resume Tips</div>
+              <div class="demo-step-item" data-panel="11"><div class="demo-step-num">12</div>&#128236; Email Digest</div>
+            </div>
+            <div style="overflow:hidden;">
+              <div class="demo-panel active" id="dPanel0">
+                <span class="demo-node-type">&#9889; Trigger</span>
+                <h3>Schedule Trigger</h3>
+                <p>Automatically starts the workflow every morning at 7 AM. No manual action needed. Set your timezone and the entire pipeline runs on autopilot.</p>
+                <div class="demo-output-label">Sample Output</div>
+                <div class="demo-code">{ "timestamp": "2025-01-15T07:00:00.000Z",<br>&nbsp;&nbsp;"workflowId": "wf_job_search_v2" }</div>
+              </div>
+              <div class="demo-panel" id="dPanel1">
+                <span class="demo-node-type">&#9729;&#65039; HTTP Request</span>
+                <h3>Resume Download</h3>
+                <p>Fetches your latest resume PDF from Google Drive using the Drive API. Always uses the most current version of your resume for AI analysis.</p>
+                <div class="demo-output-label">Config</div>
+                <div class="demo-code">URL: https://www.googleapis.com/drive/<br>&nbsp;&nbsp;v3/files/YOUR_FILE_ID?alt=media<br>Auth: OAuth2 (Google Drive)</div>
+              </div>
+              <div class="demo-panel" id="dPanel2">
+                <span class="demo-node-type">&#128196; Code Node</span>
+                <h3>PDF Text Extractor</h3>
+                <p>Converts the binary PDF data into searchable plain text using a built-in n8n PDF parsing library. Strips formatting, preserves keywords.</p>
+                <div class="demo-output-label">Sample Output</div>
+                <div class="demo-code">{ "resumeText": "John Smith\nSenior Engineer...\nSkills: React, Node.js,\nPython, AWS, Docker..." }</div>
+              </div>
+              <div class="demo-panel" id="dPanel3">
+                <span class="demo-node-type">&#128196; Code Node</span>
+                <h3>Search Config</h3>
+                <p>Returns your personalized search preferences as a JSON object. Edit these values once to customize your entire workflow permanently.</p>
+                <div class="demo-output-label">Editable Config</div>
+                <div class="demo-code">{ "keywords": "Senior Frontend Engineer",<br>&nbsp;&nbsp;"location": "Remote",<br>&nbsp;&nbsp;"minScore": 7,<br>&nbsp;&nbsp;"maxJobs": 25,<br>&nbsp;&nbsp;"excludeCompanies": [] }</div>
+              </div>
+              <div class="demo-panel" id="dPanel4">
+                <span class="demo-node-type">&#128196; Code Node</span>
+                <h3>LinkedIn URL Builder</h3>
+                <p>Dynamically constructs the LinkedIn Jobs API query URL by encoding your search keywords, location, and filters into proper URL parameters.</p>
+                <div class="demo-output-label">Generated URL</div>
+                <div class="demo-code">https://linkedin-jobs-api.p.rapidapi.com<br>&nbsp;&nbsp;/active-jb-7d?keywords=Senior+Frontend<br>&nbsp;&nbsp;&amp;location=Remote&amp;page=0</div>
+              </div>
+              <div class="demo-panel" id="dPanel5">
+                <span class="demo-node-type">&#9729;&#65039; HTTP Request</span>
+                <h3>Job Scraper</h3>
+                <p>Hits the RapidAPI LinkedIn Jobs endpoint and returns up to 25 raw job listings per run. Free tier gives you 500 calls/month — enough for daily runs.</p>
+                <div class="demo-output-label">Sample Response (1 of 25)</div>
+                <div class="demo-code">{ "title": "Sr. Frontend Engineer",<br>&nbsp;&nbsp;"company": "Stripe",<br>&nbsp;&nbsp;"location": "Remote, USA",<br>&nbsp;&nbsp;"url": "https://linkedin.com/jobs/...",<br>&nbsp;&nbsp;"postedAt": "2 hours ago" }</div>
+              </div>
+              <div class="demo-panel" id="dPanel6">
+                <span class="demo-node-type">&#128196; Code Node</span>
+                <h3>HTML Parser</h3>
+                <p>Cleans and normalizes raw job data: strips HTML tags, trims whitespace, extracts salary ranges from descriptions, and deduplicates listings seen in the past 7 days.</p>
+                <div class="demo-output-label">Normalized Output</div>
+                <div class="demo-code">{ "title": "Sr. Frontend Engineer",<br>&nbsp;&nbsp;"company": "Stripe",<br>&nbsp;&nbsp;"salary": "$160k–$220k",<br>&nbsp;&nbsp;"isNew": true,<br>&nbsp;&nbsp;"descriptionSnippet": "..." }</div>
+              </div>
+              <div class="demo-panel" id="dPanel7">
+                <span class="demo-node-type">&#9729;&#65039; HTTP Request</span>
+                <h3>Detail Fetcher</h3>
+                <p>Fetches the complete job description for each listing. Full text is needed for accurate AI scoring — job cards only have snippets. Runs in a loop over all 25 jobs.</p>
+                <div class="demo-output-label">Full Description</div>
+                <div class="demo-code">{ "fullDescription": "We are looking for<br>&nbsp;&nbsp;a Senior Frontend Engineer to join...<br>&nbsp;&nbsp;Requirements: 5+ years React,<br>&nbsp;&nbsp;TypeScript required, GraphQL..." }</div>
+              </div>
+              <div class="demo-panel" id="dPanel8">
+                <span class="demo-node-type">&#129302; OpenAI (GPT-4)</span>
+                <h3>AI Job Scorer</h3>
+                <p>The heart of the workflow. GPT-4 compares your resume text against the full job description and returns a structured JSON score with reasoning, match %, and missing skills.</p>
+                <div class="demo-output-label">AI Output</div>
+                <div class="demo-code">{ "score": 9,<br>&nbsp;&nbsp;"matchPercent": 87,<br>&nbsp;&nbsp;"topReasons": ["React expert", "5yr exp"],<br>&nbsp;&nbsp;"missingSkills": ["GraphQL"],<br>&nbsp;&nbsp;"verdict": "Strong match — apply!" }</div>
+              </div>
+              <div class="demo-panel" id="dPanel9">
+                <span class="demo-node-type">&#129302; OpenAI (GPT-4)</span>
+                <h3>Cover Letter Generator</h3>
+                <p>For every job scoring 7+, GPT-4 generates a personalized, ATS-optimized cover letter that mirrors the job description's language and highlights your most relevant experience.</p>
+                <div class="demo-output-label">Generated Cover Letter (Excerpt)</div>
+                <div class="demo-code">"Dear Stripe Hiring Team,\nI'm excited to apply<br>&nbsp;&nbsp;for the Sr. Frontend Engineer role...<br>&nbsp;&nbsp;My 6 years building React applications<br>&nbsp;&nbsp;at scale align directly with your..."</div>
+              </div>
+              <div class="demo-panel" id="dPanel10">
+                <span class="demo-node-type">&#129302; OpenAI (GPT-4)</span>
+                <h3>Resume Tips</h3>
+                <p>GPT-4 analyzes the gap between your resume and the job description, then outputs specific, actionable bullet point suggestions and keywords to add before applying.</p>
+                <div class="demo-output-label">AI Suggestions</div>
+                <div class="demo-code">{ "addKeywords": ["GraphQL","TypeScript 5.x"],<br>&nbsp;&nbsp;"rewriteBullets": ["Quantify impact on.."],<br>&nbsp;&nbsp;"atsScore": "74% → 91% with changes" }</div>
+              </div>
+              <div class="demo-panel" id="dPanel11">
+                <span class="demo-node-type">&#128236; Gmail</span>
+                <h3>Email Digest</h3>
+                <p>Compiles all qualifying jobs (score ≥7) into a beautiful HTML email with company names, scores, cover letter excerpts, and one-click apply links. Arrives every morning by 7:05 AM.</p>
+                <div class="demo-output-label">Email Preview</div>
+                <div class="demo-code">Subject: &#127381; 6 New Job Matches (Jan 15)<br>─────────────────────────<br>⭐ 9/10 — Stripe Sr. Engineer ($160k)<br>  ✉ Cover letter ready | Apply &#8594;<br>⭐ 8/10 — Shopify Staff Eng ($140k)<br>  ✉ Cover letter ready | Apply &#8594;</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <p>Before we start, make sure you have the following accounts and tools ready. Most are free or have generous free tiers — this workflow is designed to be as low-cost as possible.</p>
         <ul>
           <li><strong>n8n account</strong>: Sign up at <a href="https://n8n.io" rel="noopener noreferrer">n8n.io</a> (free cloud tier available) or self-host on a $5/month VPS for full control</li>
@@ -571,6 +701,52 @@ Format as a numbered list. Be specific — mention exact phrases from the job de
         </ol>
         <p>When testing, monitor each node's output panel carefully. The most common issues are: wrong Google Drive file ID, OpenAI API key permissions, and RapidAPI subscription to the specific job search API. Check each node individually by clicking "Execute Node" in isolation before running the full workflow.</p>
 
+        <h2 id="deployment">&#128682; Plug-and-Play Deployment Options</h2>
+        <p>Don't want to deal with DevOps? Here are three ways to get n8n running in under 10 minutes — choose what fits your comfort level.</p>
+        <div class="deploy-grid">
+          <div class="deploy-card">
+            <div class="deploy-icon">&#128682;</div>
+            <div class="deploy-name">Railway (Recommended)</div>
+            <div class="deploy-desc">One-click deploy to Railway's cloud. Free $5/month credit — covers n8n 24/7. No server management.</div>
+            <ol class="deploy-steps">
+              <li>Go to railway.app → New Project</li>
+              <li>Select "Deploy from GitHub"</li>
+              <li>Search for "n8n" template</li>
+              <li>Click Deploy — done in 2 min</li>
+            </ol>
+            <a href="https://railway.app" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="width:100%;text-align:center;">Deploy on Railway &#8594;</a>
+          </div>
+          <div class="deploy-card">
+            <div class="deploy-icon">&#128040;</div>
+            <div class="deploy-name">Docker (Self-Hosted)</div>
+            <div class="deploy-desc">Full control on any VPS ($5/mo on DigitalOcean, Hetzner, or Linode). Best for privacy.</div>
+            <ol class="deploy-steps">
+              <li>Spin up a $5/mo Ubuntu VPS</li>
+              <li>Install Docker: <code>curl -fsSL get.docker.com | sh</code></li>
+              <li>Run: <code>docker run -p 5678:5678 n8nio/n8n</code></li>
+              <li>Open port 5678 in firewall — done!</li>
+            </ol>
+            <a href="https://docs.n8n.io/hosting/installation/docker/" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%;text-align:center;">Docker Docs &#8594;</a>
+          </div>
+          <div class="deploy-card">
+            <div class="deploy-icon">&#9729;&#65039;</div>
+            <div class="deploy-name">n8n Cloud (Zero Setup)</div>
+            <div class="deploy-desc">n8n's official managed cloud. Starts at $20/mo. Best if you want zero maintenance and official support.</div>
+            <ol class="deploy-steps">
+              <li>Sign up at n8n.io/cloud</li>
+              <li>Choose a plan (free trial available)</li>
+              <li>Your n8n is live instantly</li>
+              <li>Import workflow JSON and go!</li>
+            </ol>
+            <a href="https://n8n.io/cloud" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width:100%;text-align:center;">n8n Cloud &#8594;</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin:2rem 0;background:linear-gradient(135deg,rgba(52,211,153,0.08),rgba(16,185,129,0.05));border-color:rgba(52,211,153,0.25);">
+          <h4 style="margin-top:0;color:#34d399;">&#128640; Want it deployed for you?</h4>
+          <p style="margin:0;font-size:0.95rem;">Our <a href="/services.html#dfy" style="color:#34d399;font-weight:700;">Done-For-You service</a> includes full Railway or Docker deployment, all credentials set up, and a 30-min walkthrough call — everything running before you hang up.</p>
+        </div>
+
         <h2 id="customizations">Tips &amp; Customizations</h2>
         <h3>Add more job sources</h3>
         <p>By default, this workflow searches LinkedIn via the RapidAPI integration. To cast a wider net, add parallel <strong>HTTP Request</strong> branches targeting other APIs: Adzuna for Indeed/Monster aggregated results, SerpAPI for Google Jobs, and RemoteOK's free public API for remote-only positions. Use n8n's <strong>Merge</strong> node (set to "Append" mode) to combine all results into a single array before the deduplication step. This can 3-4x your daily job coverage with minimal additional cost.</p>
@@ -635,6 +811,8 @@ Format as a numbered list. Be specific — mention exact phrases from the job de
         <div class="toc">
           <h3>📋 Table of Contents</h3>
           <ul>
+            <li><a href="#download">&#11015;&#65039; Download Template</a></li>
+            <li><a href="#interactive-demo">&#127380; Interactive Demo</a></li>
             <li><a href="#prerequisites">Prerequisites</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#step-by-step">Step-by-Step Setup</a></li>
@@ -652,9 +830,16 @@ Format as a numbered list. Be specific — mention exact phrases from the job de
             <li><a href="#step12">12. Email Digest</a></li>
             <li><a href="#credentials">Credentials Setup</a></li>
             <li><a href="#import">Import Workflow</a></li>
+            <li><a href="#deployment">&#128682; Deployment Options</a></li>
             <li><a href="#customizations">Customizations</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
+        </div>
+
+        <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
+          <h4 style="margin-top:0;">&#11015;&#65039; Quick Download</h4>
+          <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1rem;">Get the full workflow JSON — import into n8n in 60 seconds.</p>
+          <button class="btn-download" onclick="downloadWorkflowJSON()" style="width:100%;justify-content:center;font-size:0.85rem;">Download JSON Template</button>
         </div>
 
         <div class="card" style="margin-top:20px;background:linear-gradient(135deg,rgba(102,126,234,0.15),rgba(118,75,162,0.15));border-color:rgba(102,126,234,0.3);">
@@ -752,6 +937,63 @@ Format as a numbered list. Be specific — mention exact phrases from the job de
       sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
       tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     });
+
+    // Interactive Demo
+    document.getElementById('demoStepsList').addEventListener('click', (e) => {
+      const item = e.target.closest('.demo-step-item');
+      if (!item) return;
+      const panelIdx = item.dataset.panel;
+      document.querySelectorAll('.demo-step-item').forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.demo-panel').forEach(p => p.classList.remove('active'));
+      item.classList.add('active');
+      const panel = document.getElementById('dPanel' + panelIdx);
+      if (panel) panel.classList.add('active');
+    });
+
+    // Download JSON Template
+    function downloadWorkflowJSON() {
+      const workflow = {
+        "name": "n8n Job Search Automation",
+        "version": "2.0",
+        "description": "Automated job search: scrape jobs, score with GPT-4, generate cover letters, send email digest",
+        "source": "https://thatai.me/workflows/n8n-job-search-automation.html",
+        "nodes": [
+          { "id": "1", "type": "n8n-nodes-base.scheduleTrigger", "name": "Schedule Trigger", "parameters": { "rule": { "interval": [{ "field": "hours", "hoursInterval": 24 }] } } },
+          { "id": "2", "type": "n8n-nodes-base.googleDrive", "name": "Resume Download", "parameters": { "operation": "download", "fileId": "YOUR_GOOGLE_DRIVE_FILE_ID" } },
+          { "id": "3", "type": "n8n-nodes-base.code", "name": "PDF Text Extractor", "parameters": { "jsCode": "// Extract text from PDF binary\\nconst pdf = require('pdf-parse');\\nconst data = await pdf(items[0].binary.data.data);\\nreturn [{ json: { resumeText: data.text } }];" } },
+          { "id": "4", "type": "n8n-nodes-base.code", "name": "Search Config", "parameters": { "jsCode": "return [{ json: { keywords: 'Senior Frontend Engineer', location: 'Remote', minScore: 7, maxJobs: 25, excludeCompanies: [] } }];" } },
+          { "id": "5", "type": "n8n-nodes-base.code", "name": "LinkedIn URL Builder", "parameters": { "jsCode": "const cfg = items[0].json;\\nconst url = `https://linkedin-jobs-api.p.rapidapi.com/active-jb-7d?keywords=${encodeURIComponent(cfg.keywords)}&location=${encodeURIComponent(cfg.location)}&page=0`;\\nreturn [{ json: { searchUrl: url, config: cfg } }];" } },
+          { "id": "6", "type": "n8n-nodes-base.httpRequest", "name": "Job Scraper", "parameters": { "url": "={{ $json.searchUrl }}", "method": "GET", "headers": { "X-RapidAPI-Key": "YOUR_RAPIDAPI_KEY", "X-RapidAPI-Host": "linkedin-jobs-api.p.rapidapi.com" } } },
+          { "id": "7", "type": "n8n-nodes-base.code", "name": "HTML Parser", "parameters": { "jsCode": "// Clean and normalize job data\\nreturn items.map(item => {\\n  const job = item.json;\\n  return { json: { title: job.title?.trim(), company: job.company?.trim(), location: job.location, url: job.job_url, postedAt: job.date_posted, description: '' } };\\n});" } },
+          { "id": "8", "type": "n8n-nodes-base.httpRequest", "name": "Detail Fetcher", "parameters": { "url": "={{ $json.url }}", "method": "GET" } },
+          { "id": "9", "type": "@n8n/n8n-nodes-langchain.openAi", "name": "AI Job Scorer", "parameters": { "model": "gpt-4", "messages": { "values": [{ "role": "system", "content": "You are an expert recruiter. Score job fit 1-10 and return JSON: {score, matchPercent, topReasons[], missingSkills[], verdict}" }, { "role": "user", "content": "=Resume:\\n{{ $('PDF Text Extractor').item.json.resumeText }}\\n\\nJob:\\nTitle: {{ $json.title }}\\nCompany: {{ $json.company }}\\nDescription: {{ $json.description }}" }] } } },
+          { "id": "10", "type": "@n8n/n8n-nodes-langchain.openAi", "name": "Cover Letter Generator", "parameters": { "model": "gpt-4", "messages": { "values": [{ "role": "system", "content": "Write a concise, ATS-optimized cover letter (3 paragraphs). Mirror the job's language. Be specific about matching experience." }, { "role": "user", "content": "=Job: {{ $json.title }} at {{ $json.company }}\\nResume: {{ $('PDF Text Extractor').item.json.resumeText }}\\nDescription: {{ $json.description }}" }] } } },
+          { "id": "11", "type": "@n8n/n8n-nodes-langchain.openAi", "name": "Resume Tips", "parameters": { "model": "gpt-4", "messages": { "values": [{ "role": "system", "content": "Return JSON with: addKeywords[], rewriteBullets[], atsScore estimate" }, { "role": "user", "content": "=Resume: {{ $('PDF Text Extractor').item.json.resumeText }}\\nJob: {{ $json.description }}" }] } } },
+          { "id": "12", "type": "n8n-nodes-base.gmail", "name": "Email Digest", "parameters": { "operation": "send", "toList": "YOUR_EMAIL@gmail.com", "subject": "=🔍 {{ $json.matchCount }} New Job Matches — {{ $now.toFormat('MMM dd') }}", "message": "={{ $json.emailBody }}", "options": { "contentType": "html" } } }
+        ],
+        "connections": {
+          "Schedule Trigger": { "main": [[{ "node": "Resume Download", "type": "main", "index": 0 }]] },
+          "Resume Download": { "main": [[{ "node": "PDF Text Extractor", "type": "main", "index": 0 }]] },
+          "PDF Text Extractor": { "main": [[{ "node": "Search Config", "type": "main", "index": 0 }]] },
+          "Search Config": { "main": [[{ "node": "LinkedIn URL Builder", "type": "main", "index": 0 }]] },
+          "LinkedIn URL Builder": { "main": [[{ "node": "Job Scraper", "type": "main", "index": 0 }]] },
+          "Job Scraper": { "main": [[{ "node": "HTML Parser", "type": "main", "index": 0 }]] },
+          "HTML Parser": { "main": [[{ "node": "Detail Fetcher", "type": "main", "index": 0 }]] },
+          "Detail Fetcher": { "main": [[{ "node": "AI Job Scorer", "type": "main", "index": 0 }]] },
+          "AI Job Scorer": { "main": [[{ "node": "Cover Letter Generator", "type": "main", "index": 0 }]] },
+          "Cover Letter Generator": { "main": [[{ "node": "Resume Tips", "type": "main", "index": 0 }]] },
+          "Resume Tips": { "main": [[{ "node": "Email Digest", "type": "main", "index": 0 }]] }
+        },
+        "setup_instructions": "1. Replace YOUR_GOOGLE_DRIVE_FILE_ID with your resume's Drive file ID. 2. Replace YOUR_RAPIDAPI_KEY with your RapidAPI key. 3. Replace YOUR_EMAIL@gmail.com with your email. 4. Add OpenAI credentials in n8n settings. 5. Click Test Workflow to validate."
+      };
+      const blob = new Blob([JSON.stringify(workflow, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'n8n-job-search-automation.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
   </script>
 </body>
 </html>
