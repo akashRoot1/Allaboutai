@@ -66,6 +66,7 @@ FOOTER = """  <footer class="footer">
         <li><a href="/topics/chatgpt-job-search.html">ChatGPT Job Search</a></li>
         <li><a href="/topics/n8n-beginners-guide.html">n8n Guide</a></li>
         <li><a href="/topics/prompt-engineering.html">Prompt Engineering</a></li>
+        <li><a href="/topics/langchain-llm-apps.html">LangChain Apps</a></li>
       </ul></div>
       <div><h4>About</h4><ul>
         <li><a href="/blog.html">All Posts</a></li>
